@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shakil_new/widgets/refectors.dart';
+import 'dua_importance_details.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -40,7 +41,7 @@ class DuaImportance extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DuaImportance()),
+                MaterialPageRoute(builder: (context) => DuaImportanceApp()),
               );
             },
             icon: Icon(Icons.arrow_forward, color: kPrimaryGreen),
