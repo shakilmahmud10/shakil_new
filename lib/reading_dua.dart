@@ -1,7 +1,9 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:shakil_new/dua_importance.dart';
 import 'widgets/colors.dart';
+import 'widgets/refectors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
 
@@ -24,14 +26,20 @@ class ReadingDua extends StatelessWidget {
         title: const Text(
           'Reading Dua',
           style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
             fontSize: 20,
-            fontWeight: FontWeight.bold,
             color: kTextDark,
           ),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DuaImportance()),
+              );
+            },
             icon: Icon(Icons.arrow_forward, color: kPrimaryGreen),
           ),
         ],
@@ -40,49 +48,8 @@ class ReadingDua extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
         children: [
-          // Search Bar
-          TextField(
-            style: const TextStyle(color: kTextDark, fontSize: 16),
-            decoration: InputDecoration(
-              hintText: 'Search by categories Name',
-              hintStyle: TextStyle(
-                color: kTextLight.withOpacity(0.8),
-                fontSize: 16,
-              ),
-              prefixIcon: const Padding(
-                padding: EdgeInsets.only(left: 18, right: 8),
-                child: Icon(
-                  Icons.search_rounded,
-                  size: 28,
-                  color: kPrimaryGreen,
-                ),
-              ),
-              filled: true,
-              fillColor: kCardAndSearchBackground,
-              contentPadding: const EdgeInsets.symmetric(vertical: 18.0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(50.0),
-                borderSide: BorderSide(
-                  color: kPrimaryGreen.withOpacity(0.4),
-                  width: 1.0,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(50.0),
-                borderSide: BorderSide(
-                  color: kPrimaryGreen.withOpacity(0.4),
-                  width: 1.0,
-                ), // opacity .5 when not focused
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(50.0),
-                borderSide: BorderSide(
-                  color: kPrimaryGreen.withOpacity(0.8),
-                  width: 1.5,
-                ), // full opacity when focused
-              ),
-            ),
-          ),
+          // Search
+          kSearchBar(hintText: 'Search by Subcategories Name'),
 
           const SizedBox(height: 18),
 
@@ -146,6 +113,23 @@ class ReadingDua extends StatelessWidget {
             subTitle: "15 Subcategories",
             numberOfDuas: 47,
           ),
+          const SizedBox(height: 12),
+
+          DuaCategoryCard(
+            duaIcon: kDuaIcon3,
+            title: "Time of Dua",
+            subTitle: "5 Subcategories",
+            numberOfDuas: 25,
+          ),
+
+          const SizedBox(height: 12),
+
+          DuaCategoryCard(
+            duaIcon: kDuaIcon4,
+            title: "Hazz & Umrah",
+            subTitle: "9 Subcategories",
+            numberOfDuas: 42,
+          ),
         ],
       ),
     );
@@ -190,7 +174,7 @@ class DuaCategoryCard extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: kTextDark,
                   ),
                 ),
@@ -221,7 +205,7 @@ class DuaCategoryCard extends StatelessWidget {
                       numberOfDuas.toString(),
                       style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         color: kTextDark,
                       ),
                     ),

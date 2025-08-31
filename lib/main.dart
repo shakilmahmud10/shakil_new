@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Challenges',
-      theme: ThemeData(scaffoldBackgroundColor: kPureWhite),
+      theme: ThemeData(
+        scaffoldBackgroundColor: kPureWhite,
+        fontFamily: 'Poppins',
+      ),
       home: const ChallengesScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -43,7 +46,7 @@ class ChallengesScreen extends StatelessWidget {
           'Challenges',
           style: TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color: kTextDark,
           ),
         ),
@@ -168,7 +171,11 @@ class ChallengeCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(fontSize: 16, color: kTextDark),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: kTextDark,
+                  ),
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
@@ -195,7 +202,7 @@ class ChallengeCard extends StatelessWidget {
                     Text(
                       reward,
                       style: const TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         fontSize: 14,
                         color: kCoinText,
                       ),
