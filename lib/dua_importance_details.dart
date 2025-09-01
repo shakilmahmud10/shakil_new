@@ -1,257 +1,229 @@
-import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
+// ignore_for_file: unused_import
 
-void main() => runApp(const DuaImportanceApp());
+import 'package:flutter/material.dart';
+import 'package:shakil_new/widgets/refectors.dart';
+import 'widgets/colors.dart';
+import 'widgets/style.dart';
+import 'widgets/images.dart';
 
 class AppPalette {
   // Carefully matched to your Tailwind variables
-  static const bg          = Color(0xFFF7FBF7); // off‑white mint
-  static const surface     = Color(0xFFE9F1E9); // soft card green
-  static const ink900      = Color(0xFF22312B); // title dark
-  static const ink700      = Color(0xFF3E544C); // body strong
-  static const ink600      = Color(0xFF687C73); // body muted
-  static const primary700  = Color(0xFF2F5D51); // deep teal-green
-  static const primary600  = Color(0xFF3C7464); // icon + accents
-  static const primary500  = Color(0xFF5E9082); // lighter icons
-  static const accent600   = Color(0xFFF1A640); // timer pill top
-  static const accent500   = Color(0xFFF5BC63); // timer pill bottom
-  static const fab         = Color(0xFF2F6C5C); // FAB fill
-  static const shadow      = Color(0xFF1C342D); // greenish shadow
-  static const radiusXL    = 22.0;
+  static const bg = Color(0xFFF7FBF7); // off‑white mint
+  static const surface = Color(0xFFE9F1E9); // soft card green
+  static const ink900 = Color(0xFF22312B); // title dark
+  static const ink700 = Color(0xFF3E544C); // body strong
+  static const ink600 = Color(0xFF687C73); // body muted
+  static const primary700 = Color(0xFF2F5D51); // deep teal-green
+  static const primary600 = Color(0xFF3C7464); // icon + accents
+  static const primary500 = Color(0xFF5E9082); // lighter icons
+  static const accent600 = Color(0xFFF1A640); // timer pill top
+  static const accent500 = Color(0xFFF5BC63); // timer pill bottom
+  static const fab = Color(0xFF2F6C5C); // FAB fill
+  static const shadow = Color(0xFF1C342D); // greenish shadow
+  static const radiusXL = 22.0;
 }
 
-class DuaImportanceApp extends StatelessWidget {
-  const DuaImportanceApp({super.key});
+class DuaImportanceDetails extends StatelessWidget {
+  const DuaImportanceDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = TextTheme().copyWith(
-      headlineSmall: TextStyle(
-        fontSize: 22, fontWeight: FontWeight.w700, color: AppPalette.primary700),
-      titleLarge: TextStyle(
-        fontSize: 24, fontWeight: FontWeight.w800, color: AppPalette.ink900),
-      bodyLarge: TextStyle(
-        fontSize: 17, height: 1.6, color: AppPalette.ink700),
-      bodyMedium: TextStyle(
-        fontSize: 17, height: 1.6, color: AppPalette.ink600),
-      labelLarge: TextStyle(
-        fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white),
-    );
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Dua Importance',
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: AppPalette.bg,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppPalette.primary600,
-          primary: AppPalette.primary600,
-          secondary: AppPalette.accent500,
-          background: AppPalette.bg,
-          surface: AppPalette.surface,
-          onPrimary: Colors.white,
-          brightness: Brightness.light,
-        ),
-        textTheme: textTheme,
-        iconTheme: const IconThemeData(color: AppPalette.primary600),
-      ),
-      home: const DuaImportancePage(),
-    );
-  }
-}
-
-class DuaImportancePage extends StatelessWidget {
-  const DuaImportancePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = Theme.of(context).textTheme;
-
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            ListView(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 140),
-              children: [
-                // Header
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      tooltip: 'Go back',
-                      icon: const Icon(Icons.arrow_back, size: 24),
-                    ),
-                    const SizedBox(width: 4),
-                    Expanded(
-                      child: Text('Dua Importance', style: t.titleLarge),
-                    ),
-                    _TimerPill(),
-                    const SizedBox(width: 8),
-                    IconButton(
-                      onPressed: () {},
-                      tooltip: 'Settings',
-                      icon: const Icon(Icons.settings, size: 24),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 16),
-
-                // Section card
-                Container(
-                  decoration: BoxDecoration(
-                    color: AppPalette.surface,
-                    borderRadius:
-                        BorderRadius.circular(AppPalette.radiusXL),
-                  ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                  child: RichText(
-                    text: TextSpan(
-                      style: t.bodyLarge!.copyWith(color: AppPalette.ink700),
-                      children: const [
-                        TextSpan(
-                          text: 'Section: ',
-                          style: TextStyle(
-                            color: AppPalette.primary700,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              'The most important thing to ask Allah for',
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 24),
-
-                // Number + Title
-                Row(
-                  children: [
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: const BoxDecoration(
-                        color: AppPalette.primary600,
-                        shape: BoxShape.circle,
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        '4',
-                        style: t.titleSmall?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Text(
-                        'The servant is dependent on his Lord #1',
-                        style: t.headlineSmall,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 28),
-
-                // Arabic Ayah
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Text(
-                    'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 34,
-                      height: 1.5,
-                      color: AppPalette.primary700,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 16),
-
-                // Transliteration
-                Text(
-                  "Iyyaaka na'budu wa Iyyaaka nasta'een",
-                  style: t.bodyMedium!.copyWith(fontStyle: FontStyle.italic),
-                ),
-
-                const SizedBox(height: 16),
-
-                // Translation Paragraphs
-                Text(
-                  'It is You we worship and It is You we ask for help.',
-                  style: t.bodyLarge,
-                ),
-                const SizedBox(height: 14),
-                Text(
-                  'He whom Allah guides is the [rightly] guided, but he whom He leaves astray – never will you find for him a protecting guide. (Surah Al-Kahf 18:17)',
-                  style: t.bodyLarge,
-                ),
-
-                const SizedBox(height: 24),
-
-                // Reference
-                Text('Reference:', style: t.bodyMedium),
-                const SizedBox(height: 6),
-                Text(
-                  'Muslim: 770',
-                  style: t.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                    color: AppPalette.ink900,
-                  ),
-                ),
-              ],
+      appBar: AppBar(
+        backgroundColor: kPureWhite,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: kPrimaryGreen),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          'Dua Importance',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            color: kTextDark,
+          ),
+        ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              gradient: kOfferGradients1,
             ),
+            child: Text(
+              '01.56s',
+              style: TextStyle(
+                color: kCoinText,
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 12),
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset('assets/images/icon/setting-2.png'),
+            ),
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        children: [
+          const SizedBox(height: 16),
+          Container(
+            decoration: BoxDecoration(
+              color: kCardAndSearchBackground3,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: RichText(
+              text: TextSpan(
+                children: const [
+                  TextSpan(
+                    text: 'Section: ',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      color: kPrimaryGreen,
+                      fontWeight: FontWeight.w800,
+                      height: 1.5,
+                    ),
+                  ),
+                  TextSpan(
+                    text:
+                        'The most important thing to ask Allah for your forgiveness',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: kTextDark,
+                      height: 1.5,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
 
-            // Bottom icon row
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 20,
-              child: SafeArea(
-                top: false,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 36),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _CircleIconButton(
-                        icon: Icons.bookmark_add_outlined,
-                        tooltip: 'Bookmark',
-                      ),
-                      _CircleIconButton(
-                        icon: Icons.emoji_objects_outlined,
-                        tooltip: 'Insight',
-                      ),
-                      _CircleIconButton(
-                        icon: Icons.play_arrow_rounded,
-                        tooltip: 'Play',
-                      ),
-                      _CircleIconButton(
-                        icon: Icons.event_note_outlined,
-                        tooltip: 'Schedule',
-                      ),
-                      _CircleIconButton(
-                        icon: Icons.more_vert,
-                        tooltip: 'More',
-                      ),
-                    ],
+          const SizedBox(height: 24),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Container(
+                  height: 36,
+                  width: 36,
+                  decoration: BoxDecoration(
+                    color: kPrimaryGreen,
+                    shape: BoxShape.circle,
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    '4',
+                    style: TextStyle(
+                      color: kPureWhite,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  'The servant is dependent on his Lord #1',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 15,
+                    color: kPrimaryGreen,
+                    fontWeight: FontWeight.w600,
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 28),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 24,
+                color: kPureBlack,
+                fontWeight: FontWeight.w400,
+                height: 1.5,
+              ),
             ),
-          ],
-        ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // Transliteration
+          Text(
+            "Iyyaaka na'budu wa Iyyaaka nasta'een",
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          Text(
+            'It is You we worship and It is You we ask for help.',
+            style: TextStyle(
+              fontSize: 14,
+              color: kPureBlack,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+          ),
+          const SizedBox(height: 18),
+          Text(
+            'He whom Allah guides is the [rightly] guided, but he whom He leaves astray – never will you find for him a protecting guide. (Surah Al-Kahf 18:17)',
+            style: TextStyle(fontSize: 14, color: kPureBlack, height: 2),
+          ),
+
+          const SizedBox(height: 24),
+
+          // Reference
+          Text('Reference:', style: TextStyle(fontSize: 12)),
+          const SizedBox(height: 6),
+          Text(
+            'Muslim: 770',
+            style: TextStyle(
+              fontSize: 14,
+              color: kPureBlack,
+              fontWeight: FontWeight.w800,
+              height: 1.5,
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/images/icon/bookmark-02.png'),
+              Image.asset('assets/images/icon/lamp-charge.png'),
+              Image.asset('assets/images/icon/play.png'),
+              Image.asset('assets/images/icon/calendar.png'),
+              Image.asset('assets/images/icon/more-vertical.png'),
+            ],
+          ),
+        ],
       ),
 
       // Floating list FAB
@@ -264,76 +236,27 @@ class DuaImportancePage extends StatelessWidget {
           width: 72,
           height: 56,
           decoration: BoxDecoration(
-            color: AppPalette.fab,
+            color: kPrimaryGreen,
             borderRadius: BorderRadius.circular(28),
             boxShadow: [
               BoxShadow(
-                color: AppPalette.shadow.withOpacity(0.35),
-                blurRadius: 30,
+                color: kPureBlack.withOpacity(0.25),
+                blurRadius: 20,
                 spreadRadius: 0,
-                offset: const Offset(0, 18),
+                offset: const Offset(0, 12),
               ),
             ],
           ),
           child: IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.format_list_bulleted_rounded,
-                color: Colors.white, size: 26),
+            icon: const Icon(
+              Icons.format_list_bulleted_rounded,
+              color: Colors.white,
+              size: 26,
+            ),
             tooltip: 'Open list',
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _TimerPill extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final t = Theme.of(context).textTheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [AppPalette.accent600, AppPalette.accent500],
-        ),
-        borderRadius: BorderRadius.circular(999),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.07),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          )
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.av_timer_rounded, color: Colors.white, size: 18),
-          const SizedBox(width: 6),
-          Text('01.56s', style: t.labelLarge),
-        ],
-      ),
-    );
-  }
-}
-
-class _CircleIconButton extends StatelessWidget {
-  final IconData icon;
-  final String tooltip;
-  const _CircleIconButton({required this.icon, required this.tooltip});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: IconButton(
-        onPressed: () {},
-        tooltip: tooltip,
-        icon: Icon(icon, size: 30, color: AppPalette.primary600),
-        splashRadius: 28,
       ),
     );
   }

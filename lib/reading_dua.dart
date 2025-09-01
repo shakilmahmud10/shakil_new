@@ -155,9 +155,9 @@ class DuaCategoryCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: kCardAndSearchBackground,
+        color: kCardAndSearchBackground2,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: kPrimaryGreen.withOpacity(0.1), width: 1),
+        border: Border.all(color: kLightWhite3.withOpacity(0.4), width: 1),
       ),
       child: Row(
         children: [
@@ -173,12 +173,12 @@ class DuaCategoryCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: kTextDark,
                   ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 4),
                 Text(
                   subTitle,
                   style: const TextStyle(fontSize: 14, color: kTextLight),
@@ -191,10 +191,10 @@ class DuaCategoryCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                height: 40,
+                height: 30,
                 width: 1.5,
-                color: kPrimaryGreen.withOpacity(0.2), // soft divider
-                margin: const EdgeInsets.symmetric(horizontal: 16),
+                color: kPrimaryGreen.withOpacity(0.2),
+                margin: const EdgeInsets.symmetric(horizontal: 12),
               ),
               SizedBox(
                 width: 50,
@@ -204,7 +204,7 @@ class DuaCategoryCard extends StatelessWidget {
                     Text(
                       numberOfDuas.toString(),
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: kTextDark,
                       ),

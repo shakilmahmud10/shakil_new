@@ -10,14 +10,14 @@ class kSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kCardBackground,
+        color: kCardAndSearchBackground3,
         borderRadius: BorderRadius.circular(50),
-        border: Border.all(color: kMutedGreen.withOpacity(0.3)),
+        border: Border.all(color: kMutedGreen.withOpacity(0.15)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
       child: Row(
         children: [
-          const Icon(Icons.search, color: Color(0xB32F6B5E), size: 26),
+          const Icon(Icons.search, color: kPrimaryGreen, size: 26),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
@@ -26,7 +26,7 @@ class kSearchBar extends StatelessWidget {
                 border: InputBorder.none,
                 hintText: hintText,
                 hintStyle: TextStyle(
-                  color: Color(0xFF8FA397),
+                  color: kTextLight,
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
