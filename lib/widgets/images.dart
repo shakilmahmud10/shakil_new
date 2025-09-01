@@ -17,7 +17,7 @@ const String kCoin1 = "assets/images/png/coin1.png";
 const String kSearchIcon1 = "assets/images/png/search-normal.png";
 const String kbulletIcon1 = "assets/images/png/bullet_icon1.png";
 
-const String kDuaIcon1 = "assets/images/png/bullet_icon1.png";
+const String kDuaIcon1 = "assets/images/png/dua_icon1.png";
 const String kDuaIcon2 = "assets/images/png/dua_icon2.png";
 const String kDuaIcon3 = "assets/images/png/dua_icon3.png";
 const String kDuaIcon4 = "assets/images/png/dua_icon4.png";

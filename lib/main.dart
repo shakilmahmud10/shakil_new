@@ -61,7 +61,7 @@ class _FrontPageState extends State<FrontPage> {
                   MaterialPageRoute(builder: (context) => Challenges()),
                 );
               },
-              child: const Text("Button 1"),
+              child: const Text("Challenges"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -71,7 +71,7 @@ class _FrontPageState extends State<FrontPage> {
                   MaterialPageRoute(builder: (context) => ReadingDua()),
                 );
               },
-              child: const Text("Button 2"),
+              child: const Text("Reading Dua"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -81,7 +81,7 @@ class _FrontPageState extends State<FrontPage> {
                   MaterialPageRoute(builder: (context) => DuaImportance()),
                 );
               },
-              child: const Text("Button 3"),
+              child: const Text("Dua Importance"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -93,7 +93,7 @@ class _FrontPageState extends State<FrontPage> {
                   ),
                 );
               },
-              child: const Text("Button 3"),
+              child: const Text("Dua Importance Details"),
             ),
           ],
         ),

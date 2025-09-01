@@ -8,7 +8,7 @@ import 'widgets/style.dart';
 import 'widgets/images.dart';
 
 class Challenges extends StatelessWidget {
-  const Challenges({Key? key}) : super(key: key);
+  const Challenges({super.key});
 
   @override
   Widget build(BuildContext context) {
