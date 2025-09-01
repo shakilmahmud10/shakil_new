@@ -49,7 +49,8 @@ class Challenges extends StatelessWidget {
                     gradient: kOfferGradients1,
                   ),
 
-                  child: Image.asset(kCoin1, height: 20, width: 20),
+                  child: SvgPicture.asset(kCoin1),
+                  // child: Image.asset(kCoin1, height: 20, width: 20),
                 ),
                 const Text(
                   '1000',
@@ -70,28 +71,28 @@ class Challenges extends StatelessWidget {
           child: Column(
             children: [
               ChallengeCard(
-                battleIcon: kPngIcon1, // modified
+                battleIcon: kChallangesIcon1, // modified
                 title: 'Daily Log in Bonus',
                 reward: '1545',
                 actionWidget: const ProgressRing(progress: 0.33),
               ),
               const SizedBox(height: 16),
               ChallengeCard(
-                battleIcon: kPngIcon2, // modified
+                battleIcon: kChallangesIcon2, // modified
                 title: 'Move beads 99 times',
                 reward: '1545',
                 actionWidget: const CollectButton(),
               ),
               const SizedBox(height: 16),
               ChallengeCard(
-                battleIcon: kPngIcon3, // modified
+                battleIcon: kChallangesIcon3, // modified
                 title: 'Move beads 33 times',
                 reward: '1545',
                 actionWidget: const ProgressRing(progress: 0.33),
               ),
               const SizedBox(height: 16),
               ChallengeCard(
-                battleIcon: kPngIcon4, // modified
+                battleIcon: kChallangesIcon4, // modified
                 title: 'Move beads 99 times',
                 reward: '1545',
                 actionWidget: const CollectButton(),
@@ -133,7 +134,7 @@ class ChallengeCard extends StatelessWidget {
             width: 48,
             height: 48,
             margin: const EdgeInsets.only(right: 16),
-            child: Image.asset(
+            child: SvgPicture.asset(
               battleIcon,
               fit: BoxFit.contain,
               errorBuilder: (context, error, stackTrace) {
@@ -169,7 +170,7 @@ class ChallengeCard extends StatelessWidget {
                           width: 2,
                         ),
                       ),
-                      child: Image.asset(kCoin1, height: 20, width: 20),
+                      child: SvgPicture.asset(kCoin1),
                     ),
                     Text(
                       reward,

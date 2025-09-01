@@ -25,7 +25,13 @@ const Color kTextColor = Color(0xFF4B5563);
 const Color kTextDark = Color(0xFF1F2937);
 const Color kCoinText = Color(0xFF713514);
 const Color kDividerColor = Color(0xFFEAEFEC);
-const Color kBorderColor = Color(0xFFEEF2EE); //will delete Shakil
+const Color kBorderColor = Color(0xFFEEF2EE);
+
+ //will delete Shakil
+const Color kTabBG1 = Color(0xFFf0eed9); 
+const Color kTabBG2 = Color(0xFFe8e8e0); 
+const Color kTabBG3 = Color(0xFFe0e9e2);
+const Color kTabBG4 = Color(0xFFf1eddb);
 
 const Color ktest = Color(0xFF7B8F80);
 

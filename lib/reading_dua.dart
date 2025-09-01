@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/dua_importance.dart';
 import 'widgets/colors.dart';
 import 'widgets/refectors.dart';
@@ -54,7 +55,8 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 18),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon1,
+            duaIcon: kReadingDua1,
+            tabIconBGColor: kTabBG4,
             title: "Dua Importance",
             subTitle: "7 Subcategories",
             numberOfDuas: 50,
@@ -63,7 +65,8 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon2,
+            duaIcon: kReadingDua2,
+            tabIconBGColor: kTabBG2,
             title: "Dua Acceptance",
             subTitle: "10 Subcategories",
             numberOfDuas: 33,
@@ -72,7 +75,8 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon3,
+            duaIcon: kReadingDua3,
+            tabIconBGColor: kTabBG3,
             title: "Time of Dua",
             subTitle: "5 Subcategories",
             numberOfDuas: 25,
@@ -81,7 +85,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon4,
+            duaIcon: kReadingDua4,
             title: "Hazz & Umrah",
             subTitle: "9 Subcategories",
             numberOfDuas: 42,
@@ -90,7 +94,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon5,
+            duaIcon: kReadingDua5,
             title: "Witr & Other",
             subTitle: "30 Subcategories",
             numberOfDuas: 22,
@@ -99,7 +103,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon6,
+            duaIcon: kReadingDua6,
             title: "Fasting",
             subTitle: "12 Subcategories",
             numberOfDuas: 44,
@@ -108,7 +112,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon7,
+            duaIcon: kReadingDua7,
             title: "Ablution & Bath",
             subTitle: "15 Subcategories",
             numberOfDuas: 47,
@@ -116,7 +120,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon3,
+            duaIcon: kReadingDua2,
             title: "Time of Dua",
             subTitle: "5 Subcategories",
             numberOfDuas: 25,
@@ -125,7 +129,7 @@ class ReadingDua extends StatelessWidget {
           const SizedBox(height: 12),
 
           DuaCategoryCard(
-            duaIcon: kDuaIcon4,
+            duaIcon: kReadingDua5,
             title: "Hazz & Umrah",
             subTitle: "9 Subcategories",
             numberOfDuas: 42,
@@ -137,6 +141,7 @@ class ReadingDua extends StatelessWidget {
 }
 
 class DuaCategoryCard extends StatelessWidget {
+  final Color? tabIconBGColor;
   final String duaIcon;
   final String title;
   final String subTitle;
@@ -144,6 +149,7 @@ class DuaCategoryCard extends StatelessWidget {
 
   const DuaCategoryCard({
     Key? key,
+    this.tabIconBGColor,
     required this.duaIcon,
     required this.title,
     required this.subTitle,
@@ -161,11 +167,17 @@ class DuaCategoryCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Icon Container
-          Container(width: 60, height: 60, child: Image.asset(duaIcon)),
+          Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              color: tabIconBGColor ?? kTabBG4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            alignment: Alignment.center,
+            child: SvgPicture.asset(duaIcon),
+          ),
           const SizedBox(width: 16),
-
-          // Title and Subtitle Section
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,8 +198,6 @@ class DuaCategoryCard extends StatelessWidget {
               ],
             ),
           ),
-
-          // Divider and Dua Count Section
           Row(
             children: [
               Container(

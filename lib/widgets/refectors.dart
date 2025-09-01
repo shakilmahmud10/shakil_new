@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:shakil_new/widgets/images.dart';
 import 'colors.dart';
 
 class kSearchBar extends StatelessWidget {
@@ -17,7 +19,8 @@ class kSearchBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
       child: Row(
         children: [
-          const Icon(Icons.search, color: kPrimaryGreen, size: 26),
+          // const Icon(Icons.search, color: kPrimaryGreen, size: 26),
+          SvgPicture.asset(kSearchIcon1),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(

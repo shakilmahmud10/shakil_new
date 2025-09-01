@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/widgets/refectors.dart';
 import 'dua_importance_details.dart';
 import 'widgets/colors.dart';
@@ -13,14 +13,12 @@ void main() {
 
 class DuaImportance extends StatefulWidget {
   const DuaImportance({super.key});
-
   @override
   State<DuaImportance> createState() => _DuaImportanceState();
 }
 
 class _DuaImportanceState extends State<DuaImportance> {
   int? _expandedNumber = 1;
-
   final items = [
     {
       'number': 1,
@@ -64,14 +62,12 @@ class _DuaImportanceState extends State<DuaImportance> {
       'subtitle': 'Total 15 Duas',
     },
   ];
-
   final bullets = [
     'Sincerity',
     'Eating Lawful Food',
     'The Consciousness of One\'s Heart',
     'Supplicate for Good Only',
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,10 +120,11 @@ class _DuaImportanceState extends State<DuaImportance> {
                     final item = items[index];
                     final number = item['number'] as int;
                     final isExpanded = _expandedNumber == number;
-
                     return Theme(
                       data: Theme.of(context).copyWith(
                         dividerColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         listTileTheme: const ListTileThemeData(
                           dense: true,
                           contentPadding: EdgeInsets.zero,
@@ -242,7 +239,7 @@ class _DuaImportanceState extends State<DuaImportance> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 5),
+                                        padding: const EdgeInsets.only(top: 10),
                                         child: Container(
                                           height: 36,
                                           width: 36,
@@ -358,11 +355,7 @@ class _DuaImportanceState extends State<DuaImportance> {
             child: Container(
               height: 24,
               width: 24,
-              child: Image.asset(
-                'assets/images/png/bullet_icon1.png',
-                width: 16,
-                height: 16,
-              ),
+              child: SvgPicture.asset(kbulletIcon1),
             ),
           ),
           const SizedBox(width: 14),

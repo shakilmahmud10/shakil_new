@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/widgets/refectors.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
@@ -69,7 +70,7 @@ class DuaImportanceDetails extends StatelessWidget {
             margin: const EdgeInsets.only(right: 12),
             child: IconButton(
               onPressed: () {},
-              icon: Image.asset('assets/images/icon/setting-2.png'),
+              icon: SvgPicture.asset(kSettingIcons),
             ),
           ),
         ],
@@ -99,7 +100,7 @@ class DuaImportanceDetails extends StatelessWidget {
                   ),
                   TextSpan(
                     text:
-                        'The most important thing to ask Allah for your forgiveness',
+                        '1The most important thing to ask Allah for your forgiveness',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 15,
@@ -216,11 +217,14 @@ class DuaImportanceDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset('assets/images/icon/bookmark-02.png'),
-              Image.asset('assets/images/icon/lamp-charge.png'),
-              Image.asset('assets/images/icon/play.png'),
-              Image.asset('assets/images/icon/calendar.png'),
-              Image.asset('assets/images/icon/more-vertical.png'),
+              IconButton(onPressed: () {}, icon: SvgPicture.asset(kBookmark1)),
+              IconButton(onPressed: () {}, icon: SvgPicture.asset(kLamp1)),
+              IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(kPlayButton1),
+              ),
+              IconButton(onPressed: () {}, icon: SvgPicture.asset(kCalander1)),
+              IconButton(onPressed: () {}, icon: SvgPicture.asset(kThreedot1)),
             ],
           ),
         ],
