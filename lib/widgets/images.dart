@@ -73,3 +73,27 @@ const String alhadithIcon1 = "assets/images/svg/quick_icon/alhadithIcon1.svg";
 const String alhadithIcon2 = "assets/images/svg/quick_icon/alhadithIcon2.svg";
 const String alhadithIcon3 = "assets/images/svg/quick_icon/alhadithIcon3.svg";
 const String alhadithIcon4 = "assets/images/svg/quick_icon/alhadithIcon4.svg";
+
+const String prayer1 = "assets/images/svg/quick_icon/prayer1.svg";
+const String prayer2 = "assets/images/svg/quick_icon/prayer2.svg";
+const String prayer3 = "assets/images/svg/quick_icon/prayer3.svg";
+const String prayer4 = "assets/images/svg/quick_icon/prayer4.svg";
+const String prayer5 = "assets/images/svg/quick_icon/prayer5.svg";
+const String prayer6 = "assets/images/svg/quick_icon/prayer6.svg";
+const String prayer7 = "assets/images/svg/quick_icon/prayer7.svg";
+const String prayer8 = "assets/images/svg/quick_icon/prayer8.svg";
+const String prayer9 = "assets/images/svg/quick_icon/prayer9.svg";
+
+const String othersIcon1 = "assets/images/svg/quick_icon/othersIcon1.svg";
+const String othersIcon2 = "assets/images/svg/quick_icon/othersIcon2.svg";
+const String othersIcon3 = "assets/images/svg/quick_icon/othersIcon3.svg";
+const String othersIcon4 = "assets/images/svg/quick_icon/othersIcon4.svg";
+const String othersIcon5 = "assets/images/svg/quick_icon/othersIcon5.svg";
+const String othersIcon6 = "assets/images/svg/quick_icon/othersIcon6.svg";
+const String othersIcon7 = "assets/images/svg/quick_icon/othersIcon7.svg";
+const String othersIcon8 = "assets/images/svg/quick_icon/othersIcon8.svg";
+const String othersIcon9 = "assets/images/svg/quick_icon/othersIcon9.svg";
+const String othersIcon10 = "assets/images/svg/quick_icon/othersIcon10.svg";
+const String othersIcon11 = "assets/images/svg/quick_icon/othersIcon11.svg";
+const String othersIcon12 = "assets/images/svg/quick_icon/othersIcon12.svg";
+const String othersIcon13 = "assets/images/svg/quick_icon/othersIcon13.svg";

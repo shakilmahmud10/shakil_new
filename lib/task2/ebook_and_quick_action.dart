@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shakil_new/task2/prayer_and_others.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
 
@@ -28,7 +29,12 @@ class EbookAndQuickAction extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PrayerAndOthers()),
+              );
+            },
             icon: const Icon(Icons.arrow_forward, color: kPrimaryGreen),
             tooltip: 'Next',
           ),
@@ -38,7 +44,6 @@ class EbookAndQuickAction extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(2),
             width: MediaQuery.of(context).size.width * 0.9,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -88,9 +93,8 @@ class EbookAndQuickAction extends StatelessWidget {
 
                 GridView.count(
                   shrinkWrap: true,
-                  physics:
-                      const NeverScrollableScrollPhysics(), // Column er vitore scroll jeno clash na hoy
-                  crossAxisCount: 4, // mock e 4 ta card
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 4,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                   childAspectRatio: 1,
@@ -119,7 +123,7 @@ class AlHadithCard extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
-    this.iconBGColor = const Color(0xFFF2F6F1), // as you asked
+    this.iconBGColor = const Color(0xFFF2F6F1),
   });
 
   @override
@@ -143,7 +147,6 @@ class AlHadithCard extends StatelessWidget {
             alignment: Alignment.center,
             child: SvgPicture.asset(icon),
           ),
-          // const SizedBox(height: 2),
           Text(
             text,
             style: TextStyle(fontWeight: FontWeight.w500, color: kTextColor),
@@ -196,7 +199,6 @@ class EbookCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                // Icon(icon, color: Colors.white, size: 22),
                 SvgPicture.asset(icon),
               ],
             ),
