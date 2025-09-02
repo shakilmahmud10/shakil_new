@@ -30,7 +30,7 @@ class kSearchBar extends StatelessWidget {
                 hintText: hintText,
                 hintStyle: TextStyle(
                   color: kTextLight,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
               ),

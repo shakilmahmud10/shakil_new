@@ -100,7 +100,7 @@ class DuaImportanceDetails extends StatelessWidget {
                   ),
                   TextSpan(
                     text:
-                        '1The most important thing to ask Allah for your forgiveness',
+                        'The most important thing to ask Allah for your forgiveness',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 15,
