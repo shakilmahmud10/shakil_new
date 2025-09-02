@@ -1,25 +1,7 @@
 // import 'package:flutter/material.dart';
 
-//Challanges Icon(All Svg formate)
 
-// const String kCoin = "assets/images/svg/coin.svg";
-
-// const String kPngIcon1 = "assets/images/png/lamp1.png";
-// const String kPngIcon2 = "assets/images/png/charity1.png";
-// const String kPngIcon3 = "assets/images/png/message1.png";
-// const String kPngIcon4 = "assets/images/png/reminder1.png";
-
-// const String kCoin1 = "assets/images/png/coin1.png";
-// const String kbulletIcon1 = "assets/images/png/bullet_icon1.png";
-
-// const String kDuaIcon1 = "assets/images/png/dua_icon1.png";
-// const String kDuaIcon2 = "assets/images/png/dua_icon2.png";
-// const String kDuaIcon3 = "assets/images/png/dua_icon3.png";
-// const String kDuaIcon4 = "assets/images/png/dua_icon4.png";
-// const String kDuaIcon5 = "assets/images/png/dua_icon5.png";
-// const String kDuaIcon6 = "assets/images/png/dua_icon6.png";
-// const String kDuaIcon7 = "assets/images/png/dua_icon7.png";
-
+//-------------- Challanges Icon(All Svg formate) --------------//
 const String kChallangesIcon1 = "assets/images/svg/challange_icon1.svg";
 const String kChallangesIcon2 = "assets/images/svg/challange_icon2.svg";
 const String kChallangesIcon3 = "assets/images/svg/challange_icon3.svg";
@@ -97,3 +79,22 @@ const String othersIcon10 = "assets/images/svg/quick_icon/othersIcon10.svg";
 const String othersIcon11 = "assets/images/svg/quick_icon/othersIcon11.svg";
 const String othersIcon12 = "assets/images/svg/quick_icon/othersIcon12.svg";
 const String othersIcon13 = "assets/images/svg/quick_icon/othersIcon13.svg";
+
+
+//----------------Quick Icon Components----------------//
+const String primeIcon1 = "assets/images/svg/quick_icon/primeIcon1.svg";
+const String primeIcon2 = "assets/images/svg/quick_icon/primeIcon2.svg";
+const String primeIcon3 = "assets/images/svg/quick_icon/primeIcon3.svg";
+const String primeIcon4 = "assets/images/svg/quick_icon/primeIcon4.svg";
+const String primeIcon5 = "assets/images/svg/quick_icon/primeIcon5.svg";
+const String primeIcon6 = "assets/images/svg/quick_icon/primeIcon6.svg";
+const String primeIcon7 = "assets/images/svg/quick_icon/primeIcon7.svg";
+const String primeIcon8 = "assets/images/svg/quick_icon/primeIcon8.svg";
+const String primeIcon9 = "assets/images/svg/quick_icon/primeIcon9.svg";
+const String primeIcon10 = "assets/images/svg/quick_icon/primeIcon10.svg";
+const String primeIcon11 = "assets/images/svg/quick_icon/primeIcon11.svg";
+const String primeIcon12 = "assets/images/svg/quick_icon/primeIcon12.svg";
+
+const String primeCard1 = "assets/images/svg/quick_icon/primeQuranMajid.svg";
+const String primeCard2 = "assets/images/svg/quick_icon/primeCardIcon.svg";
+const String primeCard3 = "assets/images/svg/quick_icon/primeApologize.svg";
