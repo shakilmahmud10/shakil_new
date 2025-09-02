@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/challanges.dart';
 import 'package:shakil_new/dua_importance.dart';
 import 'package:shakil_new/dua_importance_details.dart';
+import 'package:shakil_new/task2/quick_icon_components.dart';
 import 'reading_dua.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
@@ -94,6 +95,18 @@ class _FrontPageState extends State<FrontPage> {
                 );
               },
               child: const Text("Dua Importance Details"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuickIconcomponents(),
+                  ),
+                );
+              },
+              child: const Text("Icon Components"),
             ),
           ],
         ),

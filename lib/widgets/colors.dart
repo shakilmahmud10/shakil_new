@@ -27,9 +27,9 @@ const Color kCoinText = Color(0xFF713514);
 const Color kDividerColor = Color(0xFFEAEFEC);
 const Color kBorderColor = Color(0xFFEEF2EE);
 
- //will delete Shakil
-const Color kTabBG1 = Color(0xFFf0eed9); 
-const Color kTabBG2 = Color(0xFFe8e8e0); 
+//will delete Shakil
+const Color kTabBG1 = Color(0xFFf0eed9);
+const Color kTabBG2 = Color(0xFFe8e8e0);
 const Color kTabBG3 = Color(0xFFe0e9e2);
 const Color kTabBG4 = Color(0xFFf1eddb);
 
@@ -40,3 +40,24 @@ const LinearGradient kOfferGradients1 = LinearGradient(
   end: Alignment.topLeft,
   begin: Alignment.bottomRight,
 );
+
+//----------------Quick Icon Components----------------//
+
+const Color qIconColor = Color(0xFF3E2E28);
+const Color qIconBG = Color(0xFFF1EAE1);
+const Color qTextColor = Color(0xFF3E2E28);
+
+const lightPink = Color(0xFFfdecf1);
+const purePink = Color(0xFFe33b6f);
+
+const lightBlue = Color(0xFFecf4fe);
+const pureBlue = Color(0xFF3f8bee);
+
+const lightPurple = Color(0xFFF2EAFF);
+const purePurple = Color(0xFF8459ec);
+
+const lightOrange = Color(0xFFfff3e9);
+const pureOrange = Color(0xFFf68420);
+
+const lightGreen = Color(0xFFf2f6f1);
+const pureGreen = Color(0xFF78a36b);
