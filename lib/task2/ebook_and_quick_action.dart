@@ -97,7 +97,7 @@ class EbookAndQuickAction extends StatelessWidget {
                   crossAxisCount: 4,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 1,
+                  childAspectRatio: .9,
                   children: const [
                     AlHadithCard(icon: alhadithIcon1, text: 'Last'),
                     AlHadithCard(icon: alhadithIcon2, text: 'Hifz'),
@@ -131,6 +131,8 @@ class AlHadithCard extends StatelessWidget {
     const Color cardBG = Color(0xFFEEF9F5);
 
     return Container(
+      // height: 220,
+      // width: 80,
       decoration: BoxDecoration(
         color: cardBG,
         borderRadius: BorderRadius.circular(12),
@@ -138,7 +140,7 @@ class AlHadithCard extends StatelessWidget {
 
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           // Circular icon holder
           Container(
@@ -219,7 +221,7 @@ class EbookCard extends StatelessWidget {
                       height: 1.1,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
                   Text(
                     subtitle,
                     maxLines: 1,
@@ -227,7 +229,7 @@ class EbookCard extends StatelessWidget {
                     style: TextStyle(
                       color: const Color(0xFF1B1B1F).withOpacity(0.55),
                       fontWeight: FontWeight.w500,
-                      fontSize: 10,
+                      fontSize: 12,
                       height: 1.2,
                     ),
                   ),

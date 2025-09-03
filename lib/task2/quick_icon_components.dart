@@ -93,7 +93,7 @@ class QuranMajeedScreen extends StatelessWidget {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     crossAxisCount: 4,
-                    mainAxisSpacing: 8,
+                    mainAxisSpacing: 24,
                     crossAxisSpacing: 12,
                     childAspectRatio: 1,
                     children: [
@@ -110,7 +110,7 @@ class QuranMajeedScreen extends StatelessWidget {
                       DuaCard(
                         icon: duaIconq3,
                         textName: 'Self Ruqyah',
-                        iconBackgroundColor: pureGreen,
+                        iconBackgroundColor: regularGreen,
                       ),
                       DuaCard(
                         icon: duaIconq4,
@@ -232,7 +232,7 @@ class DuaCard extends StatelessWidget {
           child: Center(child: SvgPicture.asset(icon)),
         ),
 
-        SizedBox(height: 6),
+        SizedBox(height: 8),
         Flexible(
           child: Text(
             textName,

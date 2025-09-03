@@ -61,6 +61,7 @@ const pureOrange = Color(0xFFf68420);
 
 const lightGreen = Color(0xFFf2f6f1);
 const pureGreen = Color(0xFF78a36b);
+const regularGreen = Color(0xFF58BE39);
 
 //----------------Prime Color Code----------------//
 const Color qPrimeCardBG = Color(0xFF08A05E);
