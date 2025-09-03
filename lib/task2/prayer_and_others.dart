@@ -29,10 +29,12 @@ class PrayerAndOthers extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {Navigator.push(
+            onPressed: () {
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => MuslimPrime()),
-              );},
+              );
+            },
             icon: const Icon(Icons.arrow_forward, color: kPrimaryGreen),
             tooltip: 'Next',
           ),
@@ -169,6 +171,7 @@ class PrayerAndOthersCard extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 12,
+              fontFamily: '',
               fontWeight: FontWeight.w600,
               color: kTextColor,
             ),
