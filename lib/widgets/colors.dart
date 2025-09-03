@@ -65,3 +65,9 @@ const regularGreen = Color(0xFF58BE39);
 
 //----------------Prime Color Code----------------//
 const Color qPrimeCardBG = Color(0xFF08A05E);
+
+
+
+//----------------Onboarding Color Code----------------//
+const Color onBoardingPrimary1 = Color(0xFF1AA483);
+const Color onBoardingPrimary2 = Color(0xFFF39C12);

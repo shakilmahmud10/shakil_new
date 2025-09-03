@@ -1,6 +1,5 @@
 // import 'package:flutter/material.dart';
 
-
 //-------------- Challanges Icon(All Svg formate) --------------//
 const String kChallangesIcon1 = "assets/images/svg/challange_icon1.svg";
 const String kChallangesIcon2 = "assets/images/svg/challange_icon2.svg";
@@ -80,7 +79,6 @@ const String othersIcon11 = "assets/images/svg/quick_icon/othersIcon11.svg";
 const String othersIcon12 = "assets/images/svg/quick_icon/othersIcon12.svg";
 const String othersIcon13 = "assets/images/svg/quick_icon/othersIcon13.svg";
 
-
 //----------------Quick Icon Components----------------//
 const String primeIcon1 = "assets/images/svg/quick_icon/primeIcon1.svg";
 const String primeIcon2 = "assets/images/svg/quick_icon/primeIcon2.svg";
@@ -98,3 +96,16 @@ const String primeIcon12 = "assets/images/svg/quick_icon/primeIcon12.svg";
 const String primeCard1 = "assets/images/svg/quick_icon/primeQuranMajid.svg";
 const String primeCard2 = "assets/images/svg/quick_icon/primeCardIcon.svg";
 const String primeCard3 = "assets/images/svg/quick_icon/primeApologize.svg";
+
+//----------------Quick Icon Components----------------//
+
+const String onboardingImage1 = "assets/images/svg/onboarding/onboarding1.svg";
+
+const String onboardingIcon1 =
+    "assets/images/svg/onboarding/onboardingIcon1.svg";
+const String onboardingIcon2 =
+    "assets/images/svg/onboarding/onboardingIcon2.svg";
+const String onboardingIcon3 =
+    "assets/images/svg/onboarding/onboardingIcon3.svg";
+const String onboardingIcon4 =
+    "assets/images/svg/onboarding/onboardingIcon4.svg";
