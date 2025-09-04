@@ -6,9 +6,11 @@ import 'package:shakil_new/challanges.dart';
 import 'package:shakil_new/dua_importance.dart';
 import 'package:shakil_new/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
-import 'package:shakil_new/task3/OnboardingFullPage.dart';
-import 'package:shakil_new/task3/reusable_onboarding_widgets.dart';
+// import 'package:shakil_new/task3/OnboardingFullPage.dart';
+// import 'package:shakil_new/task3/OnboardingTest1.dart';
+// import 'package:shakil_new/task3/reusable_onboarding_widgets.dart';
 import 'package:shakil_new/task3/OnboardingPage1.dart';
+// import 'package:shakil_new/task3/test2.dart';
 import 'reading_dua.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
@@ -111,15 +113,38 @@ class _FrontPageState extends State<FrontPage> {
               },
               child: const Text("Icon Components"),
             ),
+
+            // const SizedBox(height: 16),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => OnboardingFullPage()),
+            //     );
+            //   },
+            //   child: const Text("Onboarding"),
+            // ),
+
+            // const SizedBox(height: 16),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => Onboardingtest1()),
+            //     );
+            //   },
+            //   child: const Text("Test"),
+            // ),
+
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingFullPage()),
+                  MaterialPageRoute(builder: (context) => OnboardingPageOne()),
                 );
               },
-              child: const Text("Test"),
+              child: const Text("Test2"),
             ),
           ],
         ),

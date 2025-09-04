@@ -1,11 +1,13 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
-import 'OnboardingPage3.dart';
+import 'OnboardingPage5.dart';
 
-class OnboardingPageTwo extends StatelessWidget {
-  const OnboardingPageTwo({super.key});
+class Onboardingpage4 extends StatelessWidget {
+  const Onboardingpage4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +18,31 @@ class OnboardingPageTwo extends StatelessWidget {
             flex: 4,
             child: TopPreviewWidget(
               primaryColor: onBoardingPrimary2,
-              isMultiIcon: true,
+              isMultiIcon: false,
             ),
           ),
           Expanded(
             flex: 3,
             child: OnboardingTextWidget(
-              title: "আমাদের ফিচারসমূহ",
+              title: "নোটিফিকেশন",
               description:
-                  "আমরা অনেকগুলো নতুন ফিচার যুক্ত করেছি। তারমধ্যে অন্যতম - বুকমার্ক, হিফজ, সরাসরি হাদিসে যাওয়া এবং লাস্ট রিড",
+                  "আল-হাদিস অ্যাপ সম্পর্কিত বিভিন্ন গুরুত্বপুর্ণ নোটিফিকেশন পেতে নিচে \“সম্মতি দিচ্ছি\”বাটনে ক্লিক করুন",
             ),
           ),
           Expanded(
             flex: 1,
             child: BottomNavigationWidget(
-              currentPage: 1,
+              currentPage: 0,
               totalPages: 2,
               onNextPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Onboardingpage3()),
+                  MaterialPageRoute(
+                    builder: (context) => Onboardingpage5(),
+                  ),
                 );
               },
-              activeColor: Color(0xFFF39C12),
+              // activeColor: onBoardingPrimary1,
             ),
           ),
         ],
@@ -66,7 +70,7 @@ class TopPreviewWidget extends StatelessWidget {
       child: Stack(
         children: [
           ..._buildBackgroundCircles(size),
-          Center(child: _buildMultiIconContent()),
+          Center(child: _buildSingleIconContent()),
         ],
       ),
     );
@@ -82,7 +86,14 @@ class TopPreviewWidget extends StatelessWidget {
           height: size.width * 1.5,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: primaryColor.withOpacity(0.1),
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFFFFECA7).withOpacity(0.2),
+                Color(0xFFF39C12).withOpacity(0.2),
+              ],
+              end: Alignment.topRight,
+              begin: Alignment.bottomLeft,
+            ),
           ),
         ),
       ),
@@ -94,7 +105,14 @@ class TopPreviewWidget extends StatelessWidget {
           height: size.width * 1.4,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: primaryColor.withOpacity(0.2),
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFFFBF9E9).withOpacity(0.2),
+                Color(0xFFF39C12).withOpacity(0.2),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
         ),
       ),
@@ -130,7 +148,7 @@ class TopPreviewWidget extends StatelessWidget {
             height: pos['size'] as double,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: primaryColor.withOpacity(0.4),
+              color: primaryColor.withOpacity(0.18),
             ),
           ),
         ),
@@ -140,45 +158,10 @@ class TopPreviewWidget extends StatelessWidget {
     return circles;
   }
 
-  Widget _buildMultiIconContent() {
-    Widget buildIconCard(String svgIcon) {
-      return Container(
-        width: 120,
-        height: 100,
-        decoration: BoxDecoration(
-          color: const Color(0xFFFDFAF0).withOpacity(0.8),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Center(
-          child: SvgPicture.asset(
-            svgIcon,
-            width: 60,
-            height: 60,
-            fit: BoxFit.contain,
-          ),
-        ),
-      );
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          buildIconCard(onboardingIcon1),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              buildIconCard(onboardingIcon2),
-              const SizedBox(width: 20),
-              buildIconCard(onboardingIcon3),
-            ],
-          ),
-          const SizedBox(height: 20),
-          buildIconCard(onboardingIcon4),
-        ],
-      ),
+  Widget _buildSingleIconContent() {
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      child: SvgPicture.asset(onboardingImage4, height: 120, width: 120),
     );
   }
 }
@@ -226,14 +209,14 @@ class BottomNavigationWidget extends StatelessWidget {
   final int currentPage;
   final int totalPages;
   final VoidCallback onNextPressed;
-  final Color activeColor;
+  // final Color activeColor;
 
   const BottomNavigationWidget({
     super.key,
     required this.currentPage,
     required this.totalPages,
     required this.onNextPressed,
-    required this.activeColor,
+    // required this.activeColor,
   });
 
   @override
@@ -241,44 +224,15 @@ class BottomNavigationWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _PageIndicatorWidget(activeColor: activeColor),
-          CustomButton(text: "পরবর্তী", onPressed: onNextPressed),
+          CustomButton(
+            text: "সম্মতি দিচ্ছি",
+            onPressed: onNextPressed,
+            backgroundColor: onBoardingPrimary1,
+          ),
         ],
       ),
-    );
-  }
-}
-
-class _PageIndicatorWidget extends StatelessWidget {
-  final Color activeColor;
-
-  const _PageIndicatorWidget({required this.activeColor});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          margin: EdgeInsets.only(right: 12),
-          width: 8,
-          height: 8,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey.withOpacity(0.3),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(right: 8),
-          width: 12,
-          height: 12,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: onBoardingPrimary1,
-          ),
-        ),
-      ],
     );
   }
 }
@@ -286,17 +240,23 @@ class _PageIndicatorWidget extends StatelessWidget {
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final Color backgroundColor;
 
-  const CustomButton({super.key, required this.text, required this.onPressed});
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    required this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: onBoardingPrimary1,
+        backgroundColor: backgroundColor,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 3,
       ),
@@ -308,7 +268,7 @@ class CustomButton extends StatelessWidget {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           SizedBox(width: 8),
-          Icon(Icons.arrow_forward, size: 18),
+          // Icon(Icons.arrow_forward, size: 18),
         ],
       ),
     );

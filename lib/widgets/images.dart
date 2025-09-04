@@ -100,6 +100,9 @@ const String primeCard3 = "assets/images/svg/quick_icon/primeApologize.svg";
 //----------------Quick Icon Components----------------//
 
 const String onboardingImage1 = "assets/images/svg/onboarding/onboarding1.svg";
+const String onboardingImage3 = "assets/images/svg/onboarding/onboarding3.svg";
+const String onboardingImage4 = "assets/images/svg/onboarding/onboarding4.svg";
+const String onboardingImage5 = "assets/images/svg/onboarding/onboarding5.svg";
 
 const String onboardingIcon1 =
     "assets/images/svg/onboarding/onboardingIcon1.svg";
