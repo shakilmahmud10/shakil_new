@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shakil_new/task3/Onboardingpage7.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
-import 'OnboardingPage6.dart';
 
-class Onboardingpage5 extends StatelessWidget {
-  const Onboardingpage5({super.key});
+class Onboardingpage6 extends StatelessWidget {
+  const Onboardingpage6({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +17,16 @@ class Onboardingpage5 extends StatelessWidget {
           Expanded(
             flex: 4,
             child: TopPreviewWidget(
-              primaryColor: onBoardingPrimary2,
+              primaryColor: onBoardingPrimary4,
               isMultiIcon: false,
             ),
           ),
           Expanded(
             flex: 3,
             child: OnboardingTextWidget(
-              title: "নোটিফিকেশন",
+              title: "ডাটাবেজ লোড করা হচ্ছে",
               description:
-                  "আল-হাদিস অ্যাপ সম্পর্কিত বিভিন্ন গুরুত্বপুর্ণ নোটিফিকেশন পেতে নিচে \“সম্মতি দিচ্ছি\”বাটনে ক্লিক করুন",
+                  "দয়া করে কিছুক্ষন অপেক্ষা করুন, ডাটাবেস লোড হয়ে গেলে আপনাকে হাদিস কালেকশন এ নিয়ে যাওা হবে।",
             ),
           ),
           Expanded(
@@ -37,7 +37,7 @@ class Onboardingpage5 extends StatelessWidget {
               onNextPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Onboardingpage6()),
+                  MaterialPageRoute(builder: (context) => Onboardingpage7()),
                 );
               },
               // activeColor: onBoardingPrimary1,
@@ -86,8 +86,8 @@ class TopPreviewWidget extends StatelessWidget {
             shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
-                Color(0xFFFFECA7).withOpacity(0.2),
-                Color(0xFFF39C12).withOpacity(0.2),
+                const Color.fromARGB(255, 197, 255, 181).withOpacity(0.2),
+                onBoardingPrimary4.withOpacity(0.2),
               ],
               end: Alignment.topRight,
               begin: Alignment.bottomLeft,
@@ -105,8 +105,8 @@ class TopPreviewWidget extends StatelessWidget {
             shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
-                Color(0xFFFBF9E9).withOpacity(0.2),
-                Color(0xFFF39C12).withOpacity(0.2),
+                const Color(0xFFF4FFF1).withOpacity(0.2),
+                onBoardingPrimary4.withOpacity(0.2),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -159,7 +159,7 @@ class TopPreviewWidget extends StatelessWidget {
   Widget _buildSingleIconContent() {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-      child: SvgPicture.asset(onboardingImage4, height: 120, width: 120),
+      child: SvgPicture.asset(onboardingImage5, height: 120, width: 120),
     );
   }
 }
@@ -197,34 +197,6 @@ class OnboardingTextWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18, color: Colors.black54, height: 1.5),
           ),
-          SizedBox(height: 16),
-
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 12.0,
-            ),
-            decoration: BoxDecoration(
-              color: const Color(0xFFFBEAE4),
-              borderRadius: BorderRadius.circular(12.0),
-            ),
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.warning_amber_rounded,
-                  color: Color(0xFFE55347),
-                  size: 30.0,
-                ),
-                SizedBox(width: 12.0),
-                Expanded(
-                  child: Text(
-                    'অ্যাপটি ব্যবহারের জন্য অবশ্যই সম্মতি দিতে হবে। দয়া করে “YES” বাটন এ ক্লিক করুন',
-                    style: TextStyle(color: Color(0xFF5C5C5C), fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -249,13 +221,14 @@ class BottomNavigationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomButton(
-            text: "সম্মতি দিচ্ছি",
-            onPressed: onNextPressed,
-            backgroundColor: onBoardingPrimary1,
+        children: <Widget>[
+          CustomSliderLoader(progress: 0.7),
+          const SizedBox(height: 16),
+          const Text(
+            '৭০% লোড হয়েছে',
+            style: TextStyle(fontSize: 18, color: Color(0xFF4F4F4F)),
           ),
         ],
       ),
@@ -263,40 +236,45 @@ class BottomNavigationWidget extends StatelessWidget {
   }
 }
 
-class CustomButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
+class CustomSliderLoader extends StatelessWidget {
+  final double progress;
+  final double height;
   final Color backgroundColor;
+  final Color progressColor;
 
-  const CustomButton({
+  const CustomSliderLoader({
     super.key,
-    required this.text,
-    required this.onPressed,
-    required this.backgroundColor,
+    required this.progress,
+    this.height = 12.0,
+    this.backgroundColor = const Color(0xFFE6F4F1),
+    this.progressColor = const Color(0xFF1DB99A),
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor,
-        foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        elevation: 3,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            text,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          width: constraints.maxWidth, // Or you can set a fixed width
+          height: height,
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(height / 2),
           ),
-          SizedBox(width: 8),
-          // Icon(Icons.arrow_forward, size: 18),
-        ],
-      ),
+          child: Stack(
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                width: constraints.maxWidth * progress,
+                decoration: BoxDecoration(
+                  color: progressColor,
+                  borderRadius: BorderRadius.circular(height / 2),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
