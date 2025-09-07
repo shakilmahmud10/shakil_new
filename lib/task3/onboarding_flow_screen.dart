@@ -438,7 +438,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           ),
           if (text == "পরবর্তী") ...[
             const SizedBox(width: 10),
-            SvgPicture.asset('assets/images/svg/onboarding/arrow.svg'),
+            SvgPicture.asset(onboardingArrow),
           ],
         ],
       ),
