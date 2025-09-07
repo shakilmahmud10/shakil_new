@@ -19,6 +19,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
   final PageController _pageController = PageController();
   int _currentPageIndex = 0;
   bool _showWarningSection = false;
+  bool _showIntermediateWarning = false; // New state for intermediate warning
   double _loadingProgress = 0.0;
   bool _loadingComplete = false;
 
@@ -77,11 +78,21 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      _showWarningSection = true;
-      _loadingProgress = 0.0; // Reset progress
-      _loadingComplete = false; // Reset completion state
-      _startLoadingAnimation();
-      setState(() {});
+      // On the last page (4th page)
+      if (!_showIntermediateWarning) {
+        // First click - show intermediate warning
+        setState(() {
+          _showIntermediateWarning = true;
+        });
+      } else {
+        // Second click - proceed to loading page
+        _showWarningSection = true;
+        _showIntermediateWarning = false;
+        _loadingProgress = 0.0; // Reset progress
+        _loadingComplete = false; // Reset completion state
+        _startLoadingAnimation();
+        setState(() {});
+      }
     }
   }
 
@@ -142,6 +153,8 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
                 if (index >= OnboardingData.pages.length) {
                   // User swiped to the warning section
                   _showWarningSection = true;
+                  _showIntermediateWarning =
+                      false; // Reset intermediate warning
                   _loadingProgress = 0.0; // Reset progress
                   _loadingComplete = false; // Reset completion state
                   _startLoadingAnimation();
@@ -150,6 +163,8 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
                   setState(() {
                     _currentPageIndex = index;
                     _showWarningSection = false;
+                    _showIntermediateWarning =
+                        false; // Reset intermediate warning when navigating
                   });
                 }
               },
@@ -355,6 +370,33 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
               pageData.description2!,
               textAlign: TextAlign.center,
               style: kOnboardingSubTitleText,
+            ),
+          ],
+          // Show warning container for 4th page when intermediate warning is active
+          if (_currentPageIndex == OnboardingData.pages.length - 1 &&
+              _showIntermediateWarning) ...[
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 12.0,
+              ),
+              decoration: BoxDecoration(
+                color: onBoardingWerningColor,
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              child: Row(
+                children: [
+                  SvgPicture.asset(onboardingWerning),
+                  const SizedBox(width: 12.0),
+                  Expanded(
+                    child: Text(
+                      'অ্যাপটি ব্যবহারের জন্য অবশ্যই সম্মতি দিতে হবে। দয়া করে "YES" বাটন এ ক্লিক করুন',
+                      style: kOnboardingWerningText,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ],

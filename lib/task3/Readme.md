@@ -18,10 +18,11 @@ This directory contains the refactored onboarding flow implementation that meets
 - Smooth page transitions with animation curves
 - Page controller management
 
-### ✅ 2. Warning Section Display
-- After completing 4 main pages, warning section appears as a new PageView page
-- Animated loading progress indicator
-- Seamless transition from main flow to warning section
+### ✅ 2. Enhanced Warning Section Display
+- After completing 4 main pages, **first button click** shows intermediate warning container
+- **Second button click** triggers the loading section with Bangla numerals
+- Warning container appears in middle section with proper styling
+- Seamless transition from warning to loading with animated progress
 
 ### ✅ 3. Conditional Logic for Warning Button
 - `_onWarningButtonPressed()` method ready for custom logic implementation

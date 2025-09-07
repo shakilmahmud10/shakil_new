@@ -79,6 +79,17 @@ class OnboardingData {
     // ),
   ];
 
+  static OnboardingPageData
+  get intermediateWarningPageData => OnboardingPageData(
+    title: "নোটিফিকেশন",
+    description:
+        "আল-হাদিস অ্যাপ সম্পর্কিত বিভিন্ন গুরুত্বপুর্ণ নোটিফিকেশন পেতে নিচে \"সম্মতি দিচ্ছি\"বাটনে ক্লিক করুন",
+    svgIcon: onboardingImage4,
+    primaryColor: onBoardingPrimary2,
+    isMultiIcon: false,
+    buttonText: "সম্মতি দিচ্ছি",
+  );
+
   static OnboardingPageData get warningPageData => OnboardingPageData(
     title: "ডাটাবেজ লোড করা হচ্ছে",
     description:
