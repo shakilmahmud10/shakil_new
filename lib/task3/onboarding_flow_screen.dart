@@ -196,10 +196,14 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
 
   Widget _buildTopMiddleSections(int index) {
     final pageData = OnboardingData.pages[index];
+    // When page index is 2, give middle section extra space from top section
+    final topFlex = index == 2 ? 6 : 8;
+    final middleFlex = index == 2 ? 7 : 5;
+    
     return Column(
       children: [
-        Expanded(flex: 8, child: _buildTopPreviewWidget(pageData)),
-        Expanded(flex: 5, child: _buildTextSection(pageData)),
+        Expanded(flex: topFlex, child: _buildTopPreviewWidget(pageData, index)),
+        Expanded(flex: middleFlex, child: _buildTextSection(pageData)),
       ],
     );
   }
@@ -280,12 +284,18 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
     );
   }
 
-  Widget _buildTopPreviewWidget(OnboardingPageData pageData) {
+  Widget _buildTopPreviewWidget(OnboardingPageData pageData, int index) {
+    // Move circles up by 10% when page index is 2
+    final verticalOffset = index == 2 ? -MediaQuery.of(context).size.height * 0.10 : 0.0;
+    
     return Container(
       width: double.infinity,
       child: Stack(
         children: [
-          BackgroundCirclesWidget(primaryColor: pageData.primaryColor),
+          BackgroundCirclesWidget(
+            primaryColor: pageData.primaryColor,
+            verticalOffset: verticalOffset,
+          ),
           Center(
             child: pageData.isMultiIcon
                 ? _buildMultiIconContent(pageData.multipleIcons!)

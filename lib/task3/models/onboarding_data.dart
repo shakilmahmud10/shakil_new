@@ -51,9 +51,9 @@ class OnboardingData {
     OnboardingPageData(
       title: "নোটিশ",
       description:
-          "We are include many feature in this app. And most important features is Bookmark, Go to Hadith, Hifz, Last Read",
+          "We are include many feature in this app. And most important features is Bookmark, Go to Hadith, Hifz, Last Read. ",
       description2:
-          "We are include many feature in this app. And most important features is Bookmark, Go to Hadith, Hifz, Last Read",
+          "We are include many feature in this app. And most important features is Bookmark, Go to Hadith, Hifz, Last Read. ",
       svgIcon: onboardingImage3,
       primaryColor: onBoardingPrimary3,
       isMultiIcon: false,
