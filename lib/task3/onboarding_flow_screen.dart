@@ -148,7 +148,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           Expanded(
             flex: 13, // Combined flex (8+5) for responsive swipe area
             child: PageView.builder(
-              // physics: const NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               onPageChanged: (index) {
                 if (index >= OnboardingData.pages.length) {
