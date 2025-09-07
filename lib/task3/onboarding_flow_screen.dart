@@ -6,7 +6,6 @@ import '../widgets/text_style.dart';
 import '../widgets/images.dart';
 import 'models/onboarding_data.dart';
 import 'widgets/background_circles_widget.dart';
-import 'Onboardingpage7.dart';
 
 class OnboardingFlowScreen extends StatefulWidget {
   const OnboardingFlowScreen({super.key});
@@ -85,13 +84,15 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           _showIntermediateWarning = true;
         });
       } else {
-        // Second click - proceed to loading page
-        _showWarningSection = true;
-        _showIntermediateWarning = false;
-        _loadingProgress = 0.0; // Reset progress
-        _loadingComplete = false; // Reset completion state
-        _startLoadingAnimation();
-        setState(() {});
+        // Second click - navigate to next page and show loading
+        setState(() {
+          _showIntermediateWarning = false;
+        });
+        // Navigate to the warning section (next page)
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
       }
     }
   }
@@ -127,16 +128,16 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
     });
   }
 
-  void _onWarningButtonPressed() {
-    // Add your conditional logic here for the warning section button
-    // For example, you could check user permissions, network status, etc.
+  // void _onWarningButtonPressed() {
+  //   // Add your conditional logic here for the warning section button
+  //   // For example, you could check user permissions, network status, etc.
 
-    // Navigate to the next screen (Onboardingpage7 as per original flow)
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Onboardingpage7()),
-    );
-  }
+  //   // Navigate to the next screen (Onboardingpage7 as per original flow)
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => Onboardingpage7()),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +148,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           Expanded(
             flex: 13, // Combined flex (8+5) for responsive swipe area
             child: PageView.builder(
-              physics: const NeverScrollableScrollPhysics(),
+              // physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               onPageChanged: (index) {
                 if (index >= OnboardingData.pages.length) {
@@ -266,16 +267,13 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
         children: <Widget>[
           _buildCustomSliderLoader(progress: _loadingProgress),
           const SizedBox(height: 16),
-          GestureDetector(
-            onTap: _onWarningButtonPressed,
-            child: Text(
-              _loadingComplete
-                  ? 'লোডিং সম্পন্ন হয়েছে' // "Loading complete"
-                  : '${_convertToBanglaNumber((_loadingProgress * 100).round())}% লোড হয়েছে',
-              style: _loadingComplete
-                  ? kOnboardingProgressCompletedText
-                  : kOnboardingProgressRunningText,
-            ),
+          Text(
+            _loadingComplete
+                ? 'লোডিং সম্পন্ন হয়েছে' // "Loading complete"
+                : '${_convertToBanglaNumber((_loadingProgress * 100).round())}% লোড হয়েছে',
+            style: _loadingComplete
+                ? kOnboardingProgressCompletedText
+                : kOnboardingProgressRunningText,
           ),
         ],
       ),
@@ -415,7 +413,6 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
             _buildCustomButton(
               text: pageData.buttonText,
               onPressed: _nextPage,
-              backgroundColor: onBoardingPrimary1,
             ),
           ],
         ),
@@ -431,7 +428,6 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           _buildCustomButton(
             text: pageData.buttonText,
             onPressed: _nextPage,
-            backgroundColor: pageData.primaryColor,
           ),
         ],
       ),
@@ -460,29 +456,34 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
   Widget _buildCustomButton({
     required String text,
     required VoidCallback onPressed,
-    required Color backgroundColor,
   }) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: onBoardingPrimary1,
-        foregroundColor: Colors.white,
+    return InkWell(
+      onTap: onPressed,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 15),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        elevation: 3,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            text,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-          if (text == "পরবর্তী") ...[
-            const SizedBox(width: 10),
-            SvgPicture.asset(onboardingArrow),
+        decoration: BoxDecoration(
+          color: onBoardingPrimary1,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+            if (text == "পরবর্তী") ...[
+              const SizedBox(width: 10),
+              SvgPicture.asset(onboardingArrow),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
