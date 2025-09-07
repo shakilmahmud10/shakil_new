@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
+import '../widgets/text_style.dart';
 import 'OnboardingPage3.dart';
 
 class OnboardingPageTwo extends StatelessWidget {
@@ -13,14 +14,14 @@ class OnboardingPageTwo extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            flex: 4,
+            flex: 8,
             child: TopPreviewWidget(
               primaryColor: onBoardingPrimary2,
               isMultiIcon: true,
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 5,
             child: OnboardingTextWidget(
               title: "আমাদের ফিচারসমূহ",
               description:
@@ -28,7 +29,7 @@ class OnboardingPageTwo extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: BottomNavigationWidget(
               currentPage: 1,
               totalPages: 2,
@@ -78,8 +79,8 @@ class TopPreviewWidget extends StatelessWidget {
         top: -size.width * 0.42,
         right: -size.width * 0.25,
         child: Container(
-          width: size.width * 1.5,
-          height: size.width * 1.5,
+          width: size.width * 1.48,
+          height: size.width * 1.48,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: primaryColor.withOpacity(0.1),
@@ -203,18 +204,13 @@ class OnboardingTextWidget extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              height: 1.3,
-            ),
+            style: kOnboardingTitleText,
           ),
           SizedBox(height: 16),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, color: Colors.black54, height: 1.5),
+            style: kOnboardingSubTitleText,
           ),
         ],
       ),
@@ -262,8 +258,8 @@ class _PageIndicatorWidget extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(right: 12),
-          width: 8,
-          height: 8,
+          width: 12,
+          height: 12,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.grey.withOpacity(0.3),
@@ -296,7 +292,7 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: onBoardingPrimary1,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 3,
       ),
@@ -307,8 +303,8 @@ class CustomButton extends StatelessWidget {
             text,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(width: 8),
-          Icon(Icons.arrow_forward, size: 18),
+          SizedBox(width: 10),
+          SvgPicture.asset(onboardingArrow),
         ],
       ),
     );

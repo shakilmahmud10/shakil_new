@@ -12,6 +12,7 @@ import 'package:shakil_new/task2/quick_icon_components.dart';
 import 'package:shakil_new/task3/OnboardingPage1.dart';
 // import 'package:shakil_new/task3/test2.dart';
 import 'reading_dua.dart';
+import 'task3/onboarding_flow_screen.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -141,7 +142,7 @@ class _FrontPageState extends State<FrontPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingPageOne()),
+                  MaterialPageRoute(builder: (context) => OnboardingFlowScreen()),
                 );
               },
               child: const Text("Test2"),

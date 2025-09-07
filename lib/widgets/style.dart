@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 //For New Project
-const kSmallBoldTitleText = TextStyle(fontSize: 16, color: kTextDark, height: 1.6);
+const kSmallBoldTitleText = TextStyle(
+  fontSize: 16,
+  color: kTextDark,
+  height: 1.6,
+);
 //For text style refector
 const kSmallTextStyle = TextStyle(fontSize: 16, color: kTextColor, height: 1.6);
 const kSmallTextBoldStyle = TextStyle(
@@ -38,3 +42,6 @@ const kButtonTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
   color: Colors.white,
 );
+
+// <---------------- Onboarding ---------------->
+

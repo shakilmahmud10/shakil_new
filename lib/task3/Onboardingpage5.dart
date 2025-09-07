@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
+import '../widgets/text_style.dart';
 import 'OnboardingPage6.dart';
 
 class Onboardingpage5 extends StatelessWidget {
@@ -15,14 +16,14 @@ class Onboardingpage5 extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            flex: 4,
+            flex: 8,
             child: TopPreviewWidget(
               primaryColor: onBoardingPrimary2,
               isMultiIcon: false,
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 5,
             child: OnboardingTextWidget(
               title: "নোটিফিকেশন",
               description:
@@ -30,7 +31,7 @@ class Onboardingpage5 extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: BottomNavigationWidget(
               currentPage: 0,
               totalPages: 2,
@@ -80,17 +81,17 @@ class TopPreviewWidget extends StatelessWidget {
         top: -size.width * 0.42,
         right: -size.width * 0.25,
         child: Container(
-          width: size.width * 1.5,
-          height: size.width * 1.5,
+          width: size.width * 1.48,
+          height: size.width * 1.48,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
-                Color(0xFFFFECA7).withOpacity(0.2),
-                Color(0xFFF39C12).withOpacity(0.2),
+                Color(0xFFFBF9E9).withOpacity(0.5),
+                Color.fromARGB(255, 252, 194, 69).withOpacity(0.2),
               ],
-              end: Alignment.topRight,
-              begin: Alignment.bottomLeft,
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
         ),
@@ -104,12 +105,9 @@ class TopPreviewWidget extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: LinearGradient(
-              colors: [
-                Color(0xFFFBF9E9).withOpacity(0.2),
-                Color(0xFFF39C12).withOpacity(0.2),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              colors: [Color(0xFFFBF9E9), Color(0xFFFFECA7)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
         ),
@@ -184,18 +182,13 @@ class OnboardingTextWidget extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              height: 1.3,
-            ),
+            style:kOnboardingTitleText,
           ),
           SizedBox(height: 16),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, color: Colors.black54, height: 1.5),
+            style: kOnboardingSubTitleText,
           ),
           SizedBox(height: 16),
 
@@ -205,21 +198,17 @@ class OnboardingTextWidget extends StatelessWidget {
               vertical: 12.0,
             ),
             decoration: BoxDecoration(
-              color: const Color(0xFFFBEAE4),
+              color: onBoardingWerningColor,
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Row(
-              children: const [
-                Icon(
-                  Icons.warning_amber_rounded,
-                  color: Color(0xFFE55347),
-                  size: 30.0,
-                ),
+              children: [
+                SvgPicture.asset(onboardingWerning),
                 SizedBox(width: 12.0),
                 Expanded(
                   child: Text(
                     'অ্যাপটি ব্যবহারের জন্য অবশ্যই সম্মতি দিতে হবে। দয়া করে “YES” বাটন এ ক্লিক করুন',
-                    style: TextStyle(color: Color(0xFF5C5C5C), fontSize: 16),
+                    style:kOnboardingWerningText,
                   ),
                 ),
               ],
@@ -282,7 +271,7 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 3,
       ),

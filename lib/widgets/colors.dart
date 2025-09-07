@@ -68,9 +68,12 @@ const Color qPrimeCardBG = Color(0xFF08A05E);
 
 //----------------Onboarding Color Code----------------//
 const Color onBoardingPrimary1 = Color(0xFF1AA483);
+const Color onBoardingSecoundry = Color(0xFF1CAD8B);
 const Color onBoardingPrimary2 = Color(0xFFF39C12);
 const Color onBoardingPrimary3 = Color(0xFF737ee6);
 const Color onBoardingPrimary4 = Color(0xFF75B661);
+
+const Color onBoardingWerningColor = Color(0xFFFFDEC2);
 
 const LinearGradient onBoardingPrimaryGradient1 = LinearGradient(
   colors: [Color(0xFFFBF9E9), Color(0xFFFFECA7)],

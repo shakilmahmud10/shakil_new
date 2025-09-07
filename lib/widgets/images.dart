@@ -112,3 +112,6 @@ const String onboardingIcon3 =
     "assets/images/svg/onboarding/onboardingIcon3.svg";
 const String onboardingIcon4 =
     "assets/images/svg/onboarding/onboardingIcon4.svg";
+
+const String onboardingArrow = "assets/images/svg/onboarding/arrow.svg";
+const String onboardingWerning = "assets/images/svg/onboarding/warning.svg";

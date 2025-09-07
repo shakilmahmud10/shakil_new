@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/task3/Onboardingpage7.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
+import '../widgets/text_style.dart';
 
 class Onboardingpage6 extends StatelessWidget {
   const Onboardingpage6({super.key});
@@ -15,22 +16,22 @@ class Onboardingpage6 extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            flex: 4,
+            flex: 8,
             child: TopPreviewWidget(
               primaryColor: onBoardingPrimary4,
               isMultiIcon: false,
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 5,
             child: OnboardingTextWidget(
               title: "ডাটাবেজ লোড করা হচ্ছে",
               description:
-                  "দয়া করে কিছুক্ষন অপেক্ষা করুন, ডাটাবেস লোড হয়ে গেলে আপনাকে হাদিস কালেকশন এ নিয়ে যাওা হবে।",
+                  "দয়া করে কিছুক্ষন অপেক্ষা করুন, ডাটাবেস লোড হয়ে গেলে আপনাকে হাদিস কালেকশন এ নিয়ে যাওয়া হবে।",
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: BottomNavigationWidget(
               currentPage: 0,
               totalPages: 2,
@@ -184,18 +185,13 @@ class OnboardingTextWidget extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              height: 1.3,
-            ),
+            style: kOnboardingTitleText,
           ),
           SizedBox(height: 16),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18, color: Colors.black54, height: 1.5),
+            style: kOnboardingSubTitleText,
           ),
         ],
       ),
@@ -226,9 +222,17 @@ class BottomNavigationWidget extends StatelessWidget {
         children: <Widget>[
           CustomSliderLoader(progress: 0.7),
           const SizedBox(height: 16),
-          const Text(
-            '৭০% লোড হয়েছে',
-            style: TextStyle(fontSize: 18, color: Color(0xFF4F4F4F)),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Onboardingpage7()),
+              );
+            },
+            child: Text(
+              '৭০% লোড হয়েছে',
+              style:kOnboardingProgressRunningText,
+            ),
           ),
         ],
       ),
@@ -247,7 +251,7 @@ class CustomSliderLoader extends StatelessWidget {
     required this.progress,
     this.height = 12.0,
     this.backgroundColor = const Color(0xFFE6F4F1),
-    this.progressColor = const Color(0xFF1DB99A),
+    this.progressColor = onBoardingPrimary1,
   });
 
   @override

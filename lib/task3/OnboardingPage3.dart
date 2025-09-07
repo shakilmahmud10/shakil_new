@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/task3/Onboardingpage4.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
+import '../widgets/text_style.dart';
 // import 'OnboardingPage2.dart';
 
 class Onboardingpage3 extends StatelessWidget {
@@ -16,14 +17,14 @@ class Onboardingpage3 extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            flex: 3,
+            flex: 6,
             child: TopPreviewWidget(
               primaryColor: onBoardingPrimary3,
               // isMultiIcon: false,
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 6,
             child: OnboardingTextWidget(
               title: "নোটিশ",
               description:
@@ -33,7 +34,7 @@ class Onboardingpage3 extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: BottomNavigationWidget(
               currentPage: 0,
               totalPages: 2,
@@ -165,30 +166,20 @@ class OnboardingTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 25),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              height: 1.8,
-            ),
+            style: kOnboardingTitleText,
           ),
           SizedBox(height: 18),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 18,
-              fontFamily: '',
-              color: Colors.black54,
-              height: 1.8,
-            ),
+            style: kOnboardingSubTitleText,
           ),
           if (description2 != null) ...[
             const SizedBox(height: 16),
@@ -253,8 +244,8 @@ class _PageIndicatorWidget extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(right: 12),
-          width: 8,
-          height: 8,
+          width: 12,
+          height: 12,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.grey.withOpacity(0.3),
@@ -293,7 +284,7 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         foregroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 3,
       ),
@@ -304,8 +295,8 @@ class CustomButton extends StatelessWidget {
             text,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          SizedBox(width: 8),
-          Icon(Icons.arrow_forward, size: 18),
+          SizedBox(width: 10),
+          SvgPicture.asset(onboardingArrow),
         ],
       ),
     );
