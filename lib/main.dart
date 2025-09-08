@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/challanges.dart';
-import 'package:shakil_new/dua_importance.dart';
-import 'package:shakil_new/dua_importance_details.dart';
+import 'package:shakil_new/task1/challanges.dart';
+import 'package:shakil_new/task1/dua_importance.dart';
+import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
-import 'reading_dua.dart';
+import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
@@ -63,39 +63,7 @@ class _FrontPageState extends State<FrontPage> {
                   MaterialPageRoute(builder: (context) => Challenges()),
                 );
               },
-              child: const Text("Challenges"),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ReadingDua()),
-                );
-              },
-              child: const Text("Reading Dua"),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DuaImportance()),
-                );
-              },
-              child: const Text("Dua Importance"),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DuaImportanceDetails(),
-                  ),
-                );
-              },
-              child: const Text("Dua Importance Details"),
+              child: const Text("Challanges (Task1)"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -107,7 +75,7 @@ class _FrontPageState extends State<FrontPage> {
                   ),
                 );
               },
-              child: const Text("Icon Components"),
+              child: const Text("Icon Components(Task2)"),
             ),
 
             // const SizedBox(height: 16),
@@ -131,16 +99,29 @@ class _FrontPageState extends State<FrontPage> {
             //   },
             //   child: const Text("Test"),
             // ),
-
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OnboardingFlowScreen()),
+                  MaterialPageRoute(
+                    builder: (context) => OnboardingFlowScreen(),
+                  ),
                 );
               },
-              child: const Text("Test2"),
+              child: const Text("Onboarding1 (Task3)"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => OnboardingFlowScreen(),
+                //   ),
+                // );
+              },
+              child: const Text("Onboarding2 (Task4)"),
             ),
           ],
         ),
