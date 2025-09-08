@@ -8,6 +8,9 @@ import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
 import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
+import 'task4/onboarding2.dart';
+import 'task5/splash_screen/splash_screen1.dart';
+import 'task5/onboarding/QmOnboardingPage1.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -114,15 +117,28 @@ class _FrontPageState extends State<FrontPage> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => OnboardingFlowScreen(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LanguageSelectionScreen(),
+                  ),
+                );
               },
               child: const Text("Onboarding2 (Task4)"),
             ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SplashScreen(),
+                  ),
+                );
+              },
+              child: const Text("Quran Majeed (Task5)"),
+            ),
+
           ],
         ),
       ),

@@ -43,5 +43,25 @@ const kButtonTextStyle = TextStyle(
   color: Colors.white,
 );
 
-// <---------------- Onboarding ---------------->
+// <----------------Quran Majeed Text Style ---------------->
 
+const qmHeaderTextStyle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+    color: qmHeaderText1,
+    fontFamily: 'Inter',
+    height: 1.5);
+
+const qmDetailsTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: qmDetailsText1,
+    fontFamily: 'Inter',
+    height: 1.8);
+
+const qmButtonTextStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: Color(0xFFFFFFFF),
+    fontFamily: 'Inter',
+    height: 1.5);

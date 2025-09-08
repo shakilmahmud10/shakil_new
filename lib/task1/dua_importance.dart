@@ -7,9 +7,6 @@ import '../widgets/colors.dart';
 import '../widgets/style.dart';
 import '../widgets/images.dart';
 
-void main() {
-  runApp(const DuaImportance());
-}
 
 class DuaImportance extends StatefulWidget {
   const DuaImportance({super.key});

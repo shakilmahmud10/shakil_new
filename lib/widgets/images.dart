@@ -115,3 +115,14 @@ const String onboardingIcon4 =
 
 const String onboardingArrow = "assets/images/svg/onboarding/arrow.svg";
 const String onboardingWerning = "assets/images/svg/onboarding/warning.svg";
+
+//----------------Quran Majeed Images----------------//
+
+const String qmSplashIcon1 = "assets/images/svg/quran_majeed/quranlogo.svg";
+const String qmSplashCaliography =
+    "assets/images/svg/quran_majeed/caliography.svg";
+
+const String qmOnboarding1 = "assets/images/svg/quran_majeed/qOnboarding1.svg";
+const String qmOnboarding2 = "assets/images/svg/quran_majeed/qOnboarding2.svg";
+const String qmOnboarding3 = "assets/images/svg/quran_majeed/qOnboarding3.svg";
+const String qmOnboarding5 = "assets/images/svg/quran_majeed/qOnboarding5.svg";

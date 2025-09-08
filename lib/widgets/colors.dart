@@ -80,3 +80,24 @@ const LinearGradient onBoardingPrimaryGradient1 = LinearGradient(
   end: Alignment.topRight,
   begin: Alignment.bottomLeft,
 );
+
+//----------------Quran Majeed Color Code----------------//
+
+const Color splashBG1 = Color(0xFFFDFAF3);
+const Color qmPrimary1 = Color(0xFF895737);
+const Color qmCardBg = Color(0xFFF2EAE0);
+
+const Color qmHeaderText1 = Color(0xFF301F17);
+const Color qmDetailsText1 = Color(0xFF301F17);
+
+const Color qmDisable = Color(0xFFDBC9BB);
+
+ 
+const RadialGradient splashBGGradient1 = RadialGradient(
+  colors: [
+    Color(0xFFCD8F5C),
+    Color(0xFF9C6139),
+  ],
+  center: Alignment.center, 
+  radius: 0.8,
+);
