@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,26 +15,56 @@ class OnboardingFlowScreen extends StatefulWidget {
   State<OnboardingFlowScreen> createState() => _OnboardingFlowScreenState();
 }
 
-class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
+class _OnboardingFlowScreenState extends State<OnboardingFlowScreen>
+    with WidgetsBindingObserver {
   final PageController _pageController = PageController();
   int _currentPageIndex = 0;
   bool _showWarningSection = false;
   bool _showIntermediateWarning = false; // New state for intermediate warning
   double _loadingProgress = 0.0;
   bool _loadingComplete = false;
+  Timer? _navigationBarTimer;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _hideStatusBar();
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _navigationBarTimer?.cancel();
     _showStatusBar();
     _pageController.dispose();
     super.dispose();
   }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      // Restore transparent status bar when app regains focus
+      Future.delayed(const Duration(milliseconds: 100), () {
+        if (mounted) {
+          _hideStatusBar();
+        }
+      });
+    }
+  }
+
+  // void _startNavigationBarHideTimer() {
+  //   // Cancel any existing timer
+  //   _navigationBarTimer?.cancel();
+
+  //   // Start a new timer to hide navigation bar after 2 seconds
+  //   _navigationBarTimer = Timer(const Duration(seconds: 2), () {
+  //     if (mounted) {
+  //       _hideStatusBar();
+  //     }
+  //   });
+  // }
 
   String _convertToBanglaNumber(int number) {
     const Map<String, String> banglaDigits = {
@@ -60,7 +91,39 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
   }
 
   void _hideStatusBar() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    // Show status bar elements but hide background (transparent effect)
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top],
+    );
+    // Make status bar transparent
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
+  }
+
+  void _startNavigationBarHideTimer() {
+    // Cancel any existing timer
+    _navigationBarTimer?.cancel();
+
+    // Start a new timer to hide navigation bar after 2 seconds
+    _navigationBarTimer = Timer(const Duration(seconds: 1), () {
+      if (mounted) {
+        SystemChrome.setEnabledSystemUIMode(
+          SystemUiMode.manual,
+          overlays: [SystemUiOverlay.top],
+        );
+        SystemChrome.setSystemUIOverlayStyle(
+          const SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark,
+          ),
+        );
+      }
+    });
   }
 
   void _showStatusBar() {
@@ -68,6 +131,36 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
       SystemUiMode.manual,
       overlays: SystemUiOverlay.values,
     );
+  }
+
+  List<TextSpan> _buildDescriptionTextSpans(String text) {
+    const String boldText = "সম্মতি দিচ্ছি";
+
+    if (text.contains(boldText)) {
+      List<TextSpan> spans = [];
+      List<String> parts = text.split('"$boldText"');
+
+      for (int i = 0; i < parts.length; i++) {
+        spans.add(TextSpan(text: parts[i]));
+
+        if (i < parts.length - 1) {
+          spans.add(TextSpan(text: '"'));
+          spans.add(
+            TextSpan(
+              text: boldText,
+              style: kOnboardingSubTitleText.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
+          spans.add(TextSpan(text: '"'));
+        }
+      }
+
+      return spans;
+    } else {
+      return [TextSpan(text: text)];
+    }
   }
 
   void _nextPage() {
@@ -141,55 +234,70 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          // Top & Middle sections with PageView for swipe detection
-          Expanded(
-            flex: 13, // Combined flex (8+5) for responsive swipe area
-            child: PageView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _pageController,
-              onPageChanged: (index) {
-                if (index >= OnboardingData.pages.length) {
-                  // User swiped to the warning section
-                  _showWarningSection = true;
-                  _showIntermediateWarning =
-                      false; // Reset intermediate warning
-                  _loadingProgress = 0.0; // Reset progress
-                  _loadingComplete = false; // Reset completion state
-                  _startLoadingAnimation();
-                  setState(() {});
-                } else {
-                  setState(() {
-                    _currentPageIndex = index;
-                    _showWarningSection = false;
+    return GestureDetector(
+      onPanUpdate: (details) {
+        // Detect swipe from bottom edge (when delta.dy is negative, user is swiping up)
+        if (details.globalPosition.dy >
+                MediaQuery.of(context).size.height * 0.85 &&
+            details.delta.dy < -5) {
+          // User is swiping up from bottom area - start hide timer
+          _startNavigationBarHideTimer();
+        }
+      },
+      onTap: () {
+        // Also start timer on any tap to handle other interactions
+        _startNavigationBarHideTimer();
+      },
+      child: Scaffold(
+        body: Column(
+          children: [
+            // Top & Middle sections with PageView for swipe detection
+            Expanded(
+              flex: 13, // Combined flex (8+5) for responsive swipe area
+              child: PageView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: _pageController,
+                onPageChanged: (index) {
+                  if (index >= OnboardingData.pages.length) {
+                    // User swiped to the warning section
+                    _showWarningSection = true;
                     _showIntermediateWarning =
-                        false; // Reset intermediate warning when navigating
-                  });
-                }
-              },
-              itemCount: OnboardingData.pages.length + 1,
-              itemBuilder: (context, index) {
-                if (index >= OnboardingData.pages.length) {
-                  // This is the warning section - return top and middle only
-                  return _buildWarningTopMiddleSections();
-                }
-                return _buildTopMiddleSections(index);
-              },
+                        false; // Reset intermediate warning
+                    _loadingProgress = 0.0; // Reset progress
+                    _loadingComplete = false; // Reset completion state
+                    _startLoadingAnimation();
+                    setState(() {});
+                  } else {
+                    setState(() {
+                      _currentPageIndex = index;
+                      _showWarningSection = false;
+                      _showIntermediateWarning =
+                          false; // Reset intermediate warning when navigating
+                    });
+                  }
+                },
+                itemCount: OnboardingData.pages.length + 1,
+                itemBuilder: (context, index) {
+                  if (index >= OnboardingData.pages.length) {
+                    // This is the warning section - return top and middle only
+                    return _buildWarningTopMiddleSections();
+                  }
+                  return _buildTopMiddleSections(index);
+                },
+              ),
             ),
-          ),
-          // Bottom section separate - no swipe, only button interaction
-          Expanded(
-            flex: 2,
-            child: _showWarningSection
-                ? _buildWarningBottomSection()
-                : _buildBottomNavigation(
-                    OnboardingData.pages[_currentPageIndex],
-                    _currentPageIndex,
-                  ),
-          ),
-        ],
+            // Bottom section separate - no swipe, only button interaction
+            Expanded(
+              flex: 2,
+              child: _showWarningSection
+                  ? _buildWarningBottomSection()
+                  : _buildBottomNavigation(
+                      OnboardingData.pages[_currentPageIndex],
+                      _currentPageIndex,
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -199,7 +307,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
     // When page index is 2, give middle section extra space from top section
     final topFlex = index == 2 ? 6 : 8;
     final middleFlex = index == 2 ? 7 : 5;
-    
+
     return Column(
       children: [
         Expanded(flex: topFlex, child: _buildTopPreviewWidget(pageData, index)),
@@ -285,9 +393,11 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
   }
 
   Widget _buildTopPreviewWidget(OnboardingPageData pageData, int index) {
-    // Move circles up by 10% when page index is 2
-    final verticalOffset = index == 2 ? -MediaQuery.of(context).size.height * 0.10 : 0.0;
-    
+    // Move circles up by 20% when page index is 2 to prevent cutting at bottom
+    final verticalOffset = index == 2
+        ? -MediaQuery.of(context).size.height * 0.14
+        : 0.0;
+
     return Container(
       width: double.infinity,
       child: Stack(
@@ -367,10 +477,12 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
             style: kOnboardingTitleText,
           ),
           const SizedBox(height: 16),
-          Text(
-            pageData.description,
+          RichText(
             textAlign: TextAlign.center,
-            style: kOnboardingSubTitleText,
+            text: TextSpan(
+              style: kOnboardingSubTitleText,
+              children: _buildDescriptionTextSpans(pageData.description),
+            ),
           ),
           if (pageData.description2 != null) ...[
             const SizedBox(height: 16),
@@ -383,11 +495,11 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
           // Show warning container for 4th page when intermediate warning is active
           if (_currentPageIndex == OnboardingData.pages.length - 1 &&
               _showIntermediateWarning) ...[
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
-                vertical: 12.0,
+                vertical: 14.0,
               ),
               decoration: BoxDecoration(
                 color: onBoardingWerningColor,
@@ -420,10 +532,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildCustomButton(
-              text: pageData.buttonText,
-              onPressed: _nextPage,
-            ),
+            _buildCustomButton(text: pageData.buttonText, onPressed: _nextPage),
           ],
         ),
       );
@@ -435,10 +544,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildPageIndicator(index),
-          _buildCustomButton(
-            text: pageData.buttonText,
-            onPressed: _nextPage,
-          ),
+          _buildCustomButton(text: pageData.buttonText, onPressed: _nextPage),
         ],
       ),
     );
@@ -468,7 +574,11 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
     required VoidCallback onPressed,
   }) {
     return InkWell(
-      onTap: onPressed,
+      onTap: () {
+        // Start navigation bar hide timer when button is pressed
+        _startNavigationBarHideTimer();
+        onPressed();
+      },
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: Container(
@@ -480,14 +590,7 @@ class _OnboardingFlowScreenState extends State<OnboardingFlowScreen> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              text,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
+            Text(text, style: kOnboardingButtonText),
             if (text == "পরবর্তী") ...[
               const SizedBox(width: 10),
               SvgPicture.asset(onboardingArrow),

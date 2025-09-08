@@ -62,7 +62,7 @@ class OnboardingData {
     OnboardingPageData(
       title: "নোটিফিকেশন",
       description:
-          "আল-হাদিস অ্যাপ সম্পর্কিত বিভিন্ন গুরুত্বপুর্ণ নোটিফিকেশন পেতে নিচে \"সম্মতি দিচ্ছি\"বাটনে ক্লিক করুন",
+          "আল-হাদিস অ্যাপ সম্পর্কিত বিভিন্ন গুরুত্বপুর্ণ নোটিফিকেশন পেতে নিচে \"সম্মতি দিচ্ছি\" বাটনে ক্লিক করুন",
       svgIcon: onboardingImage4,
       primaryColor: onBoardingPrimary2,
       isMultiIcon: false,
