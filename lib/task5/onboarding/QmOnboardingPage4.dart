@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../widgets/colors.dart';
 import '../../widgets/style.dart';
 import '../../widgets/text_style.dart';
+import 'QmOnboardingPage5.dart';
 
 class QMOnboardingPage4 extends StatefulWidget {
   const QMOnboardingPage4({super.key});
@@ -71,12 +72,19 @@ class _QMOnboardingPage4State extends State<QMOnboardingPage4>
 
   void _onSkipPressed() {
     debugPrint('Skip button pressed');
-    // Add navigation logic here
+    // Navigate back to main menu
+    Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
   void _onConfirmPressed() {
     debugPrint('Confirm button pressed with language: $selectedLanguage');
-    // Add navigation logic here
+    // Navigate to the next onboarding page
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const QMOnboardingPage5(),
+      ),
+    );
   }
 
   @override

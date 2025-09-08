@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:shakil_new/task5/qm_onboarding_flow_screen.dart';
+import 'package:shakil_new/task5/onboarding/QmOnboardingPage1.dart';
 import 'package:shakil_new/task5/onboarding/QmOnboardingPage3.dart';
 import 'package:shakil_new/task5/onboarding/QmOnboardingPage4.dart';
 import 'package:shakil_new/task5/onboarding/QmOnboardingPage5.dart';
@@ -101,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen>
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const QMOnboardingPage4(),
+            builder: (context) => const QmOnboardingFlowScreen(),
           ),
         );
       }

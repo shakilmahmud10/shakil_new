@@ -75,7 +75,7 @@ class _QMOnboardingPage5State extends State<QMOnboardingPage5>
           Expanded(
             flex: 6,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   width: double.infinity,
@@ -154,10 +154,10 @@ class CustomSliderLoader extends StatelessWidget {
         // Progress Bar
         Container(
           width: double.infinity,
-          height: 8,
+          height: 12,
           decoration: BoxDecoration(
             color: qmDetailsText1.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: FractionallySizedBox(
             alignment: Alignment.centerLeft,
@@ -165,7 +165,7 @@ class CustomSliderLoader extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: qmPrimary1,
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
           ),

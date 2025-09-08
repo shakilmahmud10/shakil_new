@@ -6,6 +6,7 @@ import '../../widgets/colors.dart';
 import '../../widgets/style.dart';
 import '../../widgets/text_style.dart';
 import '../../widgets/images.dart';
+import 'QmOnboardingPage3.dart';
 
 class QMOnboardingPage2 extends StatefulWidget {
   const QMOnboardingPage2({super.key});
@@ -61,8 +62,11 @@ class _QMOnboardingPage2State extends State<QMOnboardingPage2>
   }
 
   void _onContinuePressed() {
-    // Add navigation logic here
-    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
+    // Navigate to Page3
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const QMOnboardingPage3()),
+    );
     debugPrint('Continue button pressed');
   }
 
@@ -76,7 +80,7 @@ class _QMOnboardingPage2State extends State<QMOnboardingPage2>
           Expanded(
             flex: 6,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   // color: Colors.amber,
@@ -98,7 +102,7 @@ class _QMOnboardingPage2State extends State<QMOnboardingPage2>
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: const Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(

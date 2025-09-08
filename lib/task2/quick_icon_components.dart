@@ -34,7 +34,7 @@ class QuranMajeedScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: kPrimaryGreen),
-          onPressed: () => Navigator.pop(context),
+          onPressed: (){Navigator.pop(context);},
           tooltip: 'Back',
         ),
         title: const Text(

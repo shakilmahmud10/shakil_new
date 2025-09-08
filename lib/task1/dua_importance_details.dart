@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/widgets/refectors.dart';
+import '../main.dart';
 import '../widgets/colors.dart';
 import '../widgets/style.dart';
 import '../widgets/images.dart';
@@ -252,7 +253,12 @@ class DuaImportanceDetails extends StatelessWidget {
             ],
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const FrontPage()),
+              );
+            },
             icon: const Icon(
               Icons.format_list_bulleted_rounded,
               color: Colors.white,
