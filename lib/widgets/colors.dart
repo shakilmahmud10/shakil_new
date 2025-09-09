@@ -92,12 +92,28 @@ const Color qmDetailsText1 = Color(0xFF301F17);
 
 const Color qmDisable = Color(0xFFDBC9BB);
 
- 
 const RadialGradient splashBGGradient1 = RadialGradient(
   colors: [
     Color(0xFFCD8F5C),
     Color(0xFF9C6139),
   ],
-  center: Alignment.center, 
+  center: Alignment.center,
   radius: 0.8,
 );
+
+//----------------Book Haven Color Code----------------//
+
+const Color bhTextPureDark = Color(0xFF212529);
+const Color bhPrimary1 = Color(0xFF78A36B);
+const Color bhCardBg = Color(0xFFf5f9f4);
+const Color bhButtonMutedBg = Color(0xFFddebd8);
+
+// Additional Book Haven Colors for Onboarding
+const Color bkBackgroundColor = Color(0xFFF8F7F5);
+const Color bkPrimaryGreen = Color(0xFF8FB776);
+const Color bkActiveIndicator = Color(0xFF8FB776);
+const Color bkInactiveIndicator = Color(0xFFD0D0D0);
+const Color bkHeaderTextColor = Color(0xFF212529);
+const Color bkDetailsTextColor = Color(0xFF64676A);
+const Color bkSecondaryButtonBg =
+    Color(0xFFE8F5E5); // Light green for secondary buttons

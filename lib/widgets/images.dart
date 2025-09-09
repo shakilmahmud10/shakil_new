@@ -137,3 +137,5 @@ const String bkArrowBackIcon = "assets/images/svg/bookHaven/arrowLeft1.svg";
 const String bkMessage1 = "assets/images/svg/bookHaven/sms.svg";
 const String bkMessageOutline1 = "assets/images/svg/bookHaven/smsOutline.svg";
 const String bkGoogleIcon = "assets/images/svg/bookHaven/googleIcon.svg";
+const String bkLockIcon = "assets/images/svg/bookHaven/lock.svg";
+const String bkEyeSlashIcon = "assets/images/svg/bookHaven/eye-slash.svg";

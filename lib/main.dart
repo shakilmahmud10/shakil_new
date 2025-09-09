@@ -6,6 +6,7 @@ import 'package:shakil_new/task1/challanges.dart';
 import 'package:shakil_new/task1/dua_importance.dart';
 import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
+import 'package:shakil_new/task6/onboarding/BkOnboardingPage1.dart';
 import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
 import 'task4/onboarding2.dart';
@@ -139,6 +140,18 @@ class _FrontPageState extends State<FrontPage> {
               child: const Text("Quran Majeed (Task5)"),
             ),
 
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BkOnboardingPage1(),
+                  ),
+                );
+              },
+              child: const Text("Book Haven (Task6)"),
+            ),
           ],
         ),
       ),

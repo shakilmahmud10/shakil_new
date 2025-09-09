@@ -65,3 +65,37 @@ const qmButtonTextStyle = TextStyle(
     color: Color(0xFFFFFFFF),
     fontFamily: 'Inter',
     height: 1.5);
+
+//---------------- Book Haven Text Style----------------//
+
+const bkHeaderTextStlye = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.w800,
+  color: Color(0xFF212529),
+  fontFamily: 'Inter',
+);
+
+const bkDetailsTextStyle = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: Color(0xFF64676A),
+  fontFamily: 'Inter',
+  height: 1.5,
+);
+
+const bkButtonTextStyle =
+    TextStyle(fontSize: 16, fontFamily: 'Inter', fontWeight: FontWeight.w600);
+
+const bkFormHeading1 = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: Color(0xFF212529),
+  fontFamily: 'Inter',
+);
+
+const bkFormDetails = TextStyle(
+  fontSize: 13,
+  fontWeight: FontWeight.w400,
+  color: Color(0xFF212529),
+  fontFamily: 'Inter',
+);
