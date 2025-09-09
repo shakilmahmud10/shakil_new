@@ -45,6 +45,13 @@ class _QmOnboardingFlowScreenState extends State<QmOnboardingFlowScreen>
     }
   }
 
+  @override
+  void didChangeMetrics() {
+    super.didChangeMetrics();
+    // Restart timer when system UI visibility changes (e.g., user drags up navigation bar)
+    _startNavigationBarHideTimer();
+  }
+
   void _setupStatusBar() {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -57,7 +64,7 @@ class _QmOnboardingFlowScreenState extends State<QmOnboardingFlowScreen>
 
   void _startNavigationBarHideTimer() {
     _navigationBarTimer?.cancel();
-    _navigationBarTimer = Timer(const Duration(seconds: 2), () {
+    _navigationBarTimer = Timer(const Duration(milliseconds: 1000), () {
       SystemChrome.setEnabledSystemUIMode(
         SystemUiMode.manual,
         overlays: [SystemUiOverlay.top],
@@ -95,7 +102,7 @@ class _QmOnboardingFlowScreenState extends State<QmOnboardingFlowScreen>
         itemCount: QmOnboardingData.pages.length,
         itemBuilder: (context, index) {
           final pageData = QmOnboardingData.pages[index];
-          
+
           if (pageData.isLanguageSelection) {
             return _buildLanguageSelectionPage(pageData);
           } else if (pageData.isProgressLoader) {
@@ -257,7 +264,7 @@ class _QmOnboardingFlowScreenState extends State<QmOnboardingFlowScreen>
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         decoration: BoxDecoration(
-                          color: qmDisable,
+                          color: qmCardBg,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
