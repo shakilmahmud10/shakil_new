@@ -135,51 +135,6 @@ class _BkOnboardingPage7State extends State<BkOnboardingPage7>
       // backgroundColor: bkBackgroundColor,
       body: Column(
         children: [
-          // Top navigation bar
-          // Container(
-          //   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       // Back button
-          //       InkWell(
-          //         onTap: _onBackPressed,
-          //         borderRadius: BorderRadius.circular(4),
-          //         child: Padding(
-          //           padding: const EdgeInsets.all(8.0),
-          //           child: SvgPicture.asset(
-          //             bkArrowBackIcon,
-          //             width: 24,
-          //             height: 24,
-          //             colorFilter: const ColorFilter.mode(
-          //               Color(0xFF64676A),
-          //               BlendMode.srcIn,
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-
-          //       // Skip button
-          //       InkWell(
-          //         onTap: _onSkipPressed,
-          //         borderRadius: BorderRadius.circular(4),
-          //         child: const Padding(
-          //           padding: EdgeInsets.all(8.0),
-          //           child: Text(
-          //             'Skip',
-          //             style: TextStyle(
-          //               fontSize: 16,
-          //               fontWeight: FontWeight.w400,
-          //               color: Color(0xFF64676A),
-          //               decoration: TextDecoration.underline,
-          //               fontFamily: 'Inter',
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
 
           // Main content
           Expanded(
@@ -463,7 +418,7 @@ class _BkOnboardingPage7State extends State<BkOnboardingPage7>
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: "Already have a ird account? ",
+                                text: "Already have a IRD account? ",
                                 style: bkDetailsTextStyle.copyWith(
                                   fontSize: 14,
                                   color: bhTextPureDark,

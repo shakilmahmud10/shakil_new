@@ -12,6 +12,7 @@ import 'task3/onboarding_flow_screen.dart';
 import 'task4/onboarding2.dart';
 import 'task5/splash_screen/splash_screen1.dart';
 import 'task5/onboarding/QmOnboardingPage1.dart';
+import 'task6/bk_onboarding_flow_screen.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -146,7 +147,7 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BkOnboardingPage1(),
+                    builder: (context) => const BkOnboardingFlowScreen(),
                   ),
                 );
               },
