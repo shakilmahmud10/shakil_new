@@ -93,6 +93,7 @@ class _QmOnboardingFlowScreenState extends State<QmOnboardingFlowScreen>
     return Scaffold(
       backgroundColor: splashBG1,
       body: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
