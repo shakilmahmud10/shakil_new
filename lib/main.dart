@@ -6,13 +6,15 @@ import 'package:shakil_new/task1/challanges.dart';
 import 'package:shakil_new/task1/dua_importance.dart';
 import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
-import 'package:shakil_new/task6/onboarding/BkOnboardingPage1.dart';
 import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
 import 'task4/onboarding2.dart';
 import 'task5/splash_screen/splash_screen1.dart';
 import 'task5/onboarding/QmOnboardingPage1.dart';
 import 'task6/bk_onboarding_flow_screen.dart';
+import 'task6/onboarding/BkOnboardingPage1.dart';
+import 'task7/swSplashScreen.dart';
+import 'task7/sw_onboarding1.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -147,11 +149,23 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const BkOnboardingFlowScreen(),
+                    builder: (context) => const BkOnboardingPage1(),
                   ),
                 );
               },
               child: const Text("Book Haven (Task6)"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SWonboarding1(),
+                  ),
+                );
+              },
+              child: const Text("Salat Waqt (Task7)"),
             ),
           ],
         ),

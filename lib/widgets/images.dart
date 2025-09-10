@@ -139,3 +139,11 @@ const String bkMessageOutline1 = "assets/images/svg/bookHaven/smsOutline.svg";
 const String bkGoogleIcon = "assets/images/svg/bookHaven/googleIcon.svg";
 const String bkLockIcon = "assets/images/svg/bookHaven/lock.svg";
 const String bkEyeSlashIcon = "assets/images/svg/bookHaven/eye-slash.svg";
+
+
+//----------------Salat Waqt Images----------------//
+
+const String swSplashIcon = "assets/images/svg/salatWaqt/masque.svg";
+const String swOnboarding1 = "assets/images/svg/salatWaqt/locationIcon.svg";
+const String swOnboarding2 = "assets/images/svg/salatWaqt/mosque2.svg";
+const String swOnboarding3 = "assets/images/svg/salatWaqt/bellRing1.svg";

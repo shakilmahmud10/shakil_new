@@ -117,3 +117,15 @@ const Color bkHeaderTextColor = Color(0xFF212529);
 const Color bkDetailsTextColor = Color(0xFF64676A);
 const Color bkSecondaryButtonBg =
     Color(0xFFE8F5E5); // Light green for secondary buttons
+
+//----------------Salat Waqt Color Code----------------//
+
+const Color swbackground = Color(0xFF0A0E1A);
+const Color swPrimaryColor = Color(0xFF4A80F0);
+// const Color swActiveIndicator = Color(0xFF8FB776);
+// const Color swInactiveIndicator = Color(0xFFD0D0D0);
+const Color swHeaderTextColor = Color(0xFFC1DBFA);
+const Color swDetailsTextColor = Color(0xFF516378);
+const Color swButtonTextColor = Color(0xFFFDFEFF);
+const Color indicatorNotActive = Color(0xFF7B90A8);
+const Color swSecondaryButtonBg = Color(0xFF516378);
