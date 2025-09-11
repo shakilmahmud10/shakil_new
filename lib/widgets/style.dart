@@ -99,3 +99,54 @@ const bkFormDetails = TextStyle(
   color: Color(0xFF212529),
   fontFamily: 'Inter',
 );
+
+//----------------Salat Waqt Text Style----------------//
+
+const TextStyle swheadline = TextStyle(
+  fontSize: 30.0,
+  fontFamily: '',
+  fontWeight: FontWeight.bold,
+  color: swHeaderTextColor,
+);
+const TextStyle swsubtitle = TextStyle(
+  fontSize: 20.0,
+  fontFamily: '',
+  fontWeight: FontWeight.normal,
+  color: swDetailsTextColor,
+);
+const TextStyle swbody = TextStyle(
+  fontSize: 16.0,
+  fontFamily: '',
+  fontWeight: FontWeight.normal,
+  color: swDetailsTextColor,
+  height: 1.5,
+);
+const TextStyle swbutton = TextStyle(
+  fontSize: 16.0,
+  fontFamily: '',
+  fontWeight: FontWeight.w600,
+  color: swButtonTextColor,
+);
+
+//----------------Healthy Food Text Style----------------//
+const TextStyle sftitle = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w800,
+    fontFamily: 'Karma',
+    color: titleText);
+// const TextStyle label = TextStyle(
+//     fontSize: 14,
+//     fontWeight: FontWeight.w500,
+//     color: Color.fromARGB(255, 15, 15, 15));
+const TextStyle sfhint = TextStyle(
+    fontSize: 14,
+    color: Colors.black,
+    fontFamily: 'KantumruyPro',
+    fontWeight: FontWeight.w400);
+const TextStyle sfbutton =
+    TextStyle(fontSize: 16, fontFamily: '', color: Colors.white);
+const TextStyle sfsmall = TextStyle(
+    fontSize: 14,
+    color: Color.fromARGB(255, 37, 37, 37),
+    fontFamily: 'KantumruyPro',
+    fontWeight: FontWeight.w500);

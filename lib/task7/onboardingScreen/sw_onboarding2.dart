@@ -4,59 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/widgets/images.dart';
 
-import '../widgets/colors.dart';
+import '../../widgets/colors.dart';
+import '../../widgets/style.dart';
 import 'sw_onboarding3.dart';
-
-// --- Constants ---
-
-class _AppColors {
-  // static const Color background = Color(0xFF0A0E1A);
-  // // static const Color gradientStart = Color(0xFF1A233D);
-  // static const Color primaryBlue = Color(0xFF4A80F0);
-  // static const Color textColor = Colors.white;
-  // static const Color headerTextColor = Color(0xFFC1DBFA);
-  // static const Color indicatorActive = Color(0xFFC1DBFA);
-  // static const Color indicatorNotActive = Color(0xFF7B90A8);
-  // static const Color subtitleColor = Color(0xFF516378);
-  // static const Color inactiveIndicator = Color(0xFF444B5E);
-}
-
-class _AppSpacers {
-  static const double screenPadding = 24.0;
-  static const double verticalSpaceS = 8.0;
-  static const double verticalSpaceM = 16.0;
-  static const double verticalSpaceL = 40.0;
-  static const double verticalSpaceXL = 50.0;
-  static const double verticalSpaceXXL = 60.0;
-}
-
-class _AppTextStyles {
-  static const TextStyle headline = TextStyle(
-    fontSize: 30.0,
-    fontFamily: '',
-    fontWeight: FontWeight.bold,
-    color: swHeaderTextColor,
-  );
-  static const TextStyle subtitle = TextStyle(
-    fontSize: 20.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-  );
-  static const TextStyle body = TextStyle(
-    fontSize: 16.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-    height: 1.5,
-  );
-  static const TextStyle button = TextStyle(
-    fontSize: 16.0,
-    fontFamily: '',
-    fontWeight: FontWeight.w600,
-    color: swButtonTextColor,
-  );
-}
 
 // --- Onboarding Screen ---
 
@@ -69,26 +19,17 @@ class SWonboarding2 extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFF01041F),
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 0.8,
-            colors: [
-              // Color(0xFF282E66), // Start color
-              Color(0xFF080D3F), // Start color
-              Color(0xFF01041F),
-            ],
-          ),
+          gradient: swsplashBGGradient1,
         ),
         child: const SafeArea(
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: _AppSpacers.screenPadding),
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
               children: [
                 Spacer(flex: 6),
-                ContentDisplay(),
+                SwContentDisplay2(),
                 Spacer(flex: 9),
-                _PageIndicator(),
+                SwPageIndicator2(),
                 Spacer(flex: 3),
                 // SizedBox(height: _AppSpacers.verticalSpaceM),
               ],
@@ -102,8 +43,8 @@ class SWonboarding2 extends StatelessWidget {
 
 // --- Reusable Widgets ---
 
-class ContentDisplay extends StatelessWidget {
-  const ContentDisplay({super.key});
+class SwContentDisplay2 extends StatelessWidget {
+  const SwContentDisplay2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -112,24 +53,24 @@ class ContentDisplay extends StatelessWidget {
       children: [
         const Text(
           'Madhab',
-          style: _AppTextStyles.headline,
+          style: swheadline,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceS),
+        const SizedBox(height: 8),
         const Text(
           '(School of Thought)',
-          style: _AppTextStyles.subtitle,
+          style: swsubtitle,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceXXL),
+        const SizedBox(height: 60),
         SvgPicture.asset(swOnboarding2),
-        const SizedBox(height: _AppSpacers.verticalSpaceXL),
-        SelectableList(
+        const SizedBox(height: 50),
+        SwSelectableList2(
           options: const [
             'Hanafi',
             'Shafi, Maliki, Hambli',
           ],
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceL),
-        const GradientButton(),
+        const SizedBox(height: 40),
+        const SwGradientButton2(),
       ],
     );
   }
@@ -160,7 +101,7 @@ class _EnableLocationButton extends StatelessWidget {
         ),
         child: const Text(
           'Enable location permission',
-          style: _AppTextStyles.button,
+          style: swbutton,
         ),
       ),
     );
@@ -169,8 +110,8 @@ class _EnableLocationButton extends StatelessWidget {
 
 // --- The Gradient Button Widget ---
 
-class GradientButton extends StatelessWidget {
-  const GradientButton({super.key});
+class SwGradientButton2 extends StatelessWidget {
+  const SwGradientButton2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -214,35 +155,35 @@ class GradientButton extends StatelessWidget {
         ),
         child: const Text(
           'Continue',
-          style: _AppTextStyles.button,
+          style: swbutton,
         ),
       ),
     );
   }
 }
 
-class _PageIndicator extends StatelessWidget {
-  const _PageIndicator();
+class SwPageIndicator2 extends StatelessWidget {
+  const SwPageIndicator2();
 
   @override
   Widget build(BuildContext context) {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _Indicator(isActive: false),
+        SwIndicator2(isActive: false),
         SizedBox(width: 8),
-        _Indicator(isActive: true),
+        SwIndicator2(isActive: true),
         SizedBox(width: 8),
-        _Indicator(isActive: false),
+        SwIndicator2(isActive: false),
       ],
     );
   }
 }
 
-class _Indicator extends StatelessWidget {
+class SwIndicator2 extends StatelessWidget {
   final bool isActive;
 
-  const _Indicator({required this.isActive});
+  const SwIndicator2({required this.isActive});
 
   @override
   Widget build(BuildContext context) {
@@ -258,12 +199,12 @@ class _Indicator extends StatelessWidget {
   }
 }
 
-class SelectableList extends StatefulWidget {
+class SwSelectableList2 extends StatefulWidget {
   final List<String> options;
   final int initialIndex;
   final Function(int index, String value)? onSelectionChanged;
 
-  const SelectableList({
+  const SwSelectableList2({
     super.key,
     required this.options,
     this.initialIndex = 0,
@@ -271,10 +212,10 @@ class SelectableList extends StatefulWidget {
   });
 
   @override
-  State<SelectableList> createState() => _SelectableListState();
+  State<SwSelectableList2> createState() => _SwSelectableList2State();
 }
 
-class _SelectableListState extends State<SelectableList> {
+class _SwSelectableList2State extends State<SwSelectableList2> {
   late int _selectedIndex;
 
   @override
@@ -284,30 +225,19 @@ class _SelectableListState extends State<SelectableList> {
   }
 
   // --- Constants for Styling ---
-  static const Color _containerColor = Color(0xFF202A3A);
-  static const Color _selectedItemColor = Color(0xFF2E3D56);
-  static const LinearGradient selectedGradient = LinearGradient(
-    colors: [Color(0xFF2F4866), Color(0xFF1A395E)],
-    end: Alignment.topRight,
-    begin: Alignment.bottomLeft,
-  );
-  static const LinearGradient nonSelectedGradient = LinearGradient(
-    colors: [Color(0xFF2F4866), Color(0xFF1A395E)],
-    end: Alignment.topRight,
-    begin: Alignment.bottomLeft,
-  );
+  // static const Color _containerColor = Color(0xFF202A3A);
 
-  static const Color _textColor = Color(0xFFC1DBFA);
-  static const Color _checkColor = Color(0xFFC0C5CC);
-  static const double _borderRadius = 12.0;
-  static const double _itemPadding = 16.0;
+  // static const Color _textColor = Color(0xFFC1DBFA);
+  // static const Color _checkColor = Color(0xFFC0C5CC);
+  // static const double _borderRadius = 12.0;
+  // static const double _itemPadding = 16.0;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(_borderRadius),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
-        color: _containerColor,
+        color: Color(0xFF202A3A),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: List.generate(widget.options.length, (index) {
@@ -344,7 +274,7 @@ class _SelectableListState extends State<SelectableList> {
         splashColor: Colors.transparent,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: _itemPadding,
+            horizontal: 16,
             vertical: 20.0,
           ),
           child: Row(
@@ -353,7 +283,7 @@ class _SelectableListState extends State<SelectableList> {
                 child: Text(
                   text,
                   style: TextStyle(
-                    color: _textColor,
+                    color: Color(0xFFC1DBFA),
                     fontSize: 16.0,
                     fontWeight: FontWeight.normal,
                   ),

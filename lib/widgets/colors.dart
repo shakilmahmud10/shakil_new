@@ -129,3 +129,28 @@ const Color swDetailsTextColor = Color(0xFF516378);
 const Color swButtonTextColor = Color(0xFFFDFEFF);
 const Color indicatorNotActive = Color(0xFF7B90A8);
 const Color swSecondaryButtonBg = Color(0xFF516378);
+const RadialGradient swsplashBGGradient1 = RadialGradient(
+  center: Alignment.center,
+  radius: 0.8,
+  colors: [
+    // Color(0xFF282E66), // Start color
+    Color(0xFF080D3F), // Start color
+    Color(0xFF01041F),
+  ],
+);
+
+//----------------HealtyFood  Color Code----------------//
+const Color hfbackground = Color(0xFFfcfff5);
+const Color hfPrimaryColor = Color(0xFF618e00);
+const Color hfSecoundryColor = Color(0xFFa7ca5d);
+const Color hfButtonColor = Color(0xFF618e00);
+
+const Color pageBackgroundTop = Color(0xFFFDF6F4); // very light cream
+const Color pageBackgroundBottom = Color(0xFFF3F7EE); // pale greenish cream
+const Color cardBackground = Color(0xFFFFFFFF);
+const Color paleGreen = Color(0xFFF5F7EE);
+const Color logoGreen = Color(0xFF618E00); // main olive green from image
+const Color buttonGreen = Color(0xFF608e00); // vivid button green
+const Color inputLine = Color(0xFFE5EAD8);
+const Color subtleText = Color(0xFF7B7B7B);
+const Color titleText = Color(0xFF283227);

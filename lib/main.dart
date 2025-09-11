@@ -6,6 +6,8 @@ import 'package:shakil_new/task1/challanges.dart';
 import 'package:shakil_new/task1/dua_importance.dart';
 import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
+import 'HealtFood (task8)/hfPage1.dart';
+import 'HealtFood (task8)/hfPage3.dart';
 import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
 import 'task4/onboarding2.dart';
@@ -13,9 +15,8 @@ import 'task5/splash_screen/splash_screen1.dart';
 import 'task5/onboarding/QmOnboardingPage1.dart';
 import 'task6/bk_onboarding_flow_screen.dart';
 import 'task6/onboarding/BkOnboardingPage1.dart';
-import 'task7/swSplash2.dart';
-import 'task7/swSplashScreen.dart';
-import 'task7/sw_onboarding1.dart';
+import 'task7/splashScreen/swSplash2.dart';
+import 'task7/onboardingScreen/sw_onboarding1.dart';
 import 'widgets/colors.dart';
 import 'widgets/style.dart';
 import 'widgets/images.dart';
@@ -167,6 +168,18 @@ class _FrontPageState extends State<FrontPage> {
                 );
               },
               child: const Text("Salat Waqt (Task7)"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HealthyFoodPage1(),
+                  ),
+                );
+              },
+              child: const Text("Salat Waqt (Task8)"),
             ),
           ],
         ),

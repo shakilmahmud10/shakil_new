@@ -4,58 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/widgets/images.dart';
 
-import '../widgets/colors.dart';
-
-// --- Constants ---
-
-class _AppColors {
-  // static const Color background = Color(0xFF0A0E1A);
-  // // static const Color gradientStart = Color(0xFF1A233D);
-  // static const Color primaryBlue = Color(0xFF4A80F0);
-  // static const Color textColor = Colors.white;
-  // static const Color headerTextColor = Color(0xFFC1DBFA);
-  // static const Color indicatorActive = Color(0xFFC1DBFA);
-  // static const Color indicatorNotActive = Color(0xFF7B90A8);
-  // static const Color subtitleColor = Color(0xFF516378);
-  // static const Color inactiveIndicator = Color(0xFF444B5E);
-}
-
-class _AppSpacers {
-  static const double screenPadding = 24.0;
-  static const double verticalSpaceS = 8.0;
-  static const double verticalSpaceM = 16.0;
-  static const double verticalSpaceL = 40.0;
-  static const double verticalSpaceXL = 50.0;
-  static const double verticalSpaceXXL = 60.0;
-}
-
-class _AppTextStyles {
-  static const TextStyle headline = TextStyle(
-    fontSize: 30.0,
-    fontFamily: '',
-    fontWeight: FontWeight.bold,
-    color: swHeaderTextColor,
-  );
-  static const TextStyle subtitle = TextStyle(
-    fontSize: 20.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-  );
-  static const TextStyle body = TextStyle(
-    fontSize: 16.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-    height: 1.5,
-  );
-  static const TextStyle button = TextStyle(
-    fontSize: 16.0,
-    fontFamily: '',
-    fontWeight: FontWeight.w600,
-    color: swButtonTextColor,
-  );
-}
+import '../../widgets/colors.dart';
+import '../../widgets/style.dart';
 
 // --- Onboarding Screen ---
 
@@ -68,26 +18,17 @@ class SWonboarding3 extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFF01041F),
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 0.8,
-            colors: [
-              // Color(0xFF282E66), // Start color
-              Color(0xFF080D3F), // Start color
-              Color(0xFF01041F),
-            ],
-          ),
+          gradient: swsplashBGGradient1,
         ),
         child: const SafeArea(
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: _AppSpacers.screenPadding),
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
                 Spacer(flex: 6),
-                ContentDisplay(),
+                SwContentDisplay3(),
                 Spacer(flex: 9),
-                _PageIndicator(),
+                SwPageIndicator3(),
                 Spacer(flex: 3),
                 // SizedBox(height: _AppSpacers.verticalSpaceM),
               ],
@@ -101,8 +42,8 @@ class SWonboarding3 extends StatelessWidget {
 
 // --- Reusable Widgets ---
 
-class ContentDisplay extends StatelessWidget {
-  const ContentDisplay({super.key});
+class SwContentDisplay3 extends StatelessWidget {
+  const SwContentDisplay3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,25 +52,25 @@ class ContentDisplay extends StatelessWidget {
       children: [
         const Text(
           'Notification',
-          style: _AppTextStyles.headline,
+          style: swheadline,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceS),
+        const SizedBox(height: 8),
         const Text(
           'Enable notifications to get updates',
-          style: _AppTextStyles.subtitle,
+          style: swsubtitle,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceXXL),
+        const SizedBox(height: 60),
         SvgPicture.asset(swOnboarding3),
-        const SizedBox(height: _AppSpacers.verticalSpaceXL),
-        NotificationToggleCard(
+        const SizedBox(height: 50),
+        SwNotificationToggleCard3(
           title: 'Enable Notifications',
           subtitle: 'Enable notifications to get updates',
           onChanged: (val) {
             print("Notifications toggled: $val");
           },
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceL),
-        const GradientButton(),
+        const SizedBox(height: 40),
+        const SwGradientButton3(),
       ],
     );
   }
@@ -137,8 +78,8 @@ class ContentDisplay extends StatelessWidget {
 
 // --- The Gradient Button Widget ---
 
-class GradientButton extends StatelessWidget {
-  const GradientButton({super.key});
+class SwGradientButton3 extends StatelessWidget {
+  const SwGradientButton3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -177,35 +118,35 @@ class GradientButton extends StatelessWidget {
         ),
         child: const Text(
           'Continue',
-          style: _AppTextStyles.button,
+          style: swbutton,
         ),
       ),
     );
   }
 }
 
-class _PageIndicator extends StatelessWidget {
-  const _PageIndicator();
+class SwPageIndicator3 extends StatelessWidget {
+  const SwPageIndicator3();
 
   @override
   Widget build(BuildContext context) {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _Indicator(isActive: false),
+        SwIndicator3(isActive: false),
         SizedBox(width: 8),
-        _Indicator(isActive: false),
+        SwIndicator3(isActive: false),
         SizedBox(width: 8),
-        _Indicator(isActive: true),
+        SwIndicator3(isActive: true),
       ],
     );
   }
 }
 
-class _Indicator extends StatelessWidget {
+class SwIndicator3 extends StatelessWidget {
   final bool isActive;
 
-  const _Indicator({required this.isActive});
+  const SwIndicator3({required this.isActive});
 
   @override
   Widget build(BuildContext context) {
@@ -221,13 +162,13 @@ class _Indicator extends StatelessWidget {
   }
 }
 
-class NotificationToggleCard extends StatefulWidget {
+class SwNotificationToggleCard3 extends StatefulWidget {
   final String title;
   final String subtitle;
   final bool initialValue;
   final ValueChanged<bool> onChanged;
 
-  const NotificationToggleCard({
+  const SwNotificationToggleCard3({
     Key? key,
     required this.title,
     required this.subtitle,
@@ -236,10 +177,11 @@ class NotificationToggleCard extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _NotificationToggleCardState createState() => _NotificationToggleCardState();
+  _SwNotificationToggleCard3State createState() =>
+      _SwNotificationToggleCard3State();
 }
 
-class _NotificationToggleCardState extends State<NotificationToggleCard> {
+class _SwNotificationToggleCard3State extends State<SwNotificationToggleCard3> {
   late bool isToggled;
 
   @override
@@ -286,7 +228,7 @@ class _NotificationToggleCardState extends State<NotificationToggleCard> {
           ),
 
           // Toggle Switch
-          CustomToggle(
+          SwCustomToggle3(
             initialValue: false,
             onChanged: (value) {
               print("Toggle is now: $value");
@@ -298,21 +240,21 @@ class _NotificationToggleCardState extends State<NotificationToggleCard> {
   }
 }
 
-class CustomToggle extends StatefulWidget {
+class SwCustomToggle3 extends StatefulWidget {
   final bool initialValue;
   final ValueChanged<bool> onChanged;
 
-  const CustomToggle({
+  const SwCustomToggle3({
     super.key,
     required this.initialValue,
     required this.onChanged,
   });
 
   @override
-  State<CustomToggle> createState() => _CustomToggleState();
+  State<SwCustomToggle3> createState() => _SwCustomToggle3State();
 }
 
-class _CustomToggleState extends State<CustomToggle>
+class _SwCustomToggle3State extends State<SwCustomToggle3>
     with SingleTickerProviderStateMixin {
   late bool _isOn;
 

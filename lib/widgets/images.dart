@@ -127,12 +127,12 @@ const String qmOnboarding2 = "assets/images/svg/quran_majeed/qOnboarding2.svg";
 const String qmOnboarding3 = "assets/images/svg/quran_majeed/qOnboarding3.svg";
 const String qmOnboarding5 = "assets/images/svg/quran_majeed/qOnboarding5.svg";
 
-
 //----------------Book Haven Images----------------//
 
 const String bkOnboarding1 = "assets/images/svg/bookHaven/bkOnboarding1.svg";
 
-const String bkArrowForwordIcon = "assets/images/svg/bookHaven/arrowRightIcon1.svg";
+const String bkArrowForwordIcon =
+    "assets/images/svg/bookHaven/arrowRightIcon1.svg";
 const String bkArrowBackIcon = "assets/images/svg/bookHaven/arrowLeft1.svg";
 const String bkMessage1 = "assets/images/svg/bookHaven/sms.svg";
 const String bkMessageOutline1 = "assets/images/svg/bookHaven/smsOutline.svg";
@@ -140,10 +140,23 @@ const String bkGoogleIcon = "assets/images/svg/bookHaven/googleIcon.svg";
 const String bkLockIcon = "assets/images/svg/bookHaven/lock.svg";
 const String bkEyeSlashIcon = "assets/images/svg/bookHaven/eye-slash.svg";
 
-
 //----------------Salat Waqt Images----------------//
 
 const String swSplashIcon = "assets/images/svg/salatWaqt/masque.svg";
 const String swOnboarding1 = "assets/images/svg/salatWaqt/locationIcon.svg";
 const String swOnboarding2 = "assets/images/svg/salatWaqt/mosque2.svg";
 const String swOnboarding3 = "assets/images/svg/salatWaqt/bellRing1.svg";
+
+//----------------HealtyFood Images----------------//
+
+const String hfArrowBackIcon = "assets/images/svg/healtyFood/arrow.svg";
+const String hfArrowBackIcon2 = "assets/images/svg/healtyFood/arrow2.svg";
+const String hfArrowGroup = "assets/images/svg/healtyFood/arrowGroup.svg";
+const String hfLogo = "assets/images/svg/healtyFood/logo.svg";
+const String hfRegIcon1 = "assets/images/svg/healtyFood/Profile.svg";
+const String hfRegIcon2 = "assets/images/svg/healtyFood/Message.svg";
+const String hfRegIcon3 = "assets/images/svg/healtyFood/Lock.svg";
+const String hfRegIcon4 = "assets/images/svg/healtyFood/Show.svg";
+const String hfBottomWave = "assets/images/svg/healtyFood/bottomWave.svg";
+const String hfBottomBG = "assets/images/svg/healtyFood/bottomBG.svg";
+const String hfFruits = "assets/images/svg/healtyFood/fruits.svg";

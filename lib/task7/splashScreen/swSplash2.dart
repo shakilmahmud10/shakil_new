@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'dart:async';
+
+import '../../widgets/colors.dart';
+import '../../widgets/images.dart';
+import '../onboardingScreen/sw_onboarding1.dart';
+import '../sw_onboarding_flow_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,17 +43,19 @@ class _swSplash2State extends State<swSplash2> {
 
     // Timer শেষ হলে onboarding এ যাবে
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Timer(const Duration(seconds: 4), () {
+      Timer(const Duration(seconds: 2), () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const sw_onboarding1()),
+          MaterialPageRoute(
+              // builder: (context) => const SwOnboardingFlowScreen()),
+              builder: (context) => const SWonboarding1()),
         );
       });
     });
   }
 
   void _startAnimation() {
-    _timer = Timer.periodic(const Duration(milliseconds: 300), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 150), (timer) {
       setState(() {
         for (int i = 0; i < _isActive.length; i++) {
           _isActive[i] = false;
@@ -69,17 +77,13 @@ class _swSplash2State extends State<swSplash2> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF0A1931), Color(0xFF183B56)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          gradient: swsplashBGGradient1,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Spacer(),
-            const Icon(Icons.mosque, size: 100, color: Colors.white70),
+            SvgPicture.asset(swSplashIcon),
             const SizedBox(height: 20),
             const Text(
               'Muslim Prayer Time',
@@ -98,41 +102,32 @@ class _swSplash2State extends State<swSplash2> {
               ),
             ),
             const Spacer(),
-
-            // Fixed height দিয়েছি, তাই আর up/down করবে না
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(6, (index) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  height: 30, // Fixed height
-                  width: _isActive[index] ? 12 : 8,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+                return Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  height: 80, // <-- fix height রাখলাম
+                  width: 12,
+                  alignment: Alignment.center, // <-- সবসময় center এ থাকবে
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    height: _isActive[index]
+                        ? 70
+                        : 24, // <-- height শুধু ভিতরেরটা change হচ্ছে
+                    width: 8,
+                    decoration: BoxDecoration(
+                      color: _isActive[index]
+                          ? swHeaderTextColor
+                          : swDetailsTextColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 );
               }),
             ),
             const SizedBox(height: 50),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-// Onboarding screen
-class sw_onboarding1 extends StatelessWidget {
-  const sw_onboarding1({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'This is the Onboarding Screen',
-          style: TextStyle(fontSize: 22),
         ),
       ),
     );

@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/task7/sw_onboarding2.dart';
+import 'package:shakil_new/task7/onboardingScreen/sw_onboarding2.dart';
 
-import '../widgets/colors.dart';
-import '../widgets/images.dart';
+import '../../widgets/colors.dart';
+import '../../widgets/images.dart';
+import '../../widgets/style.dart';
 
 // --- Constants ---
 
@@ -21,43 +22,6 @@ import '../widgets/images.dart';
 //   static const Color inactiveIndicator = Color(0xFF444B5E);
 // }
 
-class _AppSpacers {
-  static const double screenPadding = 24.0;
-  static const double verticalSpaceS = 8.0;
-  static const double verticalSpaceM = 16.0;
-  static const double verticalSpaceL = 40.0;
-  static const double verticalSpaceXL = 50.0;
-  static const double verticalSpaceXXL = 60.0;
-}
-
-class _AppTextStyles {
-  static const TextStyle headline = TextStyle(
-    fontSize: 30.0,
-    fontFamily: '',
-    fontWeight: FontWeight.bold,
-    color: swHeaderTextColor,
-  );
-  static const TextStyle subtitle = TextStyle(
-    fontSize: 20.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-  );
-  static const TextStyle body = TextStyle(
-    fontSize: 18.0,
-    fontFamily: '',
-    fontWeight: FontWeight.normal,
-    color: swDetailsTextColor,
-    height: 1.5,
-  );
-  static const TextStyle button = TextStyle(
-    fontSize: 16.0,
-    fontFamily: '',
-    fontWeight: FontWeight.w500,
-    color: swButtonTextColor,
-  );
-}
-
 // --- Onboarding Screen ---
 
 class SWonboarding1 extends StatelessWidget {
@@ -68,27 +32,16 @@ class SWonboarding1 extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          color: Color(0xFF01041F),
-          gradient: RadialGradient(
-            center: Alignment.center,
-            radius: 0.8,
-            colors: [
-              // Color(0xFF282E66), // Start color
-              Color(0xFF080D3F), // Start color
-              Color(0xFF01041F),
-            ],
-          ),
-        ),
+            color: Color(0xFF01041F), gradient: swsplashBGGradient1),
         child: const SafeArea(
           child: Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: _AppSpacers.screenPadding),
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
               children: [
                 Spacer(flex: 6),
-                ContentDisplay(),
+                SwContentDisplay1(),
                 Spacer(flex: 9),
-                _PageIndicator(),
+                SwPageIndicator1(),
                 Spacer(flex: 3),
                 // SizedBox(height: _AppSpacers.verticalSpaceM),
               ],
@@ -102,8 +55,8 @@ class SWonboarding1 extends StatelessWidget {
 
 // --- Reusable Widgets ---
 
-class ContentDisplay extends StatelessWidget {
-  const ContentDisplay({super.key});
+class SwContentDisplay1 extends StatelessWidget {
+  const SwContentDisplay1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -112,64 +65,32 @@ class ContentDisplay extends StatelessWidget {
       children: [
         const Text(
           'Location',
-          style: _AppTextStyles.headline,
+          style: swheadline,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceS),
+        const SizedBox(height: 8.0),
         const Text(
           'Enable location permission',
-          style: _AppTextStyles.subtitle,
+          style: swsubtitle,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceXXL),
+        const SizedBox(height: 60.0),
         SvgPicture.asset(swOnboarding1),
-        const SizedBox(height: _AppSpacers.verticalSpaceXL),
+        const SizedBox(height: 50),
         const Text(
           'Enable location permissions to find your local prayer times & calculate qibla directions.',
           textAlign: TextAlign.center,
-          style: _AppTextStyles.body,
+          style: swbody,
         ),
-        const SizedBox(height: _AppSpacers.verticalSpaceL),
-        const GradientButton(),
+        const SizedBox(height: 40),
+        const SwGradientButton1(),
       ],
-    );
-  }
-}
-
-class _EnableLocationButton extends StatelessWidget {
-  const _EnableLocationButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {
-          // Handle button press
-        },
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(swPrimaryColor),
-          padding: WidgetStateProperty.all(
-            const EdgeInsets.symmetric(vertical: 18),
-          ),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-          ),
-          elevation: WidgetStateProperty.all(0),
-        ),
-        child: const Text(
-          'Enable location permission',
-          style: _AppTextStyles.button,
-        ),
-      ),
     );
   }
 }
 
 // --- The Gradient Button Widget ---
 
-class GradientButton extends StatelessWidget {
-  const GradientButton({super.key});
+class SwGradientButton1 extends StatelessWidget {
+  const SwGradientButton1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -213,35 +134,35 @@ class GradientButton extends StatelessWidget {
         ),
         child: Text(
           'Enable location permission',
-          style: _AppTextStyles.button,
+          style: swbutton,
         ),
       ),
     );
   }
 }
 
-class _PageIndicator extends StatelessWidget {
-  const _PageIndicator();
+class SwPageIndicator1 extends StatelessWidget {
+  const SwPageIndicator1();
 
   @override
   Widget build(BuildContext context) {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _Indicator(isActive: true),
+        SwIndicator1(isActive: true),
         SizedBox(width: 8),
-        _Indicator(isActive: false),
+        SwIndicator1(isActive: false),
         SizedBox(width: 8),
-        _Indicator(isActive: false),
+        SwIndicator1(isActive: false),
       ],
     );
   }
 }
 
-class _Indicator extends StatelessWidget {
+class SwIndicator1 extends StatelessWidget {
   final bool isActive;
 
-  const _Indicator({required this.isActive});
+  const SwIndicator1({required this.isActive});
 
   @override
   Widget build(BuildContext context) {
