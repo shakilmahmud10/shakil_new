@@ -141,7 +141,7 @@ const RadialGradient swsplashBGGradient1 = RadialGradient(
 
 //----------------HealtyFood  Color Code----------------//
 const Color hfbackground = Color(0xFFfcfff5);
-const Color hfPrimaryColor = Color(0xFF618e00);
+const Color hfPrimaryColor = Color(0xFF618E00);
 const Color hfSecoundryColor = Color(0xFFa7ca5d);
 const Color hfButtonColor = Color(0xFF618e00);
 

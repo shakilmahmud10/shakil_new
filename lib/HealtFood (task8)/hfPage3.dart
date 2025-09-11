@@ -58,7 +58,7 @@ class _HealthyFoodPage3State extends State<HealthyFoodPage3> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
 
-      /// ✅ bottom wave এখানে রাখলাম
+      /// ✅ bottom wave ঠিক জায়গায় আছে
       bottomNavigationBar: SvgPicture.asset(
         hfBottomWave,
         width: MediaQuery.of(context).size.width,
@@ -70,58 +70,44 @@ class _HealthyFoodPage3State extends State<HealthyFoodPage3> {
         height: double.infinity,
         color: hfbackground,
         child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight -
-                        MediaQuery.of(context)
-                            .viewInsets
-                            .bottom, // ✅ keyboard respect
-                  ),
-                  child: IntrinsicHeight(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: SvgPicture.asset(hfArrowBackIcon),
-                        ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            // ✅ LayoutBuilder, ConstrainedBox, IntrinsicHeight সরিয়ে একটি সাধারণ Column ব্যবহার করা হয়েছে
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // উপরের অংশ (Top Section)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: SvgPicture.asset(hfArrowBackIcon),
+                ),
+                const SizedBox(height: 6),
+                SvgPicture.asset(hfLogo),
 
-                        const SizedBox(height: 6),
-                        SvgPicture.asset(hfLogo),
-
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: FractionallySizedBox(
-                              widthFactor: 1,
-                              child: RegistrationCard(
-                                formKey: _formKey,
-                                nameCtrl: _nameCtrl,
-                                emailCtrl: _emailCtrl,
-                                passCtrl: _passCtrl,
-                                obscure: _obscure,
-                                toggleObscure: () =>
-                                    setState(() => _obscure = !_obscure),
-                                acceptTerms: _acceptTerms,
-                                onAcceptChanged: (v) =>
-                                    setState(() => _acceptTerms = v),
-                                onSubmit: () {},
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 30), // কিছু ফাঁকা জায়গা
-                      ],
+                // ✅ মূল পরিবর্তন এখানে: Expanded উইজেট
+                // এটি উপরের উইজেটগুলো বাদে বাকি সব খালি জায়গা নিয়ে নিবে
+                // এবং তার ভেতরের কন্টেন্টকে মাঝখানে রাখবে।
+                Expanded(
+                  child: Center(
+                    // Center উইজেট কার্ডটিকে উল্লম্বভাবে (vertically) মাঝখানে রাখে
+                    child: RegistrationCard(
+                      formKey: _formKey,
+                      nameCtrl: _nameCtrl,
+                      emailCtrl: _emailCtrl,
+                      passCtrl: _passCtrl,
+                      obscure: _obscure,
+                      toggleObscure: () => setState(() => _obscure = !_obscure),
+                      acceptTerms: _acceptTerms,
+                      onAcceptChanged: (v) => setState(
+                          () => _acceptTerms = v!), // null safety-এর জন্য 'v!'
+                      onSubmit: () {
+                        // Handle submission logic
+                      },
                     ),
                   ),
                 ),
-              );
-            },
+              ],
+            ),
           ),
         ),
       ),
@@ -220,12 +206,11 @@ class RegistrationCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: SizedBox(
                     width: 46,
-                    height: 30, 
+                    height: 30,
                     child: FittedBox(
                       fit: BoxFit.contain,
                       child: Switch(

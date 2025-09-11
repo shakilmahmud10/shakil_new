@@ -58,7 +58,7 @@ class _HealthyFoodPage2State extends State<HealthyFoodPage2> {
                             children: [
                               const SizedBox(height: 20),
                               // Back arrow
-                              SvgPicture.asset(hfArrowBackIcon),
+                              // SvgPicture.asset(hfArrowBackIcon),
 
                               // const SizedBox(height: 20),
 
@@ -169,7 +169,8 @@ class _HealthyFoodPage2State extends State<HealthyFoodPage2> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: subtleText,
+                                  color:
+                                      const Color(0xFF465105).withOpacity(0.6),
                                   height: 1.4,
                                 ),
                               ),
