@@ -6,8 +6,8 @@ import 'package:shakil_new/task1/challanges.dart';
 import 'package:shakil_new/task1/dua_importance.dart';
 import 'package:shakil_new/task1/dua_importance_details.dart';
 import 'package:shakil_new/task2/quick_icon_components.dart';
-import 'HealtFood (task8)/hfPage1.dart';
-import 'HealtFood (task8)/hfPage3.dart';
+import 'task8(HealthyFood)/hfPage1.dart';
+import 'task8(HealthyFood)/hfPage3.dart';
 import 'task1/reading_dua.dart';
 import 'task3/onboarding_flow_screen.dart';
 import 'task4/onboarding2.dart';
@@ -175,7 +175,7 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HealthyFoodPage1(),
+                    builder: (context) => const HealthyFoodPage1(),
                   ),
                 );
               },
