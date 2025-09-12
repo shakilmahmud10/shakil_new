@@ -22,7 +22,7 @@ class _HealthyFoodPage2State extends State<HealthyFoodPage2> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
+  return Scaffold(
   body: Container(
     width: double.infinity,
     height: double.infinity,
@@ -75,7 +75,6 @@ class _HealthyFoodPage2State extends State<HealthyFoodPage2> {
               height: screenHeight - MediaQuery.of(context).padding.top,
               child: Column(
                 children: [
-                  // Top section with back arrow
                   Expanded(
                     flex: 6,
                     child: Padding(

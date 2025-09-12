@@ -41,6 +41,17 @@ class _HealthyFoodPage1State extends State<HealthyFoodPage1> {
               ),
             ),
 
+            /// === Fruits Background (Full screen) ===
+            Positioned(
+              top: screenWidth * 0.2,
+              left: 0,
+              right: 0,
+              child: SvgPicture.asset(
+                hfFruits,
+                fit: BoxFit.cover,
+              ),
+            ),
+
             // Main scrollable content
             SafeArea(
               child: SingleChildScrollView(
@@ -48,42 +59,55 @@ class _HealthyFoodPage1State extends State<HealthyFoodPage1> {
                   height: screenHeight - MediaQuery.of(context).padding.top,
                   child: Column(
                     children: [
-                      // Top section with back arrow and fruits
+                      // Expanded(
+                      //   flex: 3,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.symmetric(horizontal: 20),
+                      //     child: Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         const SizedBox(height: 20),
+                      //         // Back arrow
+                      //         // SvgPicture.asset(hfArrowBackIcon),
+
+                      //         // const SizedBox(height: 20),
+
+                      //         // Fruits illustration - centered and scaled appropriately
+                      //         Expanded(
+                      //           child: Center(
+                      //             child: Container(
+                      //               width: screenWidth * 1,
+                      //               height: double.infinity,
+                      //               // height: screenHeight * 0.35,
+                      //               child: SvgPicture.asset(
+                      //                 hfFruits, // Your all fruits in single SVG
+                      //                 fit: BoxFit.contain,
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+
                       Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 20),
-                              // Back arrow
-                              // SvgPicture.asset(hfArrowBackIcon),
-
-                              // const SizedBox(height: 20),
-
-                              // Fruits illustration - centered and scaled appropriately
-                              Expanded(
-                                child: Center(
-                                  child: Container(
-                                    width: screenWidth * 1,
-                                    height: double.infinity,
-                                    // height: screenHeight * 0.35,
-                                    child: SvgPicture.asset(
-                                      hfFruits, // Your all fruits in single SVG
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                    flex: 6,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          SizedBox(height: 20),
+                          // SvgPicture.asset(hfArrowBackIcon),
+                        ],
                       ),
+                    ),
+                  ),
 
                       // Bottom section with text and button (over the wave)
                       Expanded(
-                        flex: 2,
+                        flex: 5,
                         child: Container(
                           width: double.infinity,
                           padding: const EdgeInsets.symmetric(
