@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/task1/dua_importance.dart';
+import 'package:shakil_new/Challanges/dua_importance.dart';
 import '../widgets/colors.dart';
 import '../widgets/refectors.dart';
 import '../widgets/style.dart';

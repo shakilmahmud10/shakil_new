@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shakil_new/task2/muslim_prime.dart';
+import 'package:shakil_new/Icon%20Components/muslim_prime.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
 

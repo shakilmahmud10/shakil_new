@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/task7/onboardingScreen/sw_onboarding2.dart';
+import 'package:shakil_new/Muslim%20Prayer%20Time/onboardingScreen/sw_onboarding2.dart';
 
 import '../../widgets/colors.dart';
 import '../../widgets/images.dart';

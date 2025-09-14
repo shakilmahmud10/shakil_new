@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter_svg/svg.dart';
-import 'package:shakil_new/task5/qm_onboarding_flow_screen.dart';
-import 'package:shakil_new/task5/onboarding/QmOnboardingPage1.dart';
-import 'package:shakil_new/task5/onboarding/QmOnboardingPage3.dart';
-import 'package:shakil_new/task5/onboarding/QmOnboardingPage4.dart';
-import 'package:shakil_new/task5/onboarding/QmOnboardingPage5.dart';
+import 'package:shakil_new/Quran%20Majeed/qm_onboarding_flow_screen.dart';
+import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage1.dart';
+import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage3.dart';
+import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage4.dart';
+import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage5.dart';
 import 'package:shakil_new/widgets/images.dart';
 
 import '../../widgets/colors.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/task6/onboarding/BkOnboardingPage3.dart';
+import 'package:shakil_new/Book%20Haven/onboarding/BkOnboardingPage3.dart';
 import '../../widgets/colors.dart';
 import '../../widgets/style.dart';
 import '../../widgets/text_style.dart';

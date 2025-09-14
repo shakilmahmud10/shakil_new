@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shakil_new/task2/prayer_and_others.dart';
+import 'package:shakil_new/Icon%20Components/prayer_and_others.dart';
 import '../widgets/colors.dart';
 import '../widgets/images.dart';
 
