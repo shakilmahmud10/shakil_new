@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/Food%20Blog/hfPage6.dart';
 
-import '../widgets/colors.dart';
-import '../widgets/images.dart';
-import '../widgets/style.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/images.dart';
+import '../Core Components/style.dart';
 
 /// ---------------------------
 /// Main ForgotPassword Screen

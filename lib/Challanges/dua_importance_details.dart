@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shakil_new/widgets/refectors.dart';
+import 'package:shakil_new/Core%20Components/refectors.dart';
 import '../main.dart';
-import '../widgets/colors.dart';
-import '../widgets/style.dart';
-import '../widgets/images.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/style.dart';
+import '../Core Components/images.dart';
 
 class AppPalette {
   // Carefully matched to your Tailwind variables

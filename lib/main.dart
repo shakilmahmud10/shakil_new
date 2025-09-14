@@ -17,9 +17,9 @@ import 'Book Haven/bk_onboarding_flow_screen.dart';
 import 'Book Haven/onboarding/BkOnboardingPage1.dart';
 import 'Muslim Prayer Time/splashScreen/swSplash2.dart';
 import 'Muslim Prayer Time/onboardingScreen/sw_onboarding1.dart';
-import 'widgets/colors.dart';
-import 'widgets/style.dart';
-import 'widgets/images.dart';
+import 'Core Components/colors.dart';
+import 'Core Components/style.dart';
+import 'Core Components/images.dart';
 
 //--------------------------------
 void main() {

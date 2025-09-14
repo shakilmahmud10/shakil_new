@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/Challanges/dua_importance.dart';
-import '../widgets/colors.dart';
-import '../widgets/refectors.dart';
-import '../widgets/style.dart';
-import '../widgets/images.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/refectors.dart';
+import '../Core Components/style.dart';
+import '../Core Components/images.dart';
 
 class ReadingDua extends StatelessWidget {
   const ReadingDua({super.key});

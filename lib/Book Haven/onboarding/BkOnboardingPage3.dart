@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/Book%20Haven/onboarding/BkOnboardingPage4.dart';
-import '../../widgets/colors.dart';
-import '../../widgets/style.dart';
-import '../../widgets/text_style.dart';
-import '../../widgets/images.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/style.dart';
+import '../../Core Components/text_style.dart';
+import '../../Core Components/images.dart';
 
 class BkOnboardingPage3 extends StatefulWidget {
   const BkOnboardingPage3({super.key});

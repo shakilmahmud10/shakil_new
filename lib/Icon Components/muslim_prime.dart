@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../widgets/colors.dart';
-import '../widgets/images.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/images.dart';
 
 class MuslimPrime extends StatelessWidget {
   const MuslimPrime({super.key});

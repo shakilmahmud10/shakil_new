@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shakil_new/widgets/images.dart';
+import 'package:shakil_new/Core%20Components/images.dart';
 import 'colors.dart';
 
 class kSearchBar extends StatelessWidget {

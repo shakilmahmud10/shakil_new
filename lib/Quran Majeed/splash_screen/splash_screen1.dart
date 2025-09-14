@@ -7,9 +7,9 @@ import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage1.dart';
 import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage3.dart';
 import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage4.dart';
 import 'package:shakil_new/Quran%20Majeed/onboarding/QmOnboardingPage5.dart';
-import 'package:shakil_new/widgets/images.dart';
+import 'package:shakil_new/Core%20Components/images.dart';
 
-import '../../widgets/colors.dart';
+import '../../Core Components/colors.dart';
 import '../onboarding/QmOnboardingPage1.dart';
 import '../onboarding/QmOnboardingPage2.dart';
 

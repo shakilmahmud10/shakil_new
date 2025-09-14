@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../widgets/colors.dart';
+import '../../Core Components/colors.dart';
 
 class BackgroundCirclesWidget extends StatelessWidget {
   final Color primaryColor;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/colors.dart';
-import '../../widgets/images.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/images.dart';
 
 class BkOnboardingPageData {
   final String title;

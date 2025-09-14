@@ -1,11 +1,11 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:shakil_new/widgets/refectors.dart';
+import 'package:shakil_new/Core%20Components/refectors.dart';
 import 'dua_importance_details.dart';
-import '../widgets/colors.dart';
-import '../widgets/style.dart';
-import '../widgets/images.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/style.dart';
+import '../Core Components/images.dart';
 
 
 class DuaImportance extends StatefulWidget {

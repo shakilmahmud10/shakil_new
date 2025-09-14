@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shakil_new/Icon%20Components/muslim_prime.dart';
-import '../widgets/colors.dart';
-import '../widgets/images.dart';
+import '../Core Components/colors.dart';
+import '../Core Components/images.dart';
 
 class PrayerAndOthers extends StatelessWidget {
   const PrayerAndOthers({super.key});

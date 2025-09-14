@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../widgets/colors.dart';
-import '../../widgets/style.dart';
-import '../../widgets/text_style.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/style.dart';
+import '../../Core Components/text_style.dart';
 import 'QmOnboardingPage5.dart';
 
 class QMOnboardingPage4 extends StatefulWidget {

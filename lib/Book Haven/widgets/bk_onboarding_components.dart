@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../widgets/colors.dart';
-import '../../widgets/style.dart';
-import '../../widgets/images.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/style.dart';
+import '../../Core Components/images.dart';
 
 // Page Message Component (header and details)
 class BkPageMessage extends StatelessWidget {

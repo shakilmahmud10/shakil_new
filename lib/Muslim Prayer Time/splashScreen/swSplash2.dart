@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:async';
 
-import '../../widgets/colors.dart';
-import '../../widgets/images.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/images.dart';
 import '../onboardingScreen/sw_onboarding1.dart';
 import '../sw_onboarding_flow_screen.dart';
 

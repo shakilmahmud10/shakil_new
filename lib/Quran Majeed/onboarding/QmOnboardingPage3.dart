@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../widgets/colors.dart';
-import '../../widgets/style.dart';
-import '../../widgets/text_style.dart';
-import '../../widgets/images.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/style.dart';
+import '../../Core Components/text_style.dart';
+import '../../Core Components/images.dart';
 import 'QmOnboardingPage4.dart';
 
 // ignore: camel_case_types

@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shakil_new/widgets/images.dart';
+import 'package:shakil_new/Core%20Components/images.dart';
 
-import '../../widgets/colors.dart';
-import '../../widgets/style.dart';
+import '../../Core Components/colors.dart';
+import '../../Core Components/style.dart';
 import 'sw_onboarding3.dart';
 
 // --- Onboarding Screen ---
