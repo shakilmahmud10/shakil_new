@@ -6,6 +6,7 @@ import 'package:shakil_new/Challanges/challanges.dart';
 import 'package:shakil_new/Challanges/dua_importance.dart';
 import 'package:shakil_new/Challanges/dua_importance_details.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
+import 'package:shakil_new/reuseable_widget/icon_widget.dart';
 import 'Food Blog/hfPage1.dart';
 import 'Food Blog/hfPage3.dart';
 import 'Challanges/reading_dua.dart';
@@ -180,6 +181,18 @@ class _FrontPageState extends State<FrontPage> {
                 );
               },
               child: const Text("Salat Waqt (Task8)"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const IconWidget(),
+                  ),
+                );
+              },
+              child: const Text("Reusable Widgets(Task9)"),
             ),
           ],
         ),
