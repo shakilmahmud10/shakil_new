@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+// void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'No-Paint Dashed Expansion',
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xFFF2F5F4),
-        textTheme: const TextTheme(
-          titleMedium: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF0F172A)),
-          bodyMedium: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Color(0xFF0F172A)),
-          labelSmall: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: Color.fromARGB(255, 162, 139, 139)),
-        ),
-      ),
-      home: const DuaRuqya(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'No-Paint Dashed Expansion',
+//       theme: ThemeData(
+//         useMaterial3: true,
+//         scaffoldBackgroundColor: const Color(0xFFF2F5F4),
+//         textTheme: const TextTheme(
+//           titleMedium: TextStyle(
+//               fontSize: 16,
+//               fontWeight: FontWeight.w600,
+//               color: Color(0xFF0F172A)),
+//           bodyMedium: TextStyle(
+//               fontSize: 14,
+//               fontWeight: FontWeight.w500,
+//               color: Color(0xFF0F172A)),
+//           labelSmall: TextStyle(
+//               fontSize: 12,
+//               fontWeight: FontWeight.w400,
+//               color: Color.fromARGB(255, 162, 139, 139)),
+//         ),
+//       ),
+//       home: const DuaRuqya(),
+//     );
+//   }
+// }
 
 class DuaRuqya extends StatelessWidget {
   const DuaRuqya({super.key});
@@ -47,13 +47,13 @@ class DuaRuqya extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         children: const [
-          DashedExpansionTileNoPaint(
+          CustomExpansionTile(
             title: 'Dua Acceptance',
             subtitle: '1 Subcategories | 14 Duas',
             number: 1,
           ),
           SizedBox(height: 12),
-          DashedExpansionTileNoPaint(
+          CustomExpansionTile(
             title: 'Morning & Evening',
             subtitle: '3 Subcategories | 45 Duas',
             icon: Icons.wb_sunny_outlined,
@@ -65,16 +65,24 @@ class DuaRuqya extends StatelessWidget {
             ],
           ),
           SizedBox(height: 12),
-          DashedExpansionTileNoPaint(
+          CustomExpansionTile(
             title: 'Sleep',
             subtitle: '2 Subcategories | 31 Duas',
             icon: Icons.nightlight_outlined,
           ),
           SizedBox(height: 12),
-          DashedExpansionTileNoPaint(
+          CustomExpansionTile(
             title: 'Cloths',
             subtitle: '1 Subcategories | 8 Duas',
             icon: Icons.checkroom_outlined,
+            childrenLabels: [
+              'Dhikr in busy state',
+              'Morning & Evening Adhkar',
+              'Excellence of dua in the morning & evening',
+              'Excellence of dua in the morning & evening',
+              'Morning & Evening Adhkar',
+              'Dhikr in busy state',
+            ],
           ),
         ],
       ),
@@ -84,7 +92,7 @@ class DuaRuqya extends StatelessWidget {
 
 /// Reusable expansion tile where the dashed connector is built only with borders
 /// (no painter, no packages). Dash color is gray by default.
-class DashedExpansionTileNoPaint extends StatefulWidget {
+class CustomExpansionTile extends StatefulWidget {
   // required
   final String title;
   final String subtitle;
@@ -102,7 +110,7 @@ class DashedExpansionTileNoPaint extends StatefulWidget {
   final Color dashColor; // gray
   final bool initiallyExpanded;
 
-  const DashedExpansionTileNoPaint({
+  const CustomExpansionTile({
     super.key,
     required this.title,
     required this.subtitle,
@@ -116,11 +124,10 @@ class DashedExpansionTileNoPaint extends StatefulWidget {
   });
 
   @override
-  State<DashedExpansionTileNoPaint> createState() =>
-      _DashedExpansionTileNoPaintState();
+  State<CustomExpansionTile> createState() => _CustomExpansionTileState();
 }
 
-class _DashedExpansionTileNoPaintState extends State<DashedExpansionTileNoPaint>
+class _CustomExpansionTileState extends State<CustomExpansionTile>
     with TickerProviderStateMixin {
   static const double _radius = 14;
   static const double _padH = 14;
@@ -291,7 +298,7 @@ class _ExpandedBodyNoPaint extends StatelessWidget {
                   children: [
                     _HorizontalDashByBorder(
                         color: dashColor,
-                        width: 30,
+                        width: 50,
                         dash: 6,
                         gap: 6,
                         thickness: 2),
