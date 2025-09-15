@@ -7,6 +7,7 @@ import 'package:shakil_new/Challanges/dua_importance.dart';
 import 'package:shakil_new/Challanges/dua_importance_details.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
 import 'package:shakil_new/reuseable_widget/icon_widget.dart';
+import 'package:shakil_new/reuseable_widget/icon_widget3.dart';
 import 'Food Blog/hfPage1.dart';
 import 'Food Blog/hfPage3.dart';
 import 'Challanges/reading_dua.dart';
@@ -21,6 +22,7 @@ import 'Muslim Prayer Time/onboardingScreen/sw_onboarding1.dart';
 import 'Core Components/colors.dart';
 import 'Core Components/style.dart';
 import 'Core Components/images.dart';
+import 'reuseable_widget/icon_widget2.dart';
 
 //--------------------------------
 void main() {
@@ -188,7 +190,7 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const IconWidget(),
+                    builder: (context) => const IconWidget2(),
                   ),
                 );
               },
