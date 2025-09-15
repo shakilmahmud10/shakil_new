@@ -6,7 +6,8 @@ import 'package:shakil_new/Challanges/challanges.dart';
 import 'package:shakil_new/Challanges/dua_importance.dart';
 import 'package:shakil_new/Challanges/dua_importance_details.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
-import 'package:shakil_new/dua_ruqyah/new.dart';
+import 'package:shakil_new/dua_ruqyah/dua.dart';
+// import 'package:shakil_new/dua_ruqyah/new.dart';
 import 'package:shakil_new/reuseable_widget/icon_widget.dart';
 import 'package:shakil_new/reuseable_widget/icon_widget3.dart';
 import 'Food Blog/hfPage1.dart';
@@ -203,7 +204,8 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const DuaRuqya(),
+                    builder: (context) => const Dua(),
+                    // builder: (context) => const DuaNewFile(),
                   ),
                 );
               },

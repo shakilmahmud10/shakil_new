@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+const String svgIcon1 = "assets/images/svg/reusableWidget/sun.svg";
+const String svgIcon2 = "assets/images/svg/reusableWidget/halfmoon.svg";
+
+const String svgIcon3 = "assets/images/svg/reusableWidget/blog-text 1.svg";
+const String svgIcon4 = "assets/images/svg/reusableWidget/book-alt 1.svg";
+const String svgIcon5 = "assets/images/svg/reusableWidget/bookmark 1.svg";
+
 class IconWidget2 extends StatefulWidget {
   const IconWidget2({super.key});
 
@@ -88,32 +95,32 @@ class _IconWidget2State extends State<IconWidget2> {
                 onChanged: (i) => setState(() => index2 = i),
               ),
               SizedBox(height: 20),
-              // UIButtonWidget(
-              //   width: 380,
-              //   height: 80,
-              //   fontSize: 14,
-              //   fontWeight: FontWeight.bold,
-              //   columnIcon: true,
-              //   borderColor: const Color(0xFF159A74),
-              //   borderWidth: 2,
-              //   radius: 10,
-              //   items: const [
-              //     UISegmentItem(
-              //       icon: Icons.bookmark,
-              //       label: 'All Masayel',
-              //     ),
-              //     UISegmentItem(
-              //       icon: Icons.push_pin,
-              //       label: 'Subjectwise',
-              //     ),
-              //     UISegmentItem(
-              //       icon: Icons.note_alt,
-              //       label: 'Bookmarks',
-              //     ),
-              //   ],
-              //   initialIndex: index3,
-              //   onChanged: (i) => setState(() => index3 = i),
-              // ),
+              UIButtonWidget(
+                width: 380,
+                height: 80,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                columnIcon: true,
+                borderColor: const Color(0xFF159A74),
+                borderWidth: 2,
+                radius: 10,
+                items: const [
+                  UISegmentItem(
+                    svgIcon: svgIcon3,
+                    label: 'All Masayel',
+                  ),
+                  UISegmentItem(
+                    svgIcon: svgIcon4,
+                    label: 'Subjectwise',
+                  ),
+                  UISegmentItem(
+                    svgIcon: svgIcon5,
+                    label: 'Bookmarks',
+                  ),
+                ],
+                initialIndex: index3,
+                onChanged: (i) => setState(() => index3 = i),
+              ),
             ],
           ),
         ),
