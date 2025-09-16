@@ -3,28 +3,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/Challanges/challanges.dart';
-import 'package:shakil_new/Challanges/dua_importance.dart';
-import 'package:shakil_new/Challanges/dua_importance_details.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
 import 'package:shakil_new/dua_ruqyah/dua.dart';
-// import 'package:shakil_new/dua_ruqyah/new.dart';
-import 'package:shakil_new/reuseable_widget/icon_widget.dart';
-import 'package:shakil_new/reuseable_widget/icon_widget3.dart';
+import 'Dua and Ruqyah/drawer.dart';
+import 'Dua and Ruqyah/quranGeneralSetting.dart';
 import 'Food Blog/hfPage1.dart';
-import 'Food Blog/hfPage3.dart';
-import 'Challanges/reading_dua.dart';
 import 'Al Hadith/onboarding_flow_screen.dart';
 import 'Dua and Ruqyah/onboarding2.dart';
 import 'Quran Majeed/splash_screen/splash_screen1.dart';
-import 'Quran Majeed/onboarding/QmOnboardingPage1.dart';
-import 'Book Haven/bk_onboarding_flow_screen.dart';
 import 'Book Haven/onboarding/BkOnboardingPage1.dart';
 import 'Muslim Prayer Time/splashScreen/swSplash2.dart';
-import 'Muslim Prayer Time/onboardingScreen/sw_onboarding1.dart';
 import 'Core Components/colors.dart';
-import 'Core Components/style.dart';
-import 'Core Components/images.dart';
-import 'reuseable_widget/icon_widget2.dart';
+import 'reuseable_widget/reuseableWidget.dart';
 
 //--------------------------------
 void main() {
@@ -91,28 +81,6 @@ class _FrontPageState extends State<FrontPage> {
               },
               child: const Text("Icon Components(Task2)"),
             ),
-
-            // const SizedBox(height: 16),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => OnboardingFullPage()),
-            //     );
-            //   },
-            //   child: const Text("Onboarding"),
-            // ),
-
-            // const SizedBox(height: 16),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => Onboardingtest1()),
-            //     );
-            //   },
-            //   child: const Text("Test"),
-            // ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
@@ -149,7 +117,6 @@ class _FrontPageState extends State<FrontPage> {
               },
               child: const Text("Quran Majeed (Task5)"),
             ),
-
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
@@ -192,7 +159,20 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const IconWidget2(),
+                    builder: (context) => const Dua(),
+                    // builder: (context) => const DuaNewFile(),
+                  ),
+                );
+              },
+              child: const Text("Dua Ruqyah"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Reuseablewidget(),
                   ),
                 );
               },
@@ -204,12 +184,11 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Dua(),
-                    // builder: (context) => const DuaNewFile(),
+                    builder: (context) => const Qurangeneralsetting(),
                   ),
                 );
               },
-              child: const Text("Dua Ruqyah"),
+              child: const Text("Setting Drawer"),
             ),
           ],
         ),
