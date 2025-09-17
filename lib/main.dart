@@ -14,6 +14,8 @@ import 'Quran Majeed/splash_screen/splash_screen1.dart';
 import 'Book Haven/onboarding/BkOnboardingPage1.dart';
 import 'Muslim Prayer Time/splashScreen/swSplash2.dart';
 import 'Core Components/colors.dart';
+import 'reuseable_widget/dialog_widget2.dart';
+import 'reuseable_widget/dialog_widget3.dart';
 import 'reuseable_widget/reuseableWidget.dart';
 
 //--------------------------------
@@ -185,6 +187,18 @@ class _FrontPageState extends State<FrontPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const Qurangeneralsetting(),
+                  ),
+                );
+              },
+              child: const Text("Setting Drawer"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DialogWidget3(),
                   ),
                 );
               },

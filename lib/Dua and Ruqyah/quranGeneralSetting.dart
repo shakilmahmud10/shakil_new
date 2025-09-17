@@ -276,7 +276,7 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                       () => _isWordByWordExpanded = !_isWordByWordExpanded),
                   child: Column(
                     children: [
-                      const SizedBox(height: 18),
+                      SizedBox(height: 18),
                       SettingsToggle(
                         label: 'Word by Word',
                         value: _wordByWord,
