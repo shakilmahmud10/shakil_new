@@ -126,22 +126,22 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
         //     color: Color(0xFF774227), size: 18),
         title: const Text('Settings', style: AppTextStyles.header),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          height: double.infinity,
-          decoration: BoxDecoration(
-            // borderRadius: const BorderRadius.only(
-            //     topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-            color: const Color(0xFFFDFAF3),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(height: 18),
+      body: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          // borderRadius: const BorderRadius.only(
+          //     topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+          color: const Color(0xFFFDFAF3),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 18),
 
-                // NEW: Reusable section wrapper (header + collapse)
-                SettingsSection(
+              // NEW: Reusable section wrapper (header + collapse)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons1,
                   title: 'General Settings',
                   subtitle: 'All settings related to the app',
@@ -167,9 +167,12 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                const AppSectionDivider(),
-                SettingsSection(
+              const AppSectionDivider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons2,
                   title: 'Font Settings',
                   subtitle: 'You can change the font size and font family.',
@@ -206,9 +209,12 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                const AppSectionDivider(),
-                SettingsSection(
+              const AppSectionDivider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons3,
                   title: 'Appearance Settings',
                   subtitle: 'Customzing appearance of the app',
@@ -251,23 +257,26 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                // const AppSectionDivider(),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 20,
-                //   ),
-                //   child: Wordbyword(
-                //     img: sectionIcons4,
-                //     isExpanded: false,
-                //     title: "Word By Word",
-                //     value: _wordByWord,
-                //     onChanged: (val) => setState(() => _wordByWord = val),
-                //   ),
-                // ),
-                // const SizedBox(height: 24),
-                const AppSectionDivider(),
-                SettingsSection(
+              // const AppSectionDivider(),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(
+              //     horizontal: 20,
+              //   ),
+              //   child: Wordbyword(
+              //     img: sectionIcons4,
+              //     isExpanded: false,
+              //     title: "Word By Word",
+              //     value: _wordByWord,
+              //     onChanged: (val) => setState(() => _wordByWord = val),
+              //   ),
+              // ),
+              // const SizedBox(height: 24),
+              const AppSectionDivider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons4,
                   title: 'Word By Word',
                   subtitle: 'Text change word by word',
@@ -276,7 +285,7 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                       () => _isWordByWordExpanded = !_isWordByWordExpanded),
                   child: Column(
                     children: [
-                      SizedBox(height: 18),
+                      // SizedBox(height: 18),
                       SettingsToggle(
                         label: 'Word by Word',
                         value: _wordByWord,
@@ -285,9 +294,12 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                const AppSectionDivider(),
-                SettingsSection(
+              const AppSectionDivider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons5,
                   title: 'View Settings',
                   subtitle: 'Change the way text is displayed.',
@@ -320,9 +332,12 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                const AppSectionDivider(),
-                SettingsSection(
+              const AppSectionDivider(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SettingsSection(
                   iconAsset: sectionIcons6,
                   title: 'Notification Settings',
                   subtitle: 'Customize your notifications',
@@ -378,11 +393,12 @@ class _QurangeneralsettingState extends State<Qurangeneralsetting> {
                     ],
                   ),
                 ),
+              ),
 
-                const AppSectionDivider(),
-                MemberCard2(),
-              ],
-            ),
+              // const AppSectionDivider(),
+              const SizedBox(height: 12),
+              MemberCard2(),
+            ],
           ),
         ),
       ),
@@ -402,7 +418,7 @@ class CollapsibleSection extends StatelessWidget {
     return ClipRect(
       child: AnimatedAlign(
         alignment: Alignment.topCenter,
-        duration: const Duration(milliseconds: 250),
+        duration: const Duration(milliseconds: 320),
         curve: Curves.easeInOut,
         heightFactor: isExpanded ? 1.0 : 0.0,
         child: child,
@@ -435,8 +451,8 @@ class SectionHeader extends StatelessWidget {
         crossAxisAlignment:
             CrossAxisAlignment.start, // subtitle নিচে বসানোর জন্য
         children: [
-          SvgPicture.asset(img, height: 22),
-          const SizedBox(width: 16),
+          SvgPicture.asset(img, height: 24),
+          const SizedBox(width: 22),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -901,101 +917,101 @@ class _CustomSwitchState extends State<CustomSwitch>
   }
 }
 
-class MemberCard extends StatelessWidget {
-  const MemberCard({super.key});
+// class MemberCard extends StatelessWidget {
+//   const MemberCard({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.appBarBackground,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.sliderInactive, width: 1),
-      ),
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Center(
-              child:
-                  Text('Become a Member', style: AppTextStyles.cardOverline)),
-          const SizedBox(height: 12),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: AppColors.primaryBrown,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.sliderInactive, width: 3),
-                ),
-                child: Center(
-                    child: SvgPicture.asset(
-                        'assets/images/svg/duaRuqyah/lovely.svg',
-                        height: 22,
-                        width: 22)),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Keep Sadiq Safe from Ads',
-                        style: AppTextStyles.cardHeadline),
-                    const SizedBox(height: 6),
-                    RichText(
-                      text: const TextSpan(
-                        style: AppTextStyles.cardBody,
-                        children: [
-                          TextSpan(
-                              text:
-                                  'Our commitment to keep the Quran Majeed app '),
-                          TextSpan(
-                              text: 'ad-free',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.listTitle)),
-                          TextSpan(
-                              text:
-                                  ' is possible because of the support of people like you.'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          SizedBox(
-            height: 44,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(28),
-              onTap: () {},
-              child: Container(
-                decoration: BoxDecoration(
-                    color: AppColors.primaryBrown,
-                    borderRadius: BorderRadius.circular(28)),
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset("assets/images/svg/duaRuqyah/Zakat.svg",
-                        width: 20, height: 20, color: Colors.white),
-                    const SizedBox(width: 8),
-                    const Text('Donate Now', style: AppTextStyles.button),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: AppColors.appBarBackground,
+//         borderRadius: BorderRadius.circular(16),
+//         border: Border.all(color: AppColors.sliderInactive, width: 1),
+//       ),
+//       padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.stretch,
+//         children: [
+//           const Center(
+//               child:
+//                   Text('Become a Member', style: AppTextStyles.cardOverline)),
+//           const SizedBox(height: 12),
+//           Row(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Container(
+//                 width: 40,
+//                 height: 40,
+//                 decoration: BoxDecoration(
+//                   color: AppColors.primaryBrown,
+//                   shape: BoxShape.circle,
+//                   border: Border.all(color: AppColors.sliderInactive, width: 3),
+//                 ),
+//                 child: Center(
+//                     child: SvgPicture.asset(
+//                         'assets/images/svg/duaRuqyah/lovely.svg',
+//                         height: 22,
+//                         width: 22)),
+//               ),
+//               const SizedBox(width: 12),
+//               Expanded(
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     const Text('Keep Sadiq Safe from Ads',
+//                         style: AppTextStyles.cardHeadline),
+//                     const SizedBox(height: 6),
+//                     RichText(
+//                       text: const TextSpan(
+//                         style: AppTextStyles.cardBody,
+//                         children: [
+//                           TextSpan(
+//                               text:
+//                                   'Our commitment to keep the Quran Majeed app '),
+//                           TextSpan(
+//                               text: 'ad-free',
+//                               style: TextStyle(
+//                                   fontWeight: FontWeight.w700,
+//                                   color: AppColors.listTitle)),
+//                           TextSpan(
+//                               text:
+//                                   ' is possible because of the support of people like you.'),
+//                         ],
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//           ),
+//           const SizedBox(height: 14),
+//           SizedBox(
+//             height: 44,
+//             child: InkWell(
+//               borderRadius: BorderRadius.circular(28),
+//               onTap: () {},
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                     color: AppColors.primaryBrown,
+//                     borderRadius: BorderRadius.circular(28)),
+//                 padding: const EdgeInsets.symmetric(horizontal: 16),
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     SvgPicture.asset("assets/images/svg/duaRuqyah/Zakat.svg",
+//                         width: 20, height: 20, color: Colors.white),
+//                     const SizedBox(width: 8),
+//                     const Text('Donate Now', style: AppTextStyles.button),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class MemberCard2 extends StatelessWidget {
   const MemberCard2({super.key});
@@ -1006,7 +1022,7 @@ class MemberCard2 extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.appBarBackground,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -1022,8 +1038,8 @@ class MemberCard2 extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   color: AppColors.primaryBrown,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.sliderInactive, width: 3),
+                  // border: Border.all(color: AppColors.sliderInactive, width: 3),
+                  borderRadius: BorderRadius.circular(12), // 8 px corner round
                 ),
                 child: Center(
                     child: SvgPicture.asset(
@@ -1031,38 +1047,56 @@ class MemberCard2 extends StatelessWidget {
                         height: 22,
                         width: 22)),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Keep Sadiq Safe from Ads',
+                  children: const [
+                    Text('Keep Quran Majeed app Safe from Ads',
                         style: AppTextStyles.cardHeadline),
-                    const SizedBox(height: 6),
-                    RichText(
-                      text: const TextSpan(
-                        style: AppTextStyles.cardBody,
-                        children: [
-                          TextSpan(
-                              text:
-                                  'Our commitment to keep the Quran Majeed app '),
-                          TextSpan(
-                              text: 'ad-free',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.listTitle)),
-                          TextSpan(
-                              text:
-                                  ' is possible because of the support of people like you.'),
-                        ],
-                      ),
-                    ),
+                    SizedBox(height: 20),
+                    // RichText(
+                    //   text: const TextSpan(
+                    //     style: AppTextStyles.cardBody,
+                    //     children: [
+                    //       TextSpan(
+                    //           text:
+                    //               'Our commitment to keep the Quran Majeed app '),
+                    //       TextSpan(
+                    //           text: 'ad-free',
+                    //           style: TextStyle(
+                    //               fontWeight: FontWeight.w700,
+                    //               color: AppColors.listTitle)),
+                    //       TextSpan(
+                    //           text:
+                    //               ' is possible because of the support of people like you.'),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 14),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: Text(
+              'He who called (people) to Righteousness, there would be rewards (assured) for him like the rewards of those who adhered to it, without their rewards being diminished in any respect.',
+              style: AppTextStyles.cardBody,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              '-Sahih Muslim: 2674',
+              style: AppTextStyles.cardBody.copyWith(
+                color: Colors.black,
+              ),
+            ),
+          ),
+          const SizedBox(height: 30),
           SizedBox(
             height: 44,
             child: InkWell(
@@ -1085,6 +1119,7 @@ class MemberCard2 extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );

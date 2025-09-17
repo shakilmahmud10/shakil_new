@@ -204,7 +204,7 @@ class _FrontPageState extends State<FrontPage> {
                   ),
                 );
               },
-              child: const Text("Setting Drawer"),
+              child: const Text("Alert Dialog"),
             ),
           ],
         ),
