@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/Challanges/challanges.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
-import 'package:shakil_new/dua_ruqyah/dua.dart';
+import 'package:shakil_new/project_pages/dua.dart';
 import 'package:shakil_new/reuseable_widget/dialog_widget1.dart';
 import 'Dua and Ruqyah/drawer.dart';
-import 'Dua and Ruqyah/quranGeneralSetting.dart';
+import 'project_pages/all_project_pages.dart';
+import 'project_pages/quranGeneralSetting.dart';
 import 'Food Blog/hfPage1.dart';
 import 'Al Hadith/onboarding_flow_screen.dart';
 import 'Dua and Ruqyah/onboarding2.dart';
@@ -156,20 +157,7 @@ class _FrontPageState extends State<FrontPage> {
                   ),
                 );
               },
-              child: const Text("Salat Waqt (Task8)"),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Dua(),
-                    // builder: (context) => const DuaNewFile(),
-                  ),
-                );
-              },
-              child: const Text("Dua Ruqyah"),
+              child: const Text("Healthy Food (Task8)"),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -189,24 +177,13 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Qurangeneralsetting(),
+                    builder: (context) => const AllProjectPages(),
                   ),
                 );
               },
-              child: const Text("Setting Drawer"),
+              child: const Text("Project given"),
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DialogWidget3(),
-                  ),
-                );
-              },
-              child: const Text("Alert Dialog"),
-            ),
           ],
         ),
       ),

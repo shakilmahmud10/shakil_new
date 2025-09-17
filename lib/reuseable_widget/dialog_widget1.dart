@@ -28,6 +28,12 @@ class AppPalette {
   static const Color redSoft = Color(0x22FF6B6B); // ~13% red
 }
 
+const String _DialogMainIcon1 =
+    "assets/images/svg/reusableWidget/log-out 1.svg";
+const String _DialogMainIcon2 = "assets/images/svg/reusableWidget/rocket 1.svg";
+const String _DialogMainIcon3 = "assets/images/svg/reusableWidget/delete 1.svg";
+const String _DialogBG = "assets/images/svg/reusableWidget/dialogCardBG.svg";
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -55,9 +61,9 @@ class DialogWidget1 extends StatelessWidget {
   void _showLogoutDialog(BuildContext context) {
     CustomAlertDialogwithBG.show(
       context: context,
-      svgIcon: 'assets/images/svg/reusableWidget/log-out 1.svg',
+      svgIcon: _DialogMainIcon1,
       decor: SvgPicture.asset(
-        'assets/images/svg/reusableWidget/dialogCardBG.svg',
+        _DialogBG,
       ),
       decorAlignment: Alignment.bottomLeft,
       title: 'লগ আউট করুন',
@@ -76,14 +82,15 @@ class DialogWidget1 extends StatelessWidget {
   void _showForceUpdateDialog(BuildContext context) {
     CustomAlertDialogwithBG.show(
       context: context,
-      svgIcon: 'assets/images/svg/reusableWidget/log-out 1.svg',
+      svgIcon: _DialogMainIcon2,
       decor: SvgPicture.asset(
-        'assets/images/svg/reusableWidget/dialogCardBG.svg',
+        _DialogBG,
+        fit: BoxFit.fitWidth, // <-- full width স্কেল
+        alignment: Alignment.bottomRight,
       ),
-      decorAlignment: Alignment.bottomLeft,
+      decorAlignment: Alignment.bottomRight, // <-- ডানপাশে ঠেকাবে
       title: 'অ্যাপ আপডেট করুন',
-      message:
-          'আমাদের অ্যাপের বড় ধরনের আপডেট এসেছে। এখনই অ্যাপটি আপডেট করে নিন এবং উপভোগ করুন নতুন সব ফিচার ও চমৎকার ইউজার এক্সপেরিয়েন্স।',
+      message: 'আমাদের অ্যাপের বড় ধরনের আপডেট এসেছে। এখনই অ্যাপটি আপডেট করে নিন এবং উপভোগ করুন নতুন সব ফিচার ও চমৎকার ইউজার এক্সপেরিয়েন্স।',
       primaryLabel: 'Update Now',
       onPrimary: () => Navigator.of(context).pop(),
       accentColor: AppPalette.accentTeal,
@@ -95,9 +102,13 @@ class DialogWidget1 extends StatelessWidget {
   void _showDeleteDialog(BuildContext context) {
     CustomAlertDialogwithBG.show(
       context: context,
-      svgIcon: 'assets/images/svg/reusableWidget/delete 1.svg',
+      svgIcon: _DialogMainIcon3,
       decor: SvgPicture.asset(
-        'assets/images/svg/reusableWidget/dialogCardBG.svg',
+        _DialogBG,
+        colorFilter: ColorFilter.mode(
+          AppPalette.danger.withOpacity(0.15),
+          BlendMode.srcIn,
+        ),
       ),
       decorAlignment: Alignment.bottomLeft,
       title: 'বুকমার্ক ডিলেট',
@@ -259,14 +270,22 @@ class AlertDialogCard extends StatelessWidget {
           child: Stack(
             children: [
               if (decor != null)
-                Positioned.fill(
-                  child: Align(
-                    alignment: decorAlignment,
-                    child: IgnorePointer(child: decor!),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0, // bottom-এ একদম লেগে থাকবে
+                  child: IgnorePointer(
+                    child: Align(
+                      alignment: decorAlignment,
+                      child: FractionallySizedBox(
+                        widthFactor: 1, // full width
+                        child: decor, // আপনার দেওয়া SVG/Widget
+                      ),
+                    ),
                   ),
                 ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(22, 22, 22, 18),
+                padding: const EdgeInsets.fromLTRB(22, 40, 22, 18),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -283,8 +302,8 @@ class AlertDialogCard extends StatelessWidget {
                         child: Center(
                           child: SvgPicture.asset(
                             svgIcon!,
-                            width: 40,
-                            height: 40,
+                            // width: 40,
+                            // height: 40,
                             // colorFilter: ColorFilter.mode(
                             //   isDanger
                             //       ? AppPalette.danger
