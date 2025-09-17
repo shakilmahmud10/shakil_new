@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shakil_new/Challanges/challanges.dart';
 import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
 import 'package:shakil_new/dua_ruqyah/dua.dart';
+import 'package:shakil_new/reuseable_widget/dialog_widget1.dart';
 import 'Dua and Ruqyah/drawer.dart';
 import 'Dua and Ruqyah/quranGeneralSetting.dart';
 import 'Food Blog/hfPage1.dart';
@@ -200,7 +201,7 @@ class _FrontPageState extends State<FrontPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Bottomsheet1(),
+                    builder: (context) => const DialogWidget3(),
                   ),
                 );
               },
