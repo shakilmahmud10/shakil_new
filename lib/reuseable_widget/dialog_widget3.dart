@@ -31,7 +31,7 @@ class DialogWidget3 extends StatelessWidget {
               context: context,
               builder: (_) {
                 return CustomDialog2(
-                  svgPath:
+                  svgIcon:
                       "assets/images/svg/reusableWidget/deleteNotepad1.svg",
                   title: "Are you sure?",
                   subtitle:
@@ -56,7 +56,7 @@ class DialogWidget3 extends StatelessWidget {
 
 /// --- CustomDialog2 Reusable Widget ---
 class CustomDialog2 extends StatelessWidget {
-  final String? svgPath;
+  final String? svgIcon;
   final String title;
   final String subtitle;
   final String button1Text;
@@ -66,7 +66,7 @@ class CustomDialog2 extends StatelessWidget {
 
   const CustomDialog2({
     super.key,
-    this.svgPath,
+    this.svgIcon,
     required this.title,
     required this.subtitle,
     required this.button1Text,
@@ -88,9 +88,9 @@ class CustomDialog2 extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (svgPath != null)
+            if (svgIcon != null)
               SvgPicture.asset(
-                svgPath!,
+                svgIcon!,
                 width: 80,
                 height: 80,
                 fit: BoxFit.contain,
