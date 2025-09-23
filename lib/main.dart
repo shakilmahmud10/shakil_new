@@ -7,6 +7,7 @@ import 'package:shakil_new/Icon%20Components/quick_icon_components.dart';
 import 'package:shakil_new/project_pages/dua.dart';
 import 'package:shakil_new/reuseable_widget/dialog_widget1.dart';
 import 'Dua and Ruqyah/drawer.dart';
+import 'playList/playlist.dart';
 import 'project_pages/all_project_pages.dart';
 import 'project_pages/quranGeneralSetting.dart';
 import 'Food Blog/hfPage1.dart';
@@ -182,6 +183,18 @@ class _FrontPageState extends State<FrontPage> {
                 );
               },
               child: const Text("Project given"),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PlayList(),
+                  ),
+                );
+              },
+              child: const Text("Play List"),
             ),
             const SizedBox(height: 16),
           ],

@@ -116,7 +116,6 @@ const String onboardingIcon4 =
 const String onboardingArrow = "assets/images/svg/onboarding/arrow.svg";
 const String onboardingWerning = "assets/images/svg/onboarding/warning.svg";
 
-
 //----------------Quran Majeed Images----------------//
 const String qmSplashIcon1 = "assets/images/svg/quran_majeed/quranlogo.svg";
 const String qmSplashCaliography =
@@ -125,7 +124,6 @@ const String qmOnboarding1 = "assets/images/svg/quran_majeed/qOnboarding1.svg";
 const String qmOnboarding2 = "assets/images/svg/quran_majeed/qOnboarding2.svg";
 const String qmOnboarding3 = "assets/images/svg/quran_majeed/qOnboarding3.svg";
 const String qmOnboarding5 = "assets/images/svg/quran_majeed/qOnboarding5.svg";
-
 
 //----------------Book Haven Images----------------//
 const String bkOnboarding1 = "assets/images/svg/bookHaven/bkOnboarding1.svg";
@@ -138,13 +136,11 @@ const String bkGoogleIcon = "assets/images/svg/bookHaven/googleIcon.svg";
 const String bkLockIcon = "assets/images/svg/bookHaven/lock.svg";
 const String bkEyeSlashIcon = "assets/images/svg/bookHaven/eye-slash.svg";
 
-
 //----------------Salat Waqt Images----------------//
 const String swSplashIcon = "assets/images/svg/salatWaqt/masque.svg";
 const String swOnboarding1 = "assets/images/svg/salatWaqt/locationIcon.svg";
 const String swOnboarding2 = "assets/images/svg/salatWaqt/mosque2.svg";
 const String swOnboarding3 = "assets/images/svg/salatWaqt/bellRing1.svg";
-
 
 //----------------HealtyFood Images----------------//
 const String hfArrowBackIcon = "assets/images/svg/healtyFood/arrow.svg";
@@ -159,3 +155,13 @@ const String hfBottomWave = "assets/images/svg/healtyFood/bottomWave.svg";
 const String hfBottomBG = "assets/images/svg/healtyFood/bottomBG.svg";
 const String hfFruits = "assets/images/svg/healtyFood/fruits.svg";
 const String hfFruits2 = "assets/images/svg/healtyFood/fruits2.svg";
+
+
+//---------------- PlayList ----------------//
+const String iconBack = 'assets/images/svg/playlist/arrow-left.svg';
+const String iconShare = 'assets/images/svg/playlist/share-2.svg';
+const String iconSuffle = 'assets/images/svg/playlist/shuffle.svg';
+const String iconForward = 'assets/images/svg/playlist/next.svg';
+const String iconPlay = 'assets/images/svg/playlist/play.svg';
+const String iconPrevious = 'assets/images/svg/playlist/previous.svg';
+const String iconList = 'assets/images/svg/playlist/list-ul.svg';
