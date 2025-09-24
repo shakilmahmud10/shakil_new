@@ -74,6 +74,7 @@ flutter:
     - assets/images/svg/healtyFood/
     -  assets/images/svg/reusableWidget/
     -  assets/images/svg/duaRuqyah/
+    - assets/images/svg/playlist/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

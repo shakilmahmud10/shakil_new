@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-
-// void main() {
-//   runApp(PlayList());
-// }
 
 class PlayList extends StatelessWidget {
   const PlayList({super.key});
@@ -16,8 +11,8 @@ class PlayList extends StatelessWidget {
   static const Color trackBg = Color(0xFFE5EEE6);
   static const Color cardTop = Color(0xFFDDEBE1);
   static const Color cardBottom = Color(0xFF5A9885);
-
-  // static const 
+  static const Color textDark = Color(0xFF282e29);
+  static const Color textLight = Color(0xFF7d827d);
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +27,19 @@ class PlayList extends StatelessWidget {
           titleMedium: TextStyle(
             color: primaryDeep,
             fontWeight: FontWeight.w700,
+            fontFamily: "Inter",
             fontSize: 18,
           ),
           bodyMedium: TextStyle(
             color: muted,
             fontWeight: FontWeight.w500,
+            fontFamily: "Inter",
             fontSize: 13,
           ),
           labelSmall: TextStyle(
             color: primaryDeep,
             fontWeight: FontWeight.w600,
+            fontFamily: "Inter",
             fontSize: 12,
           ),
         ),
@@ -55,7 +53,6 @@ class PlayListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     const Color bg = PlayList.bg;
     const Color primary = PlayList.primary;
     const Color primaryDeep = PlayList.primaryDeep;
@@ -63,32 +60,48 @@ class PlayListPage extends StatelessWidget {
     const Color trackBg = PlayList.trackBg;
     const Color cardTop = PlayList.cardTop;
     const Color cardBottom = PlayList.cardBottom;
+    const Color textDark = PlayList.textDark;
+    const Color textlight = PlayList.textLight;
 
-    const String iconBack  = 'assets/images/svg/playlist/arrow-left.svg';
-    const String iconShare  = 'assets/images/svg/playlist/share-2.svg';
-    const String iconSuffle  = 'assets/images/svg/playlist/shuffle.svg';
-    const String iconForward  = 'assets/images/svg/playlist/next.svg';
-    const String iconPlay  = 'assets/images/svg/playlist/play.svg';
-    const String iconPrevious  = 'assets/images/svg/playlist/previous.svg';
-    const String iconList  = 'assets/images/svg/playlist/list-ul.svg';
+    const String iconBack = 'assets/images/svg/playlist/arrow-left.svg';
+    const String iconShare = 'assets/images/svg/playlist/share-2.svg';
+    const String iconSuffle = 'assets/images/svg/playlist/shuffle.svg';
+    const String iconForward = 'assets/images/svg/playlist/next.svg';
+    const String iconPlay = 'assets/images/svg/playlist/play.svg';
+    const String iconPrevious = 'assets/images/svg/playlist/previous.svg';
+    const String iconList = 'assets/images/svg/playlist/list-ul.svg';
 
     final Size size = MediaQuery.of(context).size;
+    final double screenHeight = size.height;
+    final double screenWidth = size.width;
     final double horizontal = 20;
-    final double albumSize = size.width - (horizontal * 2);
+
+    // Responsive sizes based on screen height
+    final double appBarHeight = screenHeight * 0.08; // 8% of screen
+    final double albumSize = screenHeight * 0.40; // 35% of screen
+    final double titleFontSize = screenHeight * 0.025; // 2.5% of screen
+    final double playButtonSize = screenHeight * 0.12; // 8% of screen
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: PlayList.bg,
         elevation: 0,
+        toolbarHeight: appBarHeight.clamp(56, 80), // min 56, max 80
         leading: Padding(
           padding: const EdgeInsets.only(left: 12.0),
-          // child: SvgPicture.asset(iconBack),
-          child: Icon(Icons.arrow_back_ios),
+          child: Transform.scale(
+            scale: 0.7,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(50),
+              onTap: () => Navigator.pop(context),
+              child: SvgPicture.asset(iconBack),
+            ),
+          ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child:Icon(Icons.arrow_back_ios),
+            child: SvgPicture.asset(iconShare),
           ),
         ],
       ),
@@ -96,223 +109,180 @@ class PlayListPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: horizontal),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // const SizedBox(height: 6),
-              const SizedBox(height: 50),
-              // Album Art
-              Center(
-                child: Container(
-                  width: albumSize - 20,
-                  height: albumSize - 20,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [cardTop, cardBottom],
-                      stops: [0.0, 1.0],
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: primary.withOpacity(0.10),
-                        blurRadius: 24,
-                        offset: const Offset(0, 14),
-                      ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: [
-                      // soft glow
-                      Positioned(
-                        left: 22,
-                        top: 22,
-                        child: Container(
-                          width: albumSize * .55,
-                          height: albumSize * .55,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(0.22),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Top spacing - responsive
+                  SizedBox(height: constraints.maxHeight * 0.02),
+
+                  // Album Art - responsive size
+                  Flexible(
+                    flex: 4,
+                    child: Center(
+                      child: Container(
+                        width: albumSize.clamp(200, 400), // min-max limits
+                        height: albumSize.clamp(200, 400),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                              color: primary.withOpacity(0.15),
+                              blurRadius: 12,
+                              offset: const Offset(0, 10),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.asset(
+                            "assets/images/svg/playlist/playlistImage.png",
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      // book icon
-                      Center(
-                        child: Icon(
-                          Icons.menu_book_rounded,
-                          size: albumSize * .36,
-                          color: Colors.white.withOpacity(.92),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              // const SizedBox(height: 22),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 50.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '1.Badnajar (Evil Eye). Rukiyah for human beings',
-                      style: const TextStyle(
-                        color: primaryDeep,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 20,
-                        letterSpacing: 0.1,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 10),
-                    Center(child: const Text('Add Info')),
-                    const SizedBox(height: 32),
-                    Column(
+                  ),
+
+                  // Middle spacing
+                  SizedBox(height: constraints.maxHeight * 0.03),
+
+                  // Bottom content - responsive
+                  Flexible(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Stack(
-                          alignment: Alignment.centerLeft,
-                          clipBehavior: Clip.none, // circle overflow allow করবে
+                        // Title section
+                        Column(
                           children: [
-                            Container(
-                              height: 10,
-                              decoration: BoxDecoration(
-                                color: trackBg,
-                                borderRadius: BorderRadius.circular(8),
+                            Text(
+                              'Badanjar (Evil Eye). Rukiyah of Badanjar',
+                              style: TextStyle(
+                                color: PlayList.textDark,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: "Poppins",
+                                fontSize: titleFontSize.clamp(18, 24),
+                                letterSpacing: 0.1,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: screenHeight * 0.015),
+                            Text(
+                              'Add Info',
+                              style: TextStyle(
+                                color: textlight,
+                                fontFamily: "Poppins",
+                                fontSize: screenHeight * 0.018,
                               ),
                             ),
-                            FractionallySizedBox(
-                              widthFactor: 0.22,
-                              child: Container(
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: primary.withOpacity(0.85),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                            ),
-                            // Circle with better positioning
-                            FractionallySizedBox(
-                              widthFactor: 0.22,
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  height: 18,
-                                  width: 18,
+                          ],
+                        ),
+
+                        // Progress bar section
+                        Column(
+                          children: [
+                            Stack(
+                              alignment: Alignment.centerLeft,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Container(
+                                  height: 10,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: primary,
-                                      width: 5,
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: primary.withOpacity(0.3),
-                                        blurRadius: 8,
-                                        spreadRadius: 2,
-                                      ),
-                                    ],
+                                    color: trackBg,
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
-                              ),
+                                FractionallySizedBox(
+                                  widthFactor: 0.22,
+                                  child: Container(
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: primary.withOpacity(0.85),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: screenHeight * 0.01),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  '00:50:30',
+                                  style: TextStyle(
+                                    color: PlayList.textDark,
+                                    fontSize: screenHeight * 0.014,
+                                    fontFamily: "poppins",
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Text(
+                                  '01:30:00',
+                                  style: TextStyle(
+                                    color: PlayList.textDark,
+                                    fontSize: screenHeight * 0.014,
+                                    fontFamily: "poppins",
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const SizedBox(height: 12),
+
+                        // Control buttons section
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              '00:50:30',
-                              style: TextStyle(
-                                color: PlayList.primaryDeep,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
+                          children: [
+                            SvgPicture.asset(
+                              iconSuffle,
+                              height: screenHeight * 0.035,
+                            ),
+                            SvgPicture.asset(
+                              iconPrevious,
+                              height: screenHeight * 0.035,
+                            ),
+                            Container(
+                              width: playButtonSize.clamp(60, 80),
+                              height: playButtonSize.clamp(60, 80),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF537f6d),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: SvgPicture.asset(
+                                  iconPlay,
+                                  height: playButtonSize * 0.35,
+                                ),
                               ),
                             ),
-                            Text(
-                              '01:30:00',
-                              style: TextStyle(
-                                color: PlayList.primaryDeep,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
+                            SvgPicture.asset(
+                              iconForward,
+                              height: screenHeight * 0.035,
+                            ),
+                            SvgPicture.asset(
+                              iconList,
+                              height: screenHeight * 0.035,
                             ),
                           ],
                         ),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Icon(
-                          Icons.shuffle_rounded,
-                          size: 26,
-                          color: primary.withOpacity(.75),
-                        ),
-                        Icon(
-                          Icons.skip_previous_rounded,
-                          size: 28,
-                          color: primary.withOpacity(.85),
-                        ),
-                        Container(
-                          width: 74,
-                          height: 74,
-                          decoration: BoxDecoration(
-                            color: primary,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: primary.withOpacity(.28),
-                                blurRadius: 24,
-                                offset: const Offset(0, 12),
-                              ),
-                            ],
-                          ),
-                          child: const Center(
-                            child: Icon(
-                              Icons.play_arrow_rounded,
-                              color: Colors.white,
-                              size: 40,
-                            ),
-                          ),
-                        ),
-                        Icon(
-                          Icons.skip_next_rounded,
-                          size: 28,
-                          color: primary.withOpacity(.85),
-                        ),
-                        Icon(
-                          Icons.equalizer_rounded,
-                          size: 24,
-                          color: primary.withOpacity(.80),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                  ),
+
+                  // Bottom padding - responsive
+                  SizedBox(height: constraints.maxHeight * 0.03),
+                ],
+              );
+            },
           ),
         ),
       ),
-    );
-  }
-
-  static Widget _roundIcon({
-    required IconData icon,
-    required Color color,
-    required Color bgColor,
-    double size = 22,
-    double padding = 8,
-  }) {
-    return Container(
-      decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
-      padding: EdgeInsets.all(padding),
-      child: Icon(icon, size: size, color: color),
     );
   }
 }
