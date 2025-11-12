@@ -74,21 +74,25 @@ class _IconWidget2State extends State<IconWidget2> {
               ),
               SizedBox(height: 20),
               UIButtonWidget(
-                width: 250,
-                height: 50,
+                width: 350,
+                height: 80,
                 fontSize: 14,
                 borderWidth: 1,
+                columnIcon: true,
                 textSelected: const Color(0xFF417360),
                 textUnselected: const Color(0xFF000000),
+                iconSelected: const Color(0xFF417360),
                 borderColor: const Color(0xFFe1ebe1),
                 pillColor: const Color(0xFFe1ebe1),
                 radius: 50,
                 items: const [
                   UISegmentItem(
+                    svgIcon: svgIcon3,
                     label: 'Dua',
                   ),
                   UISegmentItem(
                     label: 'Ruqyah',
+                    svgIcon: svgIcon4,
                   ),
                 ],
                 initialIndex: index2,

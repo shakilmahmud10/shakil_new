@@ -133,317 +133,364 @@ class _BkOnboardingPage7State extends State<BkOnboardingPage7>
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: bkBackgroundColor,
-      body: Column(
-        children: [
-
-          // Main content
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    children: [
-                      // Login form container
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(24),
-                        decoration: BoxDecoration(
-                          color: bhPrimary1.withOpacity(0.08),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Title
-                            const Center(
-                              child: Text(
-                                'Log in with IRD',
-                                style: bkHeaderTextStlye,
-                              ),
-                            ),
-                            const SizedBox(height: 32),
-
-                            // Email field
-                            const Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'Email Account',
-                                style: bkFormHeading1,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: _isFieldFocused('email')
-                                    ? const Color(0xFFFFFFFF)
-                                    : Colors.transparent,
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: _isFieldFocused('email')
-                                      ? bhPrimary1
-                                      : bhPrimary1.withOpacity(0.3),
-                                  width: 1,
-                                ),
-                              ),
-                              child: TextField(
-                                controller: _emailController,
-                                focusNode: _emailFocusNode,
-                                decoration: InputDecoration(
-                                  prefixIcon: Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: SvgPicture.asset(
-                                      bkMessageOutline1,
-                                    ),
-                                  ),
-                                  border: InputBorder.none,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 16,
-                                  ),
-                                  hintStyle: const TextStyle(
-                                    color: Color(0xFF9CA3AF),
-                                    fontFamily: 'Inter',
-                                  ),
-                                ),
-                                style: bkFormDetails,
-                              ),
-                            ),
-                            const SizedBox(height: 30),
-
-                            // Password field
-                            const Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'Password',
-                                style: bkFormHeading1,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: _isFieldFocused('password')
-                                    ? const Color(0xFFFFFFFF)
-                                    : Colors.transparent,
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: _isFieldFocused('password')
-                                      ? bhPrimary1
-                                      : bhPrimary1.withOpacity(0.3),
-                                  width: 1,
-                                ),
-                              ),
-                              child: TextField(
-                                controller: _passwordController,
-                                focusNode: _passwordFocusNode,
-                                obscureText: !_passwordVisible,
-                                decoration: InputDecoration(
-                                  prefixIcon: Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: SvgPicture.asset(
-                                      bkLockIcon,
-                                    ),
-                                  ),
-                                  suffixIcon: InkWell(
-                                    // onTap: () {
-                                    //   setState(() {
-                                    //     _passwordVisible = !_passwordVisible;
-                                    //   });
-                                    // },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: SvgPicture.asset(bkEyeSlashIcon),
-                                    ),
-                                  ),
-                                  border: InputBorder.none,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 16,
-                                  ),
-                                ),
-                                style: bkFormDetails,
-                              ),
-                            ),
-
-                            const SizedBox(height: 30),
-
-                            //Confirm Password field
-                            const Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'Confirm Password',
-                                style: bkFormHeading1,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: _isFieldFocused('confirmPassword')
-                                    ? const Color(0xFFFFFFFF)
-                                    : Colors.transparent,
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: _isFieldFocused('confirmPassword')
-                                      ? bhPrimary1
-                                      : bhPrimary1.withOpacity(0.3),
-                                  width: 1,
-                                ),
-                              ),
-                              child: TextField(
-                                controller: _confirmPasswordController,
-                                focusNode: _confirmPasswordFocusNode,
-                                obscureText: !_passwordVisible,
-                                decoration: InputDecoration(
-                                  prefixIcon: Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: SvgPicture.asset(
-                                      bkLockIcon,
-                                    ),
-                                  ),
-                                  suffixIcon: InkWell(
-                                    // onTap: () {
-                                    //   setState(() {
-                                    //     _passwordVisible = !_passwordVisible;
-                                    //   });
-                                    // },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: SvgPicture.asset(bkEyeSlashIcon),
-                                    ),
-                                  ),
-                                  border: InputBorder.none,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 16,
-                                  ),
-                                ),
-                                style: bkFormDetails,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-
-                            // Remember me and Forgot password row
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                // Remember me checkbox
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 20,
-                                        height: 20,
-                                        child: Checkbox(
-                                          value: _rememberMe,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _rememberMe = value ?? false;
-                                            });
-                                          },
-                                          checkColor:
-                                              Colors.white, // Tick color
-                                          side: const BorderSide(
-                                            // Normal border color
-                                            color: bhPrimary1,
-                                            width: 2,
-                                          ),
-                                          activeColor: bhPrimary1,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 8),
-                                      Text(
-                                        'I accept all Term of Conditions.',
-                                        style: bkFormDetails.copyWith(
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-
-                                // // Forgot password
-                                // Padding(
-                                //   padding: const EdgeInsets.only(right: 8.0),
-                                //   child: InkWell(
-                                //     onTap: _onForgotPasswordPressed,
-                                //     child: Text(
-                                //       'Forgot Password?',
-                                //       style: bkFormDetails.copyWith(
-                                //         fontSize: 14,
-                                //         decoration: TextDecoration.underline,
-                                //       ),
-                                //     ),
-                                //   ),
-                                // ),
-                              ],
-                            ),
-                            const SizedBox(height: 40),
-
-                            // Log In button
-                            InkWell(
-                              onTap: () {},
-                              borderRadius: BorderRadius.circular(25),
-                              child: Container(
-                                width: double.infinity,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  color: bhPrimary1,
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Submit',
-                                    style: bkButtonTextStyle.copyWith(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Top navigation bar
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Back button
+                  InkWell(
+                    onTap: _onBackPressed,
+                    borderRadius: BorderRadius.circular(4),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                        bkArrowBackIcon,
+                        width: 24,
+                        height: 24,
+                        colorFilter: const ColorFilter.mode(
+                          Color(0xFF64676A),
+                          BlendMode.srcIn,
                         ),
                       ),
-                      const SizedBox(height: 24),
+                    ),
+                  ),
 
-                      // Create Now text
-                      GestureDetector(
-                        onTap: _onCreateNowPressed,
-                        child: RichText(
-                          text: TextSpan(
+                  // Skip button
+                  InkWell(
+                    onTap: _onSkipPressed,
+                    borderRadius: BorderRadius.circular(4),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Skip',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF64676A),
+                          decoration: TextDecoration.underline,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Main content
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        // Login form container
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(24),
+                          decoration: BoxDecoration(
+                            color: bhPrimary1.withOpacity(0.08),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              TextSpan(
-                                text: "Already have a IRD account? ",
-                                style: bkDetailsTextStyle.copyWith(
-                                  fontSize: 14,
-                                  color: bhTextPureDark,
+                              // Title
+                              const Center(
+                                child: Text(
+                                  'Create IRD Account',
+                                  style: bkHeaderTextStlye,
                                 ),
                               ),
-                              TextSpan(
-                                text: "Sign In",
-                                style: bkDetailsTextStyle.copyWith(
-                                  fontSize: 14,
-                                  color: bhTextPureDark,
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.w600,
+                              const SizedBox(height: 32),
+
+                              // Email field
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'Email Account',
+                                  style: bkFormHeading1,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: _isFieldFocused('email')
+                                      ? const Color(0xFFFFFFFF)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                    color: _isFieldFocused('email')
+                                        ? bhPrimary1
+                                        : bhPrimary1.withOpacity(0.3),
+                                    width: 1,
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: _emailController,
+                                  focusNode: _emailFocusNode,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: SvgPicture.asset(
+                                        bkMessageOutline1,
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                    hintStyle: const TextStyle(
+                                      color: Color(0xFF9CA3AF),
+                                      fontFamily: 'Inter',
+                                    ),
+                                  ),
+                                  style: bkFormDetails,
+                                ),
+                              ),
+                              const SizedBox(height: 30),
+
+                              // Password field
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'Password',
+                                  style: bkFormHeading1,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: _isFieldFocused('password')
+                                      ? const Color(0xFFFFFFFF)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                    color: _isFieldFocused('password')
+                                        ? bhPrimary1
+                                        : bhPrimary1.withOpacity(0.3),
+                                    width: 1,
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: _passwordController,
+                                  focusNode: _passwordFocusNode,
+                                  obscureText: !_passwordVisible,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: SvgPicture.asset(
+                                        bkLockIcon,
+                                      ),
+                                    ),
+                                    suffixIcon: InkWell(
+                                      // onTap: () {
+                                      //   setState(() {
+                                      //     _passwordVisible = !_passwordVisible;
+                                      //   });
+                                      // },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: SvgPicture.asset(bkEyeSlashIcon),
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                  ),
+                                  style: bkFormDetails,
+                                ),
+                              ),
+
+                              const SizedBox(height: 30),
+
+                              //Confirm Password field
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'Confirm Password',
+                                  style: bkFormHeading1,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: _isFieldFocused('confirmPassword')
+                                      ? const Color(0xFFFFFFFF)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                    color: _isFieldFocused('confirmPassword')
+                                        ? bhPrimary1
+                                        : bhPrimary1.withOpacity(0.3),
+                                    width: 1,
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: _confirmPasswordController,
+                                  focusNode: _confirmPasswordFocusNode,
+                                  obscureText: !_passwordVisible,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: SvgPicture.asset(
+                                        bkLockIcon,
+                                      ),
+                                    ),
+                                    suffixIcon: InkWell(
+                                      // onTap: () {
+                                      //   setState(() {
+                                      //     _passwordVisible = !_passwordVisible;
+                                      //   });
+                                      // },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: SvgPicture.asset(bkEyeSlashIcon),
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                  ),
+                                  style: bkFormDetails,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+
+                              // Remember me and Forgot password row
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  // Remember me checkbox
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 20,
+                                          height: 20,
+                                          child: Checkbox(
+                                            value: _rememberMe,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _rememberMe = value ?? false;
+                                              });
+                                            },
+                                            checkColor:
+                                                Colors.white, // Tick color
+                                            side: const BorderSide(
+                                              // Normal border color
+                                              color: bhPrimary1,
+                                              width: 2,
+                                            ),
+                                            activeColor: bhPrimary1,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Text(
+                                          'I accept all Term of Conditions.',
+                                          style: bkFormDetails.copyWith(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // // Forgot password
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(right: 8.0),
+                                  //   child: InkWell(
+                                  //     onTap: _onForgotPasswordPressed,
+                                  //     child: Text(
+                                  //       'Forgot Password?',
+                                  //       style: bkFormDetails.copyWith(
+                                  //         fontSize: 14,
+                                  //         decoration: TextDecoration.underline,
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                              const SizedBox(height: 40),
+
+                              // Log In button
+                              InkWell(
+                                onTap: () {},
+                                borderRadius: BorderRadius.circular(25),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    color: bhPrimary1,
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Submit',
+                                      style: bkButtonTextStyle.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 24),
+
+                        // Create Now text
+                        GestureDetector(
+                          onTap: _onCreateNowPressed,
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Already have a IRD account? ",
+                                  style: bkDetailsTextStyle.copyWith(
+                                    fontSize: 14,
+                                    color: bhTextPureDark,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: "Sign In",
+                                  style: bkDetailsTextStyle.copyWith(
+                                    fontSize: 14,
+                                    color: bhTextPureDark,
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

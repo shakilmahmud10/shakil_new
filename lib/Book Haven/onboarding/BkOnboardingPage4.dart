@@ -130,7 +130,7 @@ class _BkOnboardingPage4State extends State<BkOnboardingPage4>
 
           // Middle section with rounded background container and text content
           Expanded(
-            flex: 6,
+            flex: 7,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 80),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),

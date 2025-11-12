@@ -70,134 +70,138 @@ class _BkOnboardingPage1State extends State<BkOnboardingPage1>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bkBackgroundColor,
-      body: Column(
-        children: [
-          // Top section with image - centered
-          Expanded(
-            flex: 6,
-            child: Center(
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: SvgPicture.asset(
-                  bkOnboarding1,
-                  fit: BoxFit.contain,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Top section with image - centered
+            Expanded(
+              flex: 6,
+              child: Center(
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: SvgPicture.asset(
+                    bkOnboarding1,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // Middle section with rounded background container and text content
-          Expanded(
-            flex: 4,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              decoration: BoxDecoration(
-                color: bhCardBg.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Welcome to the Book Haven!',
-                    textAlign: TextAlign.center,
-                    style: bkHeaderTextStlye,
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    'Dive into a world of stories. Find your favorite genres and authors with ease.',
-                    textAlign: TextAlign.center,
-                    style: bkDetailsTextStyle,
-                  ),
-                  const SizedBox(height: 52),
+            // Middle section with rounded background container and text content
+            Expanded(
+              flex: 4,
+              child: Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                decoration: BoxDecoration(
+                  color: bhPrimary1.withOpacity(0.08),
+                  borderRadius: BorderRadius.circular(22),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Welcome to the Book Haven!',
+                      textAlign: TextAlign.center,
+                      style: bkHeaderTextStlye,
+                    ),
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Dive into a world of stories. Find your favorite genres and authors with ease.',
+                      textAlign: TextAlign.center,
+                      style: bkDetailsTextStyle,
+                    ),
+                    const SizedBox(height: 52),
 
-                  // Stadium-shaped Continue Button with 5px border
-                  Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        _startNavigationBarHideTimer();
-                        _onContinuePressed();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const BkOnboardingPage2(),
-                          ),
-                        );
-                      },
-                      borderRadius: BorderRadius.circular(30),
-                      child: Container(
-                        width: 100, // Slightly bigger for outer border
-                        height: 60,
-                        padding: const EdgeInsets.all(
-                            1), // gap between inner & outer
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(35),
-                          border: Border.all(
-                            color: bhPrimary1
-                                .withOpacity(0.3), // outer border color
-                            width: 2,
-                          ),
-                        ),
+                    // Stadium-shaped Continue Button with 5px border
+                    Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          _startNavigationBarHideTimer();
+                          _onContinuePressed();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BkOnboardingPage2(),
+                            ),
+                          );
+                        },
+                        borderRadius: BorderRadius.circular(30),
                         child: Container(
+                          width: 100, // Slightly bigger for outer border
+                          height: 60,
+                          padding: const EdgeInsets.all(
+                              1), // gap between inner & outer
                           decoration: BoxDecoration(
-                            color: bhPrimary1,
-                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(35),
+                            border: Border.all(
+                              color: bhPrimary1
+                                  .withOpacity(0.3), // outer border color
+                              width: 2,
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(bkArrowForwordIcon),
-                            ],
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: bhPrimary1,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(bkArrowForwordIcon),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
 
-                  const SizedBox(height: 32),
+                    const SizedBox(height: 32),
 
-                  // Updated page indicator - longer active indicator
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 6,
-                        decoration: BoxDecoration(
-                          color: bhPrimary1, // Active indicator - longer
-                          borderRadius: BorderRadius.circular(2),
+                    // Updated page indicator - longer active indicator
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: bhPrimary1, // Active indicator - longer
+                            borderRadius: BorderRadius.circular(2),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 6),
-                      Container(
-                        width: 8,
-                        height: 6,
-                        decoration: BoxDecoration(
-                          color: bkInactiveIndicator, // Inactive dot
-                          borderRadius: BorderRadius.circular(2),
+                        const SizedBox(width: 6),
+                        Container(
+                          width: 8,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: bkInactiveIndicator, // Inactive dot
+                            borderRadius: BorderRadius.circular(2),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 6),
-                      Container(
-                        width: 8,
-                        height: 6,
-                        decoration: BoxDecoration(
-                          color: bkInactiveIndicator, // Inactive dot
-                          borderRadius: BorderRadius.circular(2),
+                        const SizedBox(width: 6),
+                        Container(
+                          width: 8,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: bkInactiveIndicator, // Inactive dot
+                            borderRadius: BorderRadius.circular(2),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
